@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yui_留言板</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+<style>
+#body_box {
+position:relative;
+    top:8px;
+    left:8px;
+overflow:hidden;
+}
+#body_box div {
+width:calc(100% - 32px);
+min-height:100px;
+background:white;
+border-radius:10px;
+padding:20px 8px 40px 8px;
+overflow:auto;
+margin-bottom:8px;
+}
+.avatar {
+width:40px;
+height:40px;
+border-radius:40px;
+object-fit:cover;
+border-style:solid;
+border-width:2px;
+border-color:#aaaaaa;
+margin-left:8px;
+background:#aaaaaa;
+}
+.name {
+position:absolute;
+margin-top:calc(0px - 40px + 0.5em);
+margin-left:60px;
+}
+.body {
+word-break:break-all;
+width:100%;
+overflow:hidden;
+}
+</style>
+</head>
+<body>
+<div id="background"></div>
+<div id="body_box">
+</div>
+ <script> 
+ const options = { 
+ method: 'GET', 
+ header:{ 
+ 'access_token':'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' 
+ } 
+ } 
+ fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then((res)=>{ 
+ if (res.ok) { 
+ return res.text() 
+ } 
+ }).then(data =>{ 
+ data = JSON.parse(data);
+for(let i =0;i<data.length;i++){
+document.getElementById('body_box').innerHTML += `
+<div>
+<img src="`+data[0].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
+<p class="body">`+data[i].body+`</p>
+</div>
+`;
+ }
+ });
+</script>
+</body>
+</html>
