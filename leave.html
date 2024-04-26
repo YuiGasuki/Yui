@@ -61,7 +61,7 @@ overflow:hidden;
  } 
  }).then(data =>{ 
  data = JSON.parse(data);
-for(let i =data.length-1;i>=0;i=i-1){
+for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
 document.getElementById('body_box').innerHTML += `
 <div>
