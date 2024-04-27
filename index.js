@@ -6,18 +6,7 @@ let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
 alert("成功");
 bodyPortrait.onclick = () =>{
-alert("成功");
-if(bodyInformation.style.height==="0px"){
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight + "px";
-setTimeout(function(){
-bodyInformation.style.height = "auto";
-bodyInformation.style.height=bodyInformation.offsetHeight + "px";
-},500);
-}else{
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height="0px";
-}
+
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
