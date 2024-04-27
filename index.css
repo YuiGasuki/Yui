@@ -99,25 +99,3 @@ margin-bottom: 5px;
 margin-top: 5px;
 }
 
-#ntroduction_animation_h1 {
-font-size:1.2em;
-color:#aaaaaa;
-text-align:center;
-font-family:"Times New Roman",Arial;
-font-weight:bold;
-}
-#ntroduction_animation_title {
-font-size:1em;
-color:#aaaaaa;
-text-align:center;
-font-family:"Times New Roman",Arial;
-margin-bottom: 5px;
-}
-#ntroduction_animation img {
-width:200px;
-height:300px;
-border-radius:20px;
-object-fit:cover;
-margin-left:50%;
-transform: translate(-50%,0%);
-}

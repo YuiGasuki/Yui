@@ -34,7 +34,6 @@ document.getElementById('ntroduction_age').innerHTML="年龄: "+((new Date()).ge
 document.getElementById('ntroduction_age').innerHTML="Age: "+((new Date()).getFullYear() - 2008)+" years old";
 document.getElementById('ntroduction_hobby').innerHTML="Hobbies:Watching anime and Coding";
 document.getElementById('ntroduction_name').innerHTML="Name: Lin Haiyang";
-document.getElementById('ntroduction_animation_h1').innerHTML="Randomly recommend anime";
 document.getElementById('ntroduction_mailbox').innerHTML="Mailbox: 2528197707@qq.com";
 }
 
@@ -67,16 +66,4 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 })
 
 
-fetch('/animation.txt',{method: 'GET'}).then((res)=>{
-if (res.ok) {
-return res.text()
-}
-}).then(data =>{
-data = JSON.parse(data);
-let did = Math.floor(Math.random() * (data.length));
-let title = data[did].title;
-let url = data[did].url;
-document.getElementById('ntroduction_animation_title').innerHTML = title;
-document.getElementById('ntroduction_animation_url').src = url;
-data="";
-})
+
