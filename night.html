@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>白天黑夜</title>
+<style>
+body {
+display:flex; 
+flex-direction:column;
+align-items:center;
+transition:1s;
+}
+html {
+--ha:10px;
+--a:-45px;
+--b:0px;
+--c:#689bc5;
+--aa:#89bce7;
+--ab:#72a9d6;
+--bq:#A4C3DC;
+--aq:white;
+--hb:#EEC432;
+--hc:#ffe074;
+--hd:#AF921D;
+--hea:0;
+--ca:150px;
+--cb:20px;
+--cc:10px;
+}
+#body {
+width:250px;
+height:95px;
+position:fixed;
+margin-top:0px;
+transform: scale(0.9); 
+z-index: 999;
+border-radius:300px;
+box-shadow: inset -1px 1px 5px 5px rgba(0, 0, 0, 0.5);
+Overflow:hidden;
+}
+#body:hover {
+
+
+
+}
+#body_a {
+width:250px;
+height:95px;
+position:fixed;
+z-index: 999;
+margin-top:-173px;
+border-radius:300px;
+box-shadow: inset -1px 1px 5px 5px rgba(0, 0, 0, 0.5);
+Overflow:hidden;
+}
+
+#head_a {
+width:30px;
+border-radius:150px;
+height:30px;
+background:#99A3B3;
+margin-left:30px;
+margin-top:35px;
+opacity:var(--hea);
+transition:1s;
+}
+#head_b {
+width:20px;
+border-radius:150px;
+height:20px;
+background:#99A3B3;
+margin-left:30px;
+margin-top:-55px;
+opacity:var(--hea);
+transition:1s;
+}
+#head_c {
+width:20px;
+border-radius:150px;
+height:20px;
+background:#99A3B3;
+margin-left:5px;
+margin-top:0px;
+opacity:var(--hea);
+transition:1s;
+}
+#head {
+--head:76px;
+box-shadow: inset 2px 0px 0px  var(--hc);
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:5px;
+transform:rotate(75deg);
+border-color:var(--hd);
+width:var(--head);
+height:var(--head);
+background:var(--hb);
+border-radius:150px;
+margin-left:var(--ha);
+transition:1s;
+margin-top:10px;
+Overflow:hidden;
+filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.5));
+}
+#a {
+width:200px;
+height:125px;
+background:var(--aa);
+border-radius:150px;
+margin-left:var(--a);
+margin-top:-125px;
+z-index: -2;
+transition:1s;
+}
+#b {
+width:200px;
+height:125px;
+background:var(--ab);
+border-radius:150px;
+margin-left:var(--b);
+margin-top:-120px;
+z-index: -3;
+transition:1s;
+}
+#c {
+width:500px;
+height:125px;
+background:var(--c);
+border-radius:150px;
+margin-left:0px;
+margin-top:-100px;
+z-index: -3;
+transition:1s;
+}
+#b_a {
+width:80px;
+height:80px;
+background:var(--bq);
+border-radius:150px;
+margin-left:230px;
+margin-top:-130px;
+z-index: 3;
+box-sizing: border-box;
+border-style:solid;
+border-right-width:2px;
+border-color:#ecf6ff;
+transition:1s;
+}
+#b_b {
+width:80px;
+height:80px;
+background:var(--bq);
+border-radius:150px;
+margin-left:200px;
+margin-top:-45px;
+z-index: 3;
+box-sizing: border-box;
+border-style:solid;
+border-right-width:2px;
+border-color:#ecf6ff;
+transition:1s;
+}
+#b_c {
+width:80px;
+height:80px;
+background:var(--bq);
+border-radius:150px;
+margin-left:150px;
+margin-top:-65px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:2px;
+border-color:#ecf6ff;
+transition:1s;
+}
+#b_d {
+width:35px;
+height:35px;
+background:var(--bq);
+border-radius:150px;
+margin-left:130px;
+margin-top:-50px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:2px;
+border-color:#ecf6ff;
+transition:1s;
+}
+#b_e {
+width:80px;
+height:80px;
+background:var(--bq);
+border-radius:150px;
+margin-left:70px;
+margin-top:-38px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:2px;
+border-color:#ecf6ff;
+transition:1s;
+}
+#b_f {
+width:100px;
+height:100px;
+background:var(--bq);
+border-radius:150px;
+margin-left:-5px;
+margin-top:-85px;
+z-index: 3;
+transition:1s;
+}
+#a_a {
+width:80px;
+height:80px;
+background:var(--aq);
+border-radius:150px;
+margin-left:230px;
+margin-top:-145px;
+z-index: 3;
+transition:1s;
+}
+#a_b {
+width:80px;
+height:80px;
+background:var(--aq);
+border-radius:150px;
+margin-left:200px;
+margin-top:-45px;
+z-index: 3;
+transition:1s;
+}
+#a_c {
+width:65px;
+height:65px;
+background:var(--aq);
+border-radius:150px;
+margin-left:150px;
+margin-top:-55px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:3px;
+border-color:#7A8282;
+transition:1s;
+}
+#a_d {
+width:35px;
+height:35px;
+background:var(--aq);
+border-radius:150px;
+margin-left:130px;
+margin-top:-60px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:3px;
+border-color:#7A8282;
+transition:1s;
+}
+#a_e {
+width:80px;
+height:80px;
+background:var(--aq);
+border-radius:150px;
+margin-left:70px;
+margin-top:-35px;
+z-index: 3;
+box-sizing: border-box;
+border-right-style:solid;
+border-right-width:3px;
+border-color:#7A8282;
+transition:1s;
+}
+#a_f {
+width:100px;
+height:100px;
+background:var(--aq);
+border-radius:150px;
+margin-left:-5px;
+margin-top:-85px;
+z-index: 3;
+transition:1s;
+}
+#c_a {
+width:20px;
+height:20px;
+background:#fff17f;
+-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+margin-left:20px;
+margin-top:var(--ca);
+transform:rotate(10deg);
+animation:b 5s infinite;
+transition:1s;
+}
+@keyframes b
+{
+0% {transform:rotate(10deg);}
+50% {transform:rotate(50deg);}
+}
+#c_b {
+width:15px;
+height:15px;
+background:#fff17f;
+-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+margin-left:65px;
+margin-top:var(--cb);
+transform:rotate(55deg);
+animation:a 5s infinite;
+transition:1s;
+}
+
+#c_c {
+width:20px;
+height:20px;
+background:#fff17f;
+-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+margin-left:45px;
+margin-top:var(--cc);
+transform:rotate(85deg);
+animation:a 5s infinite;
+transition:1s;
+}
+@keyframes a
+{
+0% {transform:rotate(10deg);}
+50% {transform:rotate(-50deg);}
+100% {transform:rotate(10deg);}
+}
+</style>
+</head>
+<body>
+
+<div id="body" onclick="night()">
+
+<div id="head">
+<div id="head_a"></div>
+<div id="head_b"></div>
+<div id="head_c"></div>
+</div>
+<div id="c"></div>
+<div id="b"></div>
+<div id="a"></div>
+
+<div id="b_a"></div>
+<div id="b_b"></div>
+<div id="b_c"></div>
+<div id="b_d"></div>
+<div id="b_e"></div>
+<div id="b_f"></div>
+
+
+<div id="a_a"></div>
+<div id="a_b"></div>
+<div id="a_c"></div>
+<div id="a_d"></div>
+<div id="a_e"></div>
+<div id="a_f"></div>
+
+
+
+<div id="body_a">
+<div id="c_a"></div>
+<div id="c_b"></div>
+<div id="c_c"></div>
+<div>
+
+</div>
+<script>
+var a=0;
+
+var r = document.querySelector('html');
+function night(){
+a=a+1;
+if(a==3){
+a=1;
+}
+if(a==1){
+
+const channel = new BroadcastChannel('Yui_night');
+channel.postMessage({
+    	Type:1
+    })
+r.style.setProperty('--ha', '164px');
+r.style.setProperty('--a', '105px');
+r.style.setProperty('--b', '50px');
+r.style.setProperty('--c', 'black');
+
+r.style.setProperty('--ca', '20px');
+r.style.setProperty('--cb', '-20px');
+r.style.setProperty('--cc', '10px');
+
+r.style.setProperty('--aa', '#777c87');
+r.style.setProperty('--ab', '#404652');
+r.style.setProperty('--bq', '#6E889B');
+r.style.setProperty('--aq', '#D2D7D8');
+
+r.style.setProperty('--hb', '#C9CAC7');
+r.style.setProperty('--hc', '#C8D0D9');
+r.style.setProperty('--hd', '#999A98');
+r.style.setProperty('--hea', '1');
+}
+if(a==2){
+const channel = new BroadcastChannel('Yui_night');
+channel.postMessage({
+    	Type:0
+    })
+r.style.setProperty('--ha', '10px');
+r.style.setProperty('--a', '-45px');
+r.style.setProperty('--b', '0px');
+r.style.setProperty('--c', '#689bc5');
+r.style.setProperty('--aa', '#89bce7');
+r.style.setProperty('--ab', '#72a9d6');
+r.style.setProperty('--bq', '#A4C3DC');
+r.style.setProperty('--aq', 'white');
+r.style.setProperty('--hb', '#EEC432');
+r.style.setProperty('--hc', '#ffe074');
+r.style.setProperty('--hd', '#AF921D');
+r.style.setProperty('--hea', '0');
+r.style.setProperty('--ca', '150px');
+r.style.setProperty('--cb', '20px');
+r.style.setProperty('--cc', '10px');
+}
+}
+</script>
+
+</body>
+
+
+
+</html>

@@ -1,9 +1,12 @@
 :root {
---nightBrightness:70%;
+--nightBrightness:0.3;
+--nightbackground:white;
 }
 body {
 background-image:url('1.jpg');
 background-size:100%;
+background-repeat:no-repeat;
+background-attachment:fixed;
 }
 #background {
 position:fixed;
@@ -12,7 +15,9 @@ left:0px;
 width:100vw;
 height:100vh;
 backdrop-filter:blur(1.5px);
-filter:brightness(var(--nightBrightness));
+background:black;
+opacity:var(--nightBrightness);
+transition:1s;
 }
 #body_portrait {
 width:80px;
@@ -25,28 +30,94 @@ border-color:#aaaaaa;
 transform: translate(-50%,0%);
 margin-left:50%;
 background:#aaaaaa;
+filter: drop-shadow(0px 2px 5px #2b2b2bad);
 }
 #body_centre {
-position:absolute;
-top:50vh;
-left:50vw;
+margin-top:calc(50vh - 8px);
+margin-left:calc(50vw - 8px);
 transform: translate(-50%,-50%);
 }
 #body_name {
 font-size:1em;
 color:#aaaaaa;
 text-align:center;
+font-family:"Times New Roman",Arial;
+font-weight:bold;
+text-shadow:0px 2px 5px black;
 }
 #body_information {
 display: flex;
-flex-wrap: wrap; 
+justify-content:center;
+flex-wrap: wrap;
+width:calc(100% + 96px);
+margin-left:-48px;
 }
 #body_information img {
 object-fit:cover;
 width:25px;
 margin: 10px;
-filter: drop-shadow(0px 2px 5px black) grayscale(100%);
+filter: drop-shadow(0px 2px 3px black);
 }
 #body_information img:hover{
-filter: drop-shadow(0px 2px 5px white) grayscale(0%);
+filter: drop-shadow(0px 2px 3px white);
+}
+#body_ntroduction {
+overflow:hidden;
+margin-left:-48px;
+position:fixed;
+width:calc(100% + 96px);
+padding:8px 0px;
+}
+#ntroduction_ul {
+list-style-type:none;
+padding:8px;
+background:var(--nightbackground);
+transition:1s;
+border-radius:8px;
+font-family:"Times New Roman",Arial;
+color:#aaaaaa;
+margin-bottom: 16px;
+filter: drop-shadow(0px 2px 5px #2b2b2bad);
+}
+#ntroduction_ul li {
+margin:8px;
+}
+.ntroduction {
+padding:8px;
+background:var(--nightbackground);
+transition:1s;
+border-radius:8px;
+font-family:"Times New Roman",Arial;
+color:#aaaaaa;
+margin-bottom: 16px;
+filter: drop-shadow(0px 2px 5px #2b2b2bad);
+}
+#ntroduction_project object {
+width:100%;
+border-style:none;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+#ntroduction_animation_h1 {
+font-size:1.2em;
+color:#aaaaaa;
+text-align:center;
+font-family:"Times New Roman",Arial;
+font-weight:bold;
+}
+#ntroduction_animation_title {
+font-size:1em;
+color:#aaaaaa;
+text-align:center;
+font-family:"Times New Roman",Arial;
+margin-bottom: 5px;
+}
+#ntroduction_animation img {
+width:200px;
+height:300px;
+border-radius:20px;
+object-fit:cover;
+margin-left:50%;
+transform: translate(-50%,0%);
 }
