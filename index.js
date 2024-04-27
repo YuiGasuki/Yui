@@ -1,6 +1,7 @@
 document.body.style.backgroundImage="url('"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1)+".jpg')";
 let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
+const bodyPortrait = document.getElementById('body_portrait');
 let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
 document.getElementById('body_portrait').onclick = () =>{
@@ -10,12 +11,11 @@ bodyInformation.style.height=bodyInfheight + "px";
 setTimeout(function(){
 bodyInformation.style.height = "auto";
 bodyInformation.style.height=bodyInformation.offsetHeight + "px";
-},500)
+},500);
 }else{
 bodyInformation.style.transition="0.5s";
 bodyInformation.style.height="0px";
 }
-let bodyPortrait = document.getElementById('body_portrait');
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
