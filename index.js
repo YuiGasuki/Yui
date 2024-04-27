@@ -5,6 +5,7 @@ const bodyPortrait = document.getElementById('body_portrait');
 let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
 document.getElementById('body_portrait').onclick = () =>{
+alert("成功");
 if(bodyInformation.style.height==="0px"){
 bodyInformation.style.transition="0.5s";
 bodyInformation.style.height=bodyInfheight + "px";
@@ -19,6 +20,7 @@ bodyInformation.style.height="0px";
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
+alert("成功");
 setTimeout(function(){
 bodyPortrait.src="portrait"+portrait+".jpg";
 bodyPortrait.style.width="80px";
