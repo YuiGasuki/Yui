@@ -75,6 +75,7 @@ margin-left:-48px;
 position:fixed;
 width:calc(100% + 96px);
 padding:8px 0px;
+display:none;
 }
 #ntroduction_ul {
 list-style-type:none;

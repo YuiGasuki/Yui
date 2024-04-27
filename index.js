@@ -1,34 +1,5 @@
 document.body.style.backgroundImage="url('"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1)+".jpg')";
-let portrait = 1;
-const bodyInformation = document.getElementById('body_ntroduction');
-const bodyPortrait = document.getElementById('body_portrait');
-let bodyInfheight = bodyInformation.offsetHeight;
-bodyInformation.style.height="0px";
-bodyPortrait.onclick = () =>{
-if(bodyInformation.style.height==="0px"){
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight + "px";
-setTimeout(function(){
-bodyInformation.style.height = "auto";
-bodyInformation.style.height=bodyInformation.offsetHeight + "px";
-},500);
-}else{
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height="0px";
-}
-bodyPortrait.style.transition="0.5s"; 
-bodyPortrait.style.width="0px";
-bodyPortrait.style.height="0px";
-setTimeout(function(){
-bodyPortrait.src="portrait"+portrait+".jpg";
-bodyPortrait.style.width="80px";
-bodyPortrait.style.height="80px";
-},500)
-portrait++;
-if(portrait===3){
-portrait = 1;
-}
-}
+
 
 if(navigator.language==="zh-CN"){
 document.getElementById('ntroduction_age').innerHTML="年龄: "+((new Date()).getFullYear() - 2008)+"岁";
@@ -68,6 +39,9 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 })
 
 
+
+
+
 const options = { 
  method: 'GET', 
  header:{ 
@@ -84,5 +58,37 @@ document.getElementById('body_ntroduction').innerHTML += `
 </div>
 `;}
  }
+ 
+ 
+ let portrait = 1;
+const bodyInformation = document.getElementById('body_ntroduction');
+const bodyPortrait = document.getElementById('body_portrait');
+bodyInformation.style.display="inline";
+let bodyInfheight = bodyInformation.offsetHeight;
+bodyInformation.style.height="0px";
+bodyPortrait.onclick = () =>{
+if(bodyInformation.style.height==="0px"){
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height=bodyInfheight + "px";
+
+}else{
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height="0px";
+}
+bodyPortrait.style.transition="0.5s"; 
+bodyPortrait.style.width="0px";
+bodyPortrait.style.height="0px";
+setTimeout(function(){
+bodyPortrait.src="portrait"+portrait+".jpg";
+bodyPortrait.style.width="80px";
+bodyPortrait.style.height="80px";
+},500)
+portrait++;
+if(portrait===3){
+portrait = 1;
+}
+}
  });
+
+
 
