@@ -4,7 +4,8 @@ const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
 let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
-document.getElementById('body_portrait').onclick = () =>{
+alert("成功");
+bodyPortrait.onclick = () =>{
 alert("成功");
 if(bodyInformation.style.height==="0px"){
 bodyInformation.style.transition="0.5s";
