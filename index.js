@@ -4,13 +4,21 @@ const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
 let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
-alert("成功");
 bodyPortrait.onclick = () =>{
-
+if(bodyInformation.style.height==="0px"){
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height=bodyInfheight + "px";
+setTimeout(function(){
+bodyInformation.style.height = "auto";
+bodyInformation.style.height=bodyInformation.offsetHeight + "px";
+},500);
+}else{
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height="0px";
+}
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
-alert("成功");
 setTimeout(function(){
 bodyPortrait.src="portrait"+portrait+".jpg";
 bodyPortrait.style.width="80px";
@@ -66,7 +74,7 @@ const options = {
  'access_token':'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' 
  } 
  } 
- fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then((res)=>{ 
+fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then((res)=>{ 
  if (res.ok) { 
  return res.text() 
  } 
