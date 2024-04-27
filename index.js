@@ -67,7 +67,7 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 })
 
 
-fetch('animation.txt',{method: 'GET'}).then((res)=>{
+fetch('/animation.txt',{method: 'GET'}).then((res)=>{
 if (res.ok) {
 return res.text()
 }
