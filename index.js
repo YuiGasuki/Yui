@@ -21,10 +21,8 @@ bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
 setTimeout(function(){
 bodyPortrait.src="portrait"+portrait+".jpg";
-bodyPortrait.onload = () =>{
 bodyPortrait.style.width="80px";
 bodyPortrait.style.height="80px";
-}
 },500)
 portrait++;
 if(portrait===3){
