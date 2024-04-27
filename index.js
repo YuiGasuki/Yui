@@ -2,14 +2,18 @@ document.body.style.backgroundImage="url('"+(Math.floor(Math.random() * (3 - 1 +
 let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 let bodyInfheight = bodyInformation.offsetHeight;
-bodyInformation.style.maxHeight="0px";
+bodyInformation.style.height="0px";
 document.getElementById('body_portrait').onclick = () =>{
-if(bodyInformation.style.maxHeight==="0px"){
+if(bodyInformation.style.height==="0px"){
 bodyInformation.style.transition="0.5s";
-bodyInformation.style.maxHeight=bodyInfheight + "px";
+bodyInformation.style.height=bodyInfheight + "px";
+setTimeout(function(){
+bodyInformation.style.height = "auto";
+bodyInformation.style.height=bodyInformation.offsetHeight + "px";
+},500)
 }else{
 bodyInformation.style.transition="0.5s";
-bodyInformation.style.maxHeight="0px";
+bodyInformation.style.height="0px";
 }
 let bodyPortrait = document.getElementById('body_portrait');
 bodyPortrait.style.transition="0.5s"; 
@@ -57,13 +61,35 @@ TypingAnimation(document.getElementById('body_name'),document.getElementById('bo
 const channel = new BroadcastChannel('Yui_night');
 channel.addEventListener('message', (e) => {
 if(e.data.Type===0){
-document.documentElement.style.setProperty('--nightbackground','white');
+document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
 document.documentElement.style.setProperty('--nightBrightness','0.3');
 }else{
-document.documentElement.style.setProperty('--nightbackground','#565656');
+document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
 document.documentElement.style.setProperty('--nightBrightness','0.5');
 }
 })
 
 
+const options = { 
+ method: 'GET', 
+ header:{ 
+ 'access_token':'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' 
+ } 
+ } 
+ fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then((res)=>{ 
+ if (res.ok) { 
+ return res.text() 
+ } 
+ }).then(data =>{ 
+ data = JSON.parse(data);
+for(let i =0;i<data.length;i++){
+if(data[i].title==="留言"){
+document.getElementById('body_ntroduction').innerHTML += `
+<div class="ntroduction">
+<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
+<p class="body">`+data[i].body+`</p>
+</div>
+`;}
+ }
+ });
 
