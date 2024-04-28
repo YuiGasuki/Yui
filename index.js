@@ -47,7 +47,6 @@ const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
 
 bodyPortrait.onclick = () =>{
-alert("成功");
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
