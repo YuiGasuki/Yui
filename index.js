@@ -79,6 +79,7 @@ const options = {
  } 
  };
 fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then(response => response.json()).then(data =>{ 
+alert("成功");
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
 document.getElementById('body_ntroduction').innerHTML += `
