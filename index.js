@@ -78,7 +78,7 @@ const options = {
  'access_token':'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' 
  } 
  };
-fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then(response => response.json()).then(data =>{ 
+fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
 bodyInformation.innerHTML += `
