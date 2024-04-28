@@ -86,6 +86,7 @@ const options = {
  'access_token':'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' 
  } 
  };
+
 fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
 
 for(let i =0;i<data.length;i++){
@@ -107,9 +108,18 @@ bodyInformation.innerHTML += `
 </div>
 `;}}
 
+
+
  }
-
-
+if(bodyInformation.style.display==="inline"){
+document.querySelectorAll(".ntroduction").forEach(item=>{
+if(item.style.opacity!="1"){
+item.style.transition="0.5s"; 
+item.style.opacity="1";
+item.style.marginTop="0px";
+}
+});
+}
  });
 
 
