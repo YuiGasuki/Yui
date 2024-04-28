@@ -45,9 +45,8 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
-bodyInformation.style.display="inline";
-let bodyInfheight = bodyInformation.offsetHeight;
-bodyInformation.style.height="0px";
+// let bodyInfheight = bodyInformation.offsetHeight;
+// bodyInformation.style.height="0px";
 bodyPortrait.onclick = () =>{
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
@@ -61,15 +60,25 @@ portrait++;
 if(portrait===3){
 portrait = 1;
 }
-if(bodyInformation.style.height==="0px"){
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight+"px";    
+if(bodyInformation.style.display!="inline"){
+bodyInformation.style.display="inline";
+let bodyInfheight = bodyInformation.offsetHeight;
+document.querySelectorAll(".ntroduction").forEach(item=>{
+item.style.transition="0.5s"; 
+item.style.opacity="1";
+item.style.marginTop="0px";
+});
 }else{
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height="0px";
+document.querySelectorAll(".ntroduction").forEach(item=>{
+item.style.transition="0.5s"; 
+item.style.opacity="0";
+item.style.marginTop="36px";
+})
+setTimeout(function(){
+bodyInformation.style.display="none";
+},500);
 }
 }
-
 
 
 const options = { 
@@ -79,20 +88,28 @@ const options = {
  } 
  };
 fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
+
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
+if(data[i].body.match(/!\[icon\](.*?)\)/g)){
+bodyInformation.innerHTML += `
+<div class="ntroduction">
+<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
+<p class="body">`+data[i].body.replace(/!\[icon\](.*?)\)\r\n/g, '')+`</p>
+<img src="`+data[i].body.match(/!\[icon\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="img" class="img" />
+</div>
+`;
+
+}else{
 bodyInformation.innerHTML += `
 <div class="ntroduction">
 <img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
 <p class="body">`+data[i].body+`</p>
 </div>
-`;}
+`;}}
 
  }
- 
-bodyInformation.style.height="auto";
-bodyInfheight = bodyInformation.offsetHeight;
-bodyInformation.style.height="0px";
+
 
  });
 
