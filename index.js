@@ -49,14 +49,6 @@ bodyInformation.style.display="inline";
 let bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
 bodyPortrait.onclick = () =>{
-if(bodyInformation.style.height==="0px"){
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight+"px";    
-
-}else{
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height="0px";
-}
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
@@ -64,10 +56,17 @@ setTimeout(function(){
 bodyPortrait.src="portrait"+portrait+".jpg";
 bodyPortrait.style.width="80px";
 bodyPortrait.style.height="80px";
-},500)
+},500);
 portrait++;
 if(portrait===3){
 portrait = 1;
+}
+if(bodyInformation.style.height==="0px"){
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height=bodyInfheight+"px";    
+}else{
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.height="0px";
 }
 }
 
@@ -78,7 +77,7 @@ const options = {
  header:{ 
  'access_token':'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' 
  } 
- } 
+ };
 fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then(response => response.json()).then(data =>{ 
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
