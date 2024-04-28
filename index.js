@@ -45,9 +45,9 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
-// let bodyInfheight = bodyInformation.offsetHeight;
-// bodyInformation.style.height="0px";
+
 bodyPortrait.onclick = () =>{
+alert("成功");
 bodyPortrait.style.transition="0.5s"; 
 bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
@@ -73,7 +73,7 @@ document.querySelectorAll(".ntroduction").forEach(item=>{
 item.style.transition="0.5s"; 
 item.style.opacity="0";
 item.style.marginTop="36px";
-})
+});
 setTimeout(function(){
 bodyInformation.style.display="none";
 },500);
