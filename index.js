@@ -91,7 +91,7 @@ document.getElementById('body_ntroduction').innerHTML += `
 
  }
  bodyInformation.style.height="auto";
-let bodyInfheight = bodyInformation.offsetHeight;
+bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
  });
 
