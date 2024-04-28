@@ -90,16 +90,10 @@ bodyInformation.innerHTML += `
 
  }
  
-if(bodyInformation.style.height==="0px"){
 bodyInformation.style.height="auto";
 bodyInfheight = bodyInformation.offsetHeight;
 bodyInformation.style.height="0px";
-}else{
-bodyInformation.style.height="auto";
-bodyInfheight = bodyInformation.offsetHeight;
-bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight+"px";
-}
+
  });
 
 
