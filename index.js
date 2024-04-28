@@ -42,25 +42,7 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 
 
 
-const options = { 
- method: 'GET', 
- header:{ 
- 'access_token':'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' 
- } 
- } 
-fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then(response => response.json()).then(data =>{ 
-for(let i =0;i<data.length;i++){
-if(data[i].title==="留言"){
-document.getElementById('body_ntroduction').innerHTML += `
-<div class="ntroduction">
-<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body+`</p>
-</div>
-`;}
- }
- 
- 
- let portrait = 1;
+let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
 bodyInformation.style.display="inline";
@@ -69,7 +51,7 @@ bodyInformation.style.height="0px";
 bodyPortrait.onclick = () =>{
 if(bodyInformation.style.height==="0px"){
 bodyInformation.style.transition="0.5s";
-bodyInformation.style.height=bodyInfheight + "px";
+bodyInformation.style.height=bodyInfheight+"px";    
 
 }else{
 bodyInformation.style.transition="0.5s";
@@ -88,7 +70,29 @@ if(portrait===3){
 portrait = 1;
 }
 }
- });
 
+
+
+const options = { 
+ method: 'GET', 
+ header:{ 
+ 'access_token':'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' 
+ } 
+ } 
+fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then(response => response.json()).then(data =>{ 
+for(let i =0;i<data.length;i++){
+if(data[i].title==="留言"){
+document.getElementById('body_ntroduction').innerHTML += `
+<div class="ntroduction">
+<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
+<p class="body">`+data[i].body+`</p>
+</div>
+`;}
+
+ }
+ bodyInformation.style.height="auto";
+let bodyInfheight = bodyInformation.offsetHeight;
+bodyInformation.style.height="0px";
+ });
 
 
