@@ -90,12 +90,12 @@ fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),
 
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
-if(data[i].body.match(/!\[icon\](.*?)\)/g)){
+if(data[i].body.match(/!\[(.*?)\](.*?)\)/g)){
 bodyInformation.innerHTML += `
 <div class="ntroduction">
 <img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body.replace(/!\[icon\](.*?)\)\r\n/g, '')+`</p>
-<img src="`+data[i].body.match(/!\[icon\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="img" class="img" />
+<p class="body">`+data[i].body.replace(/!\[(.*?)\](.*?)\)\r\n/g, '')+`</p>
+<img src="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('![')[1].split(']')[0]+`" class="img" />
 </div>
 `;
 
