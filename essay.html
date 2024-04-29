@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yui_文章</title>
+<style>
+:root {
+--nightBrightness:0.3;
+--nightbackground:rgba(255,255,255,0.8);
+}
+body {
+background:var(--nightbackground);
+}
+#body_box {
+margin-left:-8px;
+margin-top:-8px;
+width:100vw;
+}
+#titleimg {
+aspect-ratio:3/2;
+object-fit:cover;
+width:100%;
+}
+#title {
+position:absolute;
+top:calc(100vw / 3 * 2 - 17px);
+transform: translate(0%,-100%);
+margin-left:-8px;
+width:calc(100% - 16px);
+background:var(--nightbackground);
+transition:1s;
+font-family:"Times New Roman",Arial;
+color:#7d7d7d;
+padding-bottom:1em;
+padding-top:32px;
+padding-left:16px;
+padding-right:8px;
+font-size:1.2em;
+font-weight:bold;
+overflow:auto;
+}
+#body {
+padding:8px;
+font-family:Arial;
+color:#aaaaaa;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+line-height:25px;
+font-size:1.1em;
+}
+a {
+color:#FF6699;
+}
+</style>
+</head>
+<body>
+<div id="body_box">
+<img src="none.jpg" id="titleimg" alt="front cover" />
+<p id="title">
+₍˄·͈༝·͈˄*₎◞ ̑̑
+</p>
+<p id="body">
+居然没有内容Σ(ŎдŎ|||)ﾉﾉ
+</p>
+</div>
+<script>
+const params = new URLSearchParams(location.search);
+const textp=params.get('Yui');
+if(textp!=null&textp!=""){
+fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
+document.title="Yui的文章「"+data[textp-1].title+"」";
+document.getElementById('title').innerHTML = data[textp-1].title;
+document.getElementById('titleimg').src = data[textp-1].title_url;
+
+document.getElementById('titleimg').onerror = () =>{
+document.getElementById('titleimg').src="none.jpg";
+}
+});
+fetch(textp+'.txt',{method: 'GET'}).then(response => response.text()).then(data =>{
+document.getElementById('body').innerHTML = data;
+});
+}
+
+
+const channel = new BroadcastChannel('Yui_night');
+channel.postMessage({
+    	Type:3
+})
+channel.addEventListener('message', (e) => {
+if(e.data.Type===0){
+document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
+}else{
+document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
+}
+})
+</script>
+</body>
+</html>
