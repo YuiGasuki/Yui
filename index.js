@@ -80,37 +80,19 @@ bodyInformation.style.display="none";
 }
 
 
-const options = { 
- method: 'GET', 
- header:{ 
- 'access_token':'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' 
- } 
- };
 
-fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
 
-for(let i =0;i<data.length;i++){
-if(data[i].title==="留言"){
-if(data[i].body.match(/!\[(.*?)\](.*?)\)/g)){
+
+fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
+for(let i = data.length-1;i>=0;i=i-1){
 bodyInformation.innerHTML += `
-<div class="ntroduction">
-<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body.replace(/!\[(.*?)\](.*?)\)\r\n/g, '')+`</p>
-<img src="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('![')[1].split(']')[0]+`" class="img" />
+<div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=`+data[i].Yui+`')">
+<img src="`+data[i].title_url+`" class="titleimg" />
+<p class="title">`+data[i].title+`</p>
 </div>
 `;
+}
 
-}else{
-bodyInformation.innerHTML += `
-<div class="ntroduction">
-<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body+`</p>
-</div>
-`;}}
-
-
-
- }
 if(bodyInformation.style.display==="inline"){
 document.querySelectorAll(".ntroduction").forEach(item=>{
 if(item.style.opacity!="1"){
@@ -120,6 +102,10 @@ item.style.marginTop="0px";
 }
 });
 }
- });
+});
 
-
+document.querySelectorAll(".titleimg").forEach(item=>{
+item.onerror = () =>{
+item.src="none.jpg";
+}
+});

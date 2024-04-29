@@ -53,27 +53,38 @@ overflow:hidden;
 <div id="body_box">
 </div>
  <script> 
+ 
+ 
  const options = { 
  method: 'GET', 
  header:{ 
  'access_token':'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' 
  } 
- } 
- fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues',options).then((res)=>{ 
- if (res.ok) { 
- return res.text() 
- } 
- }).then(data =>{ 
- data = JSON.parse(data);
+ };
+
+fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
+
 for(let i =0;i<data.length;i++){
 if(data[i].title==="留言"){
+if(data[i].body.match(/!\[(.*?)\](.*?)\)/g)){
+document.getElementById('body_box').innerHTML += `
+<div>
+<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
+<p class="body">`+data[i].body.replace(/!\[(.*?)\](.*?)\)\r\n/g, '')+`</p>
+<img src="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('![')[1].split(']')[0]+`" class="img" />
+</div>
+`;
+
+}else{
 document.getElementById('body_box').innerHTML += `
 <div>
 <img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
 <p class="body">`+data[i].body+`</p>
 </div>
-`;
-}
+`;}}
+
+
+
  }
  });
 </script>

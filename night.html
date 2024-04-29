@@ -376,7 +376,17 @@ transition:1s;
 </div>
 <script>
 var a=0;
-
+const channel = new BroadcastChannel('Yui_night');
+channel.addEventListener('message', (e) => {
+if(e.data.Type===3){
+channel.postMessage({
+    	Type:a
+    })
+}
+});
+channel.postMessage({
+    	Type:0
+});
 var r = document.querySelector('html');
 function night(){
 a=a+1;
