@@ -1,0 +1,31 @@
+你是否想要在自己的网站上播放音乐?你是否想要为自己的网站添加一个音乐播放器但又不想自己写?这个音乐播放器可能可以满足你的需求!
+
+这是一个基于HTML5的audio标签的音乐播放器，目前支持播放歌词功能，歌单功能，你可以添加多首歌曲。
+
+优点:支持个性化，简洁，美观
+<img src="Yui2.jpg">
+
+Github地址: <a href="https://github.com/YuiandAzucat/Yuiplay">https://github.com/YuiandAzucat/Yuiplay</a>
+引用:
+在项目里引入
+<div class="code" >
+&#60;div id="Yuiplay_box"
+data-ThemeColor="主题色"
+data-Color="字体颜色"
+data-ProgressColor="进度条颜色"
+data-backgroundColor="背景颜色"
+data-Playlist='[{
+"name":"歌曲名称",
+"path":"歌曲路径",
+"lyrics":"歌词路径"
+}]'&#62;&#60;/div&#62;
+&#60;style&#62;
+#Yuiplay_box {
+--width:300px;/不要小于120px/
+--progress:50;/不可修改(修改了也没啥效果，最多出现进度条偏差)/
+}
+&#60;/style&#62;
+&#60;script src='https://yuiandazucat.github.io/Yuiplay/Yuiplay.js'&#62;&#60;/script&#62;
+</div>
+
+演示:  <a href="https://yuiandazucat.github.io/Yuiplay/" >https://yuiandazucat.github.io/Yuiplay/</a>

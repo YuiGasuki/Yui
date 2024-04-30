@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Yui_文章</title>
 <link rel= "shortcut icon" href ="icon.jpg" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 <style>
 :root {
 --nightBrightness:0.3;
@@ -19,9 +23,9 @@ margin-top:-8px;
 width:100vw;
 }
 #titleimg {
-aspect-ratio:3/2;
 object-fit:cover;
 width:100%;
+height:calc(100vw / 3 * 2);
 }
 #title {
 position:absolute;
@@ -53,8 +57,30 @@ font-size:1.1em;
 }
 a {
 color:#FF6699;
+font-family:Arial;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+line-height:25px;
+font-size:1em;
+text-decoration: none; 
 }
+#body img {
+width:100%;
+}
+#body div {
+width:calc(100% - 16px);
+padding-bottom:32px;
+padding-top:32px;
+background:#23241f;
+border-radius:8px;
+padding-left:16px;
+overflow:auto;
+}
+
+
 </style>
+
 </head>
 <body>
 <div id="body_box">
@@ -66,6 +92,9 @@ color:#FF6699;
 居然没有内容Σ(ŎдŎ|||)ﾉﾉ
 </p>
 </div>
+
+
+
 <script>
 const params = new URLSearchParams(location.search);
 const textp=params.get('Yui');
@@ -81,7 +110,18 @@ document.getElementById('titleimg').src="none.jpg";
 });
 fetch(textp+'.txt',{method: 'GET'}).then(response => response.text()).then(data =>{
 document.getElementById('body').innerHTML = data;
+document.querySelectorAll('div.code').forEach(el => {
+  hljs.highlightElement(el);
 });
+document.querySelectorAll('img').forEach(el => {
+  el.onerror = () =>{
+el.src="none.jpg";
+}
+});
+});
+
+
+  
 }
 
 
@@ -97,5 +137,7 @@ document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.
 }
 })
 </script>
+
+
 </body>
 </html>
