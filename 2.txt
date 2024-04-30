@@ -21,8 +21,8 @@ data-Playlist='[{
 }]'&#62;&#60;/div&#62;
 &#60;style&#62;
 #Yuiplay_box {
---width:300px;/不要小于120px/
---progress:50;/不可修改(修改了也没啥效果，最多出现进度条偏差)/
+--width:300px;/*不要小于120px*/
+--progress:50;/*不可修改(修改了也没啥效果，最多出现进度条偏差)*/
 }
 &#60;/style&#62;
 &#60;script src='https://yuiandazucat.github.io/Yuiplay/Yuiplay.js'&#62;&#60;/script&#62;
