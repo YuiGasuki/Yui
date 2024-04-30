@@ -111,6 +111,8 @@ document.getElementById('titleimg').src="none.jpg";
 fetch(textp+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 return response.test();
+}else{
+return "居然没有内容Σ(ŎдŎ|||)ﾉﾉ"
 }
 }).then(data =>{
 document.getElementById('body').innerHTML = data;
