@@ -85,10 +85,15 @@ bodyInformation.style.display="none";
 
 fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
 for(let i = data.length-1;i>=0;i=i-1){
+let b ="";
+for(let ib=0;ib<data[i].label.length;ib++){
+b += `<span>`+data[i].label[ib]+`</span>`;
+}
 bodyInformation.innerHTML += `
 <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=`+data[i].Yui+`')">
 <img src="`+data[i].title_url+`" class="titleimg" />
 <p class="title">`+data[i].title+`</p>
+<p class="label">`+b+`</p>
 </div>
 `;
 }

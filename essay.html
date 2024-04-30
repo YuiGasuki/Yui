@@ -68,7 +68,7 @@ text-decoration: none;
 #body img {
 width:100%;
 }
-#body div {
+#body .code {
 width:calc(100% - 16px);
 padding-bottom:32px;
 padding-top:32px;
@@ -78,16 +78,26 @@ padding-left:16px;
 overflow:auto;
 }
 
-
+#label {
+width:calc(100% - 8px);
+padding-left:8px;
+}
+.label {
+background:#FF6699;
+color:white;
+border-radius:6px;
+padding-left:5px;
+padding-right:5px;
+margin-right:4px;
+}
 </style>
 
 </head>
 <body>
 <div id="body_box">
 <img src="none.jpg" id="titleimg" alt="front cover" />
-<p id="title">
-₍˄·͈༝·͈˄*₎◞ ̑̑
-</p>
+<p id="title">₍˄·͈༝·͈˄*₎◞ ̑̑</p>
+<div id="label"></div>
 <p id="body">居然没有内容Σ(ŎдŎ|||)ﾉﾉ</p>
 </div>
 
@@ -100,8 +110,10 @@ if(textp!=null&textp!=""){
 fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
 document.title="Yui的文章「"+data[textp-1].title+"」";
 document.getElementById('title').innerHTML = data[textp-1].title;
+for(let i=0;i<data[textp-1].label.length;i++){
+document.getElementById('label').innerHTML += `<span class="label" >`+data[textp-1].label[i]+`</span>`;
+}
 document.getElementById('titleimg').src = data[textp-1].title_url;
-
 document.getElementById('titleimg').onerror = () =>{
 document.getElementById('titleimg').src="none.jpg";
 }
