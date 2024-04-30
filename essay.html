@@ -108,7 +108,7 @@ document.getElementById('titleimg').src="none.jpg";
 });
 fetch(textp+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
-return response.test();
+return response.text();
 }else{
 return "居然没有内容Σ(ŎдŎ|||)ﾉﾉ"
 }
