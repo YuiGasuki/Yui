@@ -53,6 +53,7 @@ width:calc(100% - 42px);
 padding:4px 4px;
 background:none;
 border-style:none;
+color:#aaaaaa;
 }
 #search_img {
 position:absolute;
