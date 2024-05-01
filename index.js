@@ -45,6 +45,7 @@ document.documentElement.style.setProperty('--nightBrightness','0.5');
 let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
+const idSearch = document.getElementById('search');
 
 bodyPortrait.onclick = () =>{
 bodyPortrait.style.transition="0.5s"; 
@@ -61,20 +62,27 @@ portrait = 1;
 }
 if(bodyInformation.style.display!="inline"){
 bodyInformation.style.display="inline";
+idSearch.style.display="inline";
 let bodyInfheight = bodyInformation.offsetHeight;
+bodyInfheight = idSearch.offsetHeight
 document.querySelectorAll(".ntroduction").forEach(item=>{
 item.style.transition="0.5s"; 
 item.style.opacity="1";
 item.style.marginTop="0px";
 });
+idSearch.style.transition="0.5s"; 
+idSearch.style.transform = "translate(-50%,0%)";
 }else{
 document.querySelectorAll(".ntroduction").forEach(item=>{
 item.style.transition="0.5s"; 
 item.style.opacity="0";
 item.style.marginTop="36px";
 });
+idSearch.style.transition="0.5s"; 
+idSearch.style.transform = "translate(-50%,-200%)";
 setTimeout(function(){
 bodyInformation.style.display="none";
+idSearch.style.display="none";
 },500);
 }
 }
@@ -114,3 +122,25 @@ item.onerror = () =>{
 item.src="none.jpg";
 }
 });
+
+idSearch.onmouseover = () =>{
+idSearch.style.transition = "0.5s";
+idSearch.style.padding = "10px 8px";
+}
+idSearch.onmouseout = () =>{
+idSearch.style.transition = "0.5s";
+idSearch.style.padding = "4px 4px";
+}
+
+
+
+function ent(ev) {
+	ev = ev || window.event
+	if(ev.keyCode == "13") {
+	openfeel()
+	}
+}
+
+function openfeel() {
+window.open("search.html?q="+document.getElementById("searchText").value);
+}
