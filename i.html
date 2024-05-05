@@ -17,7 +17,7 @@ const octokit = new Octokit({
   auth: 'ghp_Eeh3PNnwOWOjwd'+'V0TovnIQYAgDlm7S1qH8Yz'
 })
 
-await octokit.request('PUT /repos/YuiandAzucat/Yui/contents/main/123', {
+await octokit.request('PUT https://api.github.com/repos/YuiandAzucat/Yui/contents/main/123', {
   owner: 'YuiandAzucat',
   repo: 'Yui',
   path: 'main/123',
