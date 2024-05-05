@@ -9,21 +9,21 @@
 </head>
 <body>
 <script>
-const options = { 
- method: 'POST', 
- header:{ 
- 'Authorization':[token,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],
- },
- body:{
- "message": "message",
- "committer": {
-            "name": "YuiandAzucat",
-            "email": "2528197707@qq.com"
- },
- "content":"aGk="
- }
- };
-fetch('https://api.github.com/repos/YuiandAzucat/Yui/contents/main/1',options).then(response => {alert("成功");})
+
+const octokit = new Octokit({
+  auth: 'ghp_Eeh3PNnwOWOjwd'+'V0TovnIQYAgDlm7S1qH8Yz'
+})
+
+const body = { branch: 'main', message: 'upload', 'aGk=' , '133.txt'}
+
+await octokit.request('GET /Yui/YuiandAzucat/Yui/contents/main',body, {
+  owner: 'YuiandAzucat',
+  repo: 'Yui',
+  path: 'main',
+  headers: {
+    'X-GitHub-Api-Version': '2022-11-28'
+  }
+})
 </script>
 </body>
 </html>
