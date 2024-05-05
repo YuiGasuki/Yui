@@ -53,11 +53,18 @@ bodyPortrait.style.width="0px";
 bodyPortrait.style.height="0px";
 setTimeout(function(){
 bodyPortrait.src="portrait"+portrait+".jpg";
+let a = setTimeout(function(){
 bodyPortrait.style.width="80px";
 bodyPortrait.style.height="80px";
+},1000);
+bodyPortrait.onload = () =>{
+bodyPortrait.style.width="80px";
+bodyPortrait.style.height="80px";
+clearTimeout(a);
+}
 },500);
 portrait++;
-if(portrait===3){
+if(portrait===5){
 portrait = 1;
 }
 if(bodyInformation.style.display!="inline"){
