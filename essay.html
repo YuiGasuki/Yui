@@ -122,6 +122,15 @@ document.getElementById('titleimg').src="none.jpg";
 });
 fetch(textp+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
+
+twikoo.init({
+  envId: 'https://comment-black-three.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  el: '#tcomment', // 容器元素
+  region: '', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+  path: textp, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+  lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
+})
+
 return response.text();
 }else{
 return "居然没有内容Σ(ŎдŎ|||)ﾉﾉ"
@@ -136,15 +145,10 @@ document.querySelectorAll('img').forEach(el => {
 el.src="none.jpg";
 }
 });
+
 });
 
-twikoo.init({
-  envId: 'https://comment-black-three.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-  el: '#tcomment', // 容器元素
-  region: '', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-  path: textp, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-  lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-})
+
   
 }
 
