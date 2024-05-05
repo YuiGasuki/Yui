@@ -17,11 +17,11 @@ const octokit = new Octokit({
   auth: 'ghp_Eeh3PNnwOWOjwd'+'V0TovnIQYAgDlm7S1qH8Yz'
 })
 
-await octokit.request('PUT /repos/YuiandAzucat/Yui/contents/main', {
+await octokit.request('PUT /repos/YuiandAzucat/Yui/contents/main/123', {
   owner: 'YuiandAzucat',
   repo: 'Yui',
-  path: 'main',
-  message: 'my commit message',
+  path: '/main/123',
+  message: 'upload',
   committer: {
     name: 'YuiandAzucat',
     email: '2528197707@qq.com'
