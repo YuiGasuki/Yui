@@ -16,14 +16,22 @@ const octokit = new Octokit({
 
 const body = { branch: 'main', message: 'upload', 'aGk=' , '133.txt'}
 
-await octokit.request('GET /Yui/YuiandAzucat/Yui/contents/main',body, {
+await octokit.request('PUT /repos/YuiandAzucat/Yui/contents/main', {
   owner: 'YuiandAzucat',
   repo: 'Yui',
   path: 'main',
+  message: 'my commit message',
+  committer: {
+    name: 'YuiandAzucat',
+    email: '2528197707@qq.com'
+  },
+  content: 'bXkgbmV3IGZpbGUgY29udGVudHM=',
   headers: {
     'X-GitHub-Api-Version': '2022-11-28'
   }
 })
+
+
 </script>
 </body>
 </html>
