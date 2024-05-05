@@ -12,7 +12,7 @@
 const options = { 
  method: 'POST', 
  header:{ 
- 'Authorization':'token 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' 
+ 'Authorization':[token,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],
  },
  body:{
  "message": "message",
@@ -23,7 +23,7 @@ const options = {
  "content":"aGk="
  }
  };
-fetch('https://api.github.com/repos/yuiandazucat/Yui/contents/main/1',options).then(response => {alert("成功");})
+fetch('https://api.github.com/repos/YuiandAzucat/Yui/contents/main/1',options).then(response => {alert("成功");})
 </script>
 </body>
 </html>
