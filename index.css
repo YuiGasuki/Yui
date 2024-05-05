@@ -33,6 +33,19 @@ width:100vw;
 height:100vh;
 backdrop-filter:blur(1.5px);
 }
+#music {
+position:fixed;
+bottom:16px;
+left:16px;
+animation: music 5s infinite linear;
+animation-play-state: paused;
+}
+
+@keyframes music
+{
+    from {transform:rotate(0deg)}
+    to {transform:rotate(360deg)}
+}
 
 #search {
 position:absolute;

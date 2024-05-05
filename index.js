@@ -1,5 +1,6 @@
 document.body.style.backgroundImage="url('"+(Math.floor(Math.random() * (3 - 1 + 1)) + 1)+".jpg')";
-
+localStorage.clear();
+const musicAudio = document.getElementById('music_audio');
 
 if(navigator.language==="zh-CN"){
 document.getElementById('ntroduction_age').innerHTML="年龄: "+((new Date()).getFullYear() - 2008)+"岁";
@@ -66,6 +67,23 @@ clearTimeout(a);
 portrait++;
 if(portrait===5){
 portrait = 1;
+}
+if(portrait===3){
+localStorage.musicone = musicAudio.currentTime;
+musicAudio.src="2.mp3";
+musicAudio.onloadedmetadata = () =>{
+if(localStorage.musictwo!=undefined){
+musicAudio.currentTime = localStorage.musictwo;
+}
+}
+}else if(portrait===1){
+localStorage.musictwo = musicAudio.currentTime;
+musicAudio.src="1.mp3";
+musicAudio.onloadedmetadata = () =>{
+if(localStorage.musicone!=undefined){
+musicAudio.currentTime = localStorage.musicone;
+}
+}
 }
 if(bodyInformation.style.display!="inline"){
 bodyInformation.style.display="inline";
@@ -150,4 +168,19 @@ function ent(ev) {
 
 function openfeel() {
 window.open("search.html?q="+document.getElementById("searchText").value);
+}
+
+
+const idMusic = document.getElementById('music');
+
+
+idMusic.onclick = () =>{
+    if(musicAudio.paused){
+        musicAudio.play();
+        idMusic.style.animationPlayState="running";
+    }else{
+        musicAudio.pause();
+        idMusic.style.animationPlayState="paused";
+    }
+
 }
