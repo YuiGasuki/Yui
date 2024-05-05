@@ -20,7 +20,7 @@ const octokit = new Octokit({
 await octokit.request('PUT /repos/YuiandAzucat/Yui/contents/main/123', {
   owner: 'YuiandAzucat',
   repo: 'Yui',
-  path: '/main/123',
+  path: 'main/123',
   message: 'upload',
   committer: {
     name: 'YuiandAzucat',
