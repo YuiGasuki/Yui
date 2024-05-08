@@ -12,10 +12,11 @@
 <style>
 :root {
 --nightBrightness:0.3;
---nightbackground:rgba(255,255,255,0.8);
+--nightbackground:rgba(238,238,238,0.8);
 }
+
 body {
-background:var(--nightbackground);
+background:#eee;
 }
 #body_box {
 margin-left:-8px;
@@ -26,11 +27,11 @@ width:100vw;
 object-fit:cover;
 width:100%;
 height:calc(100vw / 3 * 2);
+position:absolute;
+transform: translate(0%,-100%);
+z-index: -1;
 }
 #title {
-position:absolute;
-top:calc(100vw / 3 * 2 - 17px);
-transform: translate(0%,-100%);
 margin-left:-8px;
 width:calc(100% - 16px);
 background:var(--nightbackground);
@@ -44,6 +45,8 @@ padding-right:8px;
 font-size:1.2em;
 font-weight:bold;
 overflow:auto;
+transform: translate(0%,-100%);
+margin-bottom:-2em;
 }
 #body {
 padding:8px;
@@ -96,9 +99,11 @@ margin-right:4px;
 <body>
 <div id="body_box">
 <img src="none.jpg" id="titleimg" alt="front cover" />
+<div style="margin-top:calc(100vw / 3 * 2);margin-bottom:32px;">
 <p id="title">₍˄·͈༝·͈˄*₎◞ ̑̑</p>
 <div id="label"></div>
 <p id="body">居然没有内容Σ(ŎдŎ|||)ﾉﾉ</p>
+</div>
 </div>
 
 <div id="tcomment"></div>
@@ -159,9 +164,11 @@ channel.postMessage({
 })
 channel.addEventListener('message', (e) => {
 if(e.data.Type===0){
-document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
+document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
+document.body.style.background = "#eee";
 }else{
 document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
+document.body.style.background = "rgba(86,86,86)";
 }
 })
 </script>
