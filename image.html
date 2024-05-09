@@ -50,10 +50,6 @@ console.log(IdBody.innerHTML)
 
 document.querySelectorAll("img").forEach(item=>{
 io.observe(item);
-item.onerror = () =>{
-item.src="none.jpg";
-}
-
 })
 
 });
