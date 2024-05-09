@@ -28,6 +28,13 @@ background:#eee;
 <body>
 <div id="body">
 </div>
+<div style="width:100%;background:#eee;height:30px;display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;border-radius:6px;
+border-style:solid;
+border-width:1px;
+border-color:#aaaaaa;color:#aaaaaa;" onclick="getimg()" id="getbody">加载更多</div>
 <script>
 const options = { 
  method: 'GET', 
@@ -37,10 +44,28 @@ const options = {
  };
  
 const IdBody = document.getElementById('body');
+let a=0;
+let data;
+fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).then(response => response.json()).then(Data =>{
+data=Data;
+a=data.length-1;
 
-fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).then(response => response.json()).then(data =>{
 
-for(let i = data.length-1;i>=0;i=i-1){
+
+getimg();
+
+
+
+
+});
+
+
+const getimg = () =>{
+a=a-3;
+if(a<=3){
+document.getElementById('getbody').style.display="none";
+}
+for(let i = a;i>=(a-3);i=i-1){
 IdBody.innerHTML += `
 <div>
 <img data-src="/Yui/image/`+data[i].name+`" class="titleimg" />
@@ -48,13 +73,14 @@ IdBody.innerHTML += `
 `;
 }
 
-console.log(IdBody.innerHTML)
+console.log(IdBody.innerHTML);
 
 document.querySelectorAll("img").forEach(item=>{
 io.observe(item);
 })
+}
 
-});
+
 
 const io = new IntersectionObserver(function (items){
 items.forEach(item=>{
