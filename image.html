@@ -38,7 +38,7 @@ const IdBody = document.getElementById('body');
 
 fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).then(response => response.json()).then(data =>{
 
-for(let i = data.length;i>=1;i=i-1){
+for(let i = data.length-1;i>=0;i=i-1){
 IdBody.innerHTML += `
 <div>
 <img data-src="/image/`+data[i].name+`" class="titleimg" />
