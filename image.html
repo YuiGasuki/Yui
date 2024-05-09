@@ -41,7 +41,7 @@ fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).th
 for(let i = data.length-1;i>=0;i=i-1){
 IdBody.innerHTML += `
 <div>
-<img data-src="/image/`+data[i].name+`" class="titleimg" />
+<img data-src="/Yui/image/`+data[i].name+`" class="titleimg" />
 </div>
 `;
 }
@@ -59,6 +59,9 @@ items.forEach(item=>{
 if(item.isIntersecting){
 if(item.target.src==""){
 item.target.src=item.target.getAttribute('data-src');
+item.onerror = () =>{
+item.src="none.jpg";
+}
 }
 }
 })
