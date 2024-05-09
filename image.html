@@ -20,6 +20,8 @@ height:100%;
 border-style:solid;
 border-width:1px;
 border-color:#aaaaaa;
+min-height:100vh;
+background:#eee;
 }
 </style>
 </head>
@@ -59,6 +61,7 @@ items.forEach(item=>{
 if(item.isIntersecting){
 if(item.target.src==""){
 item.target.src=item.target.getAttribute('data-src');
+item.target.style.minHeight="0px";
 item.onerror = () =>{
 item.src="none.jpg";
 }
