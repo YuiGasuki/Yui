@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yui_图片</title>
+<style>
+#body {
+margin: 10px;
+column-count: 2;
+column-gap: 10px;
+
+}
+#body div {
+margin-bottom: 10px;
+}
+img {
+width: 100%;
+height:100%;
+border-style:solid;
+border-width:1px;
+border-color:#aaaaaa;
+}
+</style>
+</head>
+<body>
+<div id="body">
+</div>
+<script>
+const options = { 
+ method: 'GET', 
+ header:{ 
+ 'access_token':'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' 
+ } 
+ };
+ 
+const IdBody = document.getElementById('body');
+
+fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).then(response => response.json()).then(data =>{
+
+for(let i = data.length;i>=1;i=i-1){
+IdBody.innerHTML += `
+<div>
+<img data-src="/image/`+data[i].name+`" class="titleimg" />
+</div>
+`;
+}
+
+console.log(IdBody.innerHTML)
+
+document.querySelectorAll("img").forEach(item=>{
+io.observe(item);
+item.onerror = () =>{
+item.src="none.jpg";
+}
+
+})
+
+});
+
+const io = new IntersectionObserver(function (items){
+items.forEach(item=>{
+if(item.isIntersecting){
+if(item.target.src==""){
+item.target.src=item.target.getAttribute('data-src');
+}
+}
+})
+});
+
+</script>
+</body>
+</html>
