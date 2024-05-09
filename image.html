@@ -51,7 +51,6 @@ data=Data;
 a=data.length-1;
 
 
-
 getimg();
 
 
@@ -61,16 +60,24 @@ getimg();
 
 
 const getimg = () =>{
-a=a-4;
-if(a<=0){
-document.getElementById('getbody').style.display="none";
+
+
+if(a<0){
+return
 }
+
 for(let i = a;i>=(a-3);i=i-1){
 IdBody.innerHTML += `
 <div>
 <img data-src="/Yui/image/`+data[i].name+`" class="titleimg" />
 </div>
 `;
+}
+a=a-4;
+
+if(a<=3){
+document.getElementById('getbody').style.display="none";
+alert(a);
 }
 
 console.log(IdBody.innerHTML);
