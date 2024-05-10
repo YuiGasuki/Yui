@@ -62,7 +62,7 @@ return
 
 for(let i = a;i>=(a-3);i=i-1){
 IdBody.innerHTML += `
-<img data-src="/Yui/image/`+data[i].name+`" class="titleimg" onclick="getbig(this)" />
+<img src="/Yui/image/`+data[i].name+`" data-src="/Yui/image/`+data[i].name+`" class="titleimg" onclick="getbig(this)" />
 `;
 }
 a=a-4;
@@ -75,27 +75,17 @@ alert(a);
 console.log(IdBody.innerHTML);
 
 document.querySelectorAll("img").forEach(item=>{
-io.observe(item);
-})
-}
-
-
-
-const io = new IntersectionObserver(function (items){
-items.forEach(item=>{
-if(item.isIntersecting){
-if(item.target.src==""){
-item.target.src=item.target.getAttribute('data-src');
 item.loaded = () =>{
 item.target.style.minHeight="0px";
 }
 item.onerror = () =>{
 item.src="none.jpg";
 }
-}
-}
 })
-});
+}
+
+
+
 
 
 const getbig = (e) =>{
