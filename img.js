@@ -3,21 +3,13 @@ const textp=params.get('src');
 if(textp!=null&textp!=""){
 document.getElementById('blackA').src = textp;
 document.getElementById('img_a').href = textp;
+document.getElementById('img_a').download = textp;
 }
 
 
 
 var ha=1;
-let hu=null;
-function hb(){
-clearTimeout(hu);
-hu=setTimeout(function () {
-none();
-clearTimeout(hu);
-},300);
-}
 function h(){
-clearTimeout(hu);
 if (screen.width < 640) {
 ha=ha+1;
 if(ha==3){
