@@ -146,7 +146,7 @@ document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
 });
 document.querySelectorAll('img').forEach(el => {
-  el.onclick = getbig(el);
+  
   el.onerror = () =>{
 el.src="none.jpg";
 }
@@ -174,9 +174,7 @@ document.body.style.background = "rgba(86,86,86)";
 })
 
 
-const getbig = (e) =>{
-window.open("img.html?src="+e.src);
-}
+
 
 </script>
 
