@@ -39,12 +39,11 @@ const options = {
  
 const IdBody = document.getElementById('body');
 let a=0;
+let long;
 let data;
 fetch("https://api.github.com/repos/yuiandazucat/Yui/contents/image",options).then(response => response.json()).then(Data =>{
 data=Data;
-a=data.length-1;
-
-
+long = data.length-1;
 getimg();
 
 
@@ -56,16 +55,16 @@ getimg();
 const getimg = () =>{
 
 
-if(a<0){
+if(a>=data.length-1){
 return
 }
 
-for(let i = a;i>=(a-3);i=i-1){
+for(let i = a;i<=(a+3);i++){
 IdBody.innerHTML += `
 <img src="/Yui/image/`+data[i].name+`" data-src="/Yui/image/`+data[i].name+`" class="titleimg" onclick="getbig(this)" />
 `;
 }
-a=a-4;
+a=a+4;
 
 if(a<=3){
 document.getElementById('getbody').style.display="none";
