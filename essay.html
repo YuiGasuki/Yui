@@ -14,10 +14,7 @@
 --nightBrightness:0.3;
 --nightbackground:rgba(238,238,238,0.8);
 }
-#tcomment {
-margin-left:-8px;
-width:100vw;
-}
+
 body {
 background:#eee;
 }
@@ -88,6 +85,8 @@ overflow:auto;
 #label {
 width:calc(100% - 8px);
 padding-left:8px;
+display: flex;
+flex-wrap: wrap; 
 }
 .label {
 background:#FF6699;
@@ -96,6 +95,7 @@ border-radius:6px;
 padding-left:5px;
 padding-right:5px;
 margin-right:4px;
+margin-bottom:8px;
 }
 
 #body ul {
@@ -124,7 +124,9 @@ color:#aaaaaa9c;
 </div>
 </div>
 
+<div style="margin-left:-8px;overflow:hidden;">
 <div id="tcomment"></div>
+</div>
 <script src="https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js"></script>
 
 
