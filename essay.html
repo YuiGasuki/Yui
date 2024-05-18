@@ -111,6 +111,41 @@ margin:-8px 0px;
 #body small {
 color:#aaaaaa9c;
 }
+#comments_Section {
+background:linear-gradient(to right, #FF6699,#FF6699)no-repeat left bottom;
+ background-size: 0% 2px;
+  transition:background-size 0.5s;
+color:#aaaaaa;
+font-weight:bold;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:5px;
+margin-right:4px;
+margin-bottom:8px;
+}
+
+#comments_Section:hover {
+  background-position: left bottom;
+  background-size: 100% 2px;
+  
+}
+#comments_Section_ul {
+height:0px;
+overflow:hidden;
+list-style-type:none;
+font-family:"Times New Roman",Arial;
+color:#7d7d7d;
+width:100%;
+margin-left:-30px;
+li {
+margin:10px 0px;
+transition:0.5s;
+}
+li:hover {
+color:#FF6699;
+}
+}
+
 </style>
 
 </head>
@@ -124,11 +159,23 @@ color:#aaaaaa9c;
 </div>
 </div>
 
-<div style="margin-left:-8px;overflow:hidden;">
+<div id="comments_Section">评论区</div>
+<ul id="comments_Section_ul">
+<li onclick="commentsSectionulA()">Twikoo</li>
+<li onclick="commentsSectionulB()">Gitalk</li>
+</ul>
+<div style="margin-left:-8px;overflow:hidden;" id="tcommentBox">
 <div id="tcomment"></div>
 </div>
+<div id="gitalk-container" style="display:none;"></div>
 <script src="https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js"></script>
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  <script>
+  
+</script>
 
 <script>
 const params = new URLSearchParams(location.search);
@@ -155,6 +202,20 @@ twikoo.init({
   path: textp, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
   lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
 })
+
+var gitalk = new Gitalk({
+  clientID: '0e1a89a4195bcc431fb7',
+  clientSecret: '0d438d8c1ee0e567971765238d98a3d7038bfe3d',
+  repo: 'LHYPL',
+  owner: 'mykonshshhdhdhdh',
+  admin: ['mykonshshhdhdhdh'],
+  id: location.pathname+textp,  
+  distractionFreeMode: false  // Facebook-like distraction free mode
+  
+})
+
+gitalk.render('gitalk-container')
+
 
 return response.text();
 }else{
@@ -193,10 +254,34 @@ document.body.style.background = "rgba(86,86,86)";
 }
 })
 
+const commentsSectionUl = document.getElementById('comments_Section_ul');
+const commentsSection = document.getElementById('comments_Section');
+let commentsSectionT = false;
+commentsSection.onclick = () =>{
+if(commentsSectionT===false){
+commentsSectionUl.style.transition="0.5s";
+commentsSectionUl.style.height="calc(2em + 40px)";
+commentsSectionT=true;
+}else{
+commentsSectionUl.style.transition="0.5s";
+commentsSectionUl.style.height="0px";
+commentsSectionT=false;
+}
+}
 
 
+const commentsSectionulA = () =>{
+document.getElementById('gitalk-container').style.display='none';
+document.getElementById('tcommentBox').style.display='inline';
+}
 
+
+const commentsSectionulB = () =>{
+document.getElementById('gitalk-container').style.display='inline';
+document.getElementById('tcommentBox').style.display='none';
+}
 </script>
+
 
 
 
