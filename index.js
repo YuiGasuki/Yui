@@ -89,22 +89,17 @@ if(bodyInformation.style.display!="inline"){
 bodyInformation.style.display="inline";
 idSearch.style.display="inline";
 let bodyInfheight = bodyInformation.offsetHeight;
-bodyInfheight = idSearch.offsetHeight
-document.querySelectorAll(".ntroduction").forEach(item=>{
-item.style.transition="0.5s"; 
-item.style.opacity="1";
-item.style.marginTop="0px";
-});
+bodyInfheight = idSearch.offsetHeight;
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.opacity="1";
 idSearch.style.transition="0.5s"; 
 idSearch.style.transform = "translate(-50%,0%)";
 }else{
-document.querySelectorAll(".ntroduction").forEach(item=>{
-item.style.transition="0.5s"; 
-item.style.opacity="0";
-item.style.marginTop="36px";
-});
+
 idSearch.style.transition="0.5s"; 
 idSearch.style.transform = "translate(-50%,-200%)";
+bodyInformation.style.transition="0.5s";
+bodyInformation.style.opacity="0";
 setTimeout(function(){
 bodyInformation.style.display="none";
 idSearch.style.display="none";
@@ -131,6 +126,13 @@ bodyInformation.innerHTML += `
 `;
 }
 
+document.querySelectorAll(".titleimg").forEach(item=>{
+item.onerror = () =>{
+item.src="none.jpg";
+}
+});
+
+
 if(bodyInformation.style.display==="inline"){
 document.querySelectorAll(".ntroduction").forEach(item=>{
 if(item.style.opacity!="1"){
@@ -142,11 +144,7 @@ item.style.marginTop="0px";
 }
 });
 
-document.querySelectorAll(".titleimg").forEach(item=>{
-item.onerror = () =>{
-item.src="none.jpg";
-}
-});
+
 
 idSearch.onmouseover = () =>{
 idSearch.style.transition = "0.5s";
