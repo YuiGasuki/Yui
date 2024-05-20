@@ -29,6 +29,11 @@ setTimeout(()=>{TypingAnimation(e,name,present,i)}, 400)
 TypingAnimation(document.getElementById('body_name'),document.getElementById('body_name').innerHTML,"",0);
 
 const channel = new BroadcastChannel('Yui_night');
+
+channel.postMessage({
+    	Type:3
+})
+
 channel.addEventListener('message', (e) => {
 if(e.data.Type===0){
 document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');

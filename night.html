@@ -388,6 +388,16 @@ channel.postMessage({
     	Type:0
     })
 }
+}else{
+    if(e.data.Type===0){
+        if(a===1){
+        night();
+        }
+    }else{
+        if(a!=1){
+        night();
+        }
+    }
 }
 });
 channel.postMessage({
