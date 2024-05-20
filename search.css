@@ -67,6 +67,8 @@ aspect-ratio:3/2;
 object-fit:cover;
 width:100%;
 min-height:58px;
+--width:calc(100vw - 64px);
+max-height:calc(var(--width) / 3 * 2);
 }
 .title {
 position:absolute;
