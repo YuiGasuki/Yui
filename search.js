@@ -83,7 +83,7 @@ channel.addEventListener('message', (e) => {
 if(e.data.Type===0){
 document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
 document.documentElement.style.setProperty('--nightBrightness','0.3');
-}else{
+}else if(e.data.Type!=3){
 document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
 document.documentElement.style.setProperty('--nightBrightness','0.5');
 }
