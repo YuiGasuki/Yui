@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>字幕制作</title>
+</head>
+<body>
+<input type="file" id="files">
+<style>
+* {
+outline:none;
+font-family:Arial;
+}
+*::-webkit-scrollbar{ display:none; 
+}
+#mpf {
+  width:100vw;
+  height:55vw;
+  object-fit:scale-down;
+  margin-left:-8px;
+  background-color:#171717;
+  display: none;
+}
+</style>
+<video controls id="mpf">
+</video>
+<style>
+  #nows_body {
+    padding-top: 16px;
+    height: 60vh;
+    overflow: auto;
+  }
+  #nows_body .box {
+    padding-bottom: 16px;
+    border-style:solid none;
+    border-width:2px;
+    border-color:#aaaaaa;
+  }
+  #nows_body .box .input {
+    border-style:none none solid none;
+    width:100%;
+    border-width:1px;
+    border-color:#aaaaaa;
+  }
+</style>
+<div style="display:none" id="body_box" >
+ <p id="subtitle"></p>
+<p id="subtitle_time"></p>
+<button onclick="retreat()" ><</button>
+<button onclick="advance()">></button>
+<button onclick="add_li()">添加</button>
+<button onclick="derive()">导出</button>
+<div id="nows_body">
+ 
+ </div> 
+</div>
+<script>
+const files = document.getElementById('files'),
+       mpf = document.getElementById('mpf'),
+       nowsBody = document.getElementById('nows_body');
+files.onchange =function (){
+mpf.src = URL.createObjectURL(this.files[0]);
+mpf.style.display="inline";
+document.getElementById('body_box').style.display="inline";
+lettime();
+}
+let dataBox = [];
+let CurrentTime = 0;//临时储存时间
+const add_li = () =>{
+  let time = mpf.currentTime;
+  dataBox.push({time:time,endtime:time+5,body:''})
+  nowsBody.innerHTML += `
+  <div class="box" id="${dataBox.length-1}" >
+    <p onclick="sure(this,1)" class="box_p" data-id="${dataBox.length-1}">`+time+`</p>
+    <p onclick="sure(this,2)" class="box_p" data-id="${dataBox.length-1}">`+(time+5)+`</p>
+    <p contenteditable="true" data-id="${dataBox.length-1}" onkeyup="changebody(this)" class="input" >
+  </div>`;
+  console.log(dataBox)
+}
+let TemporaryElement;
+let TypeJudgment=1;
+const sure = (e,a) =>{
+  mpf.currentTime=e.innerText*1;
+  mpf.pause()
+  TypeJudgment=a;
+  document.querySelectorAll(".box_p").forEach(item=>{
+    item.style.color="black";
+  })
+  e.style.color="blue";
+  CurrentTime = e.innerText*1;
+  TemporaryElement=e;
+}
+const retreat = () =>{
+  CurrentTime = CurrentTime-0.1;
+  if(TemporaryElement){
+  mpf.currentTime=CurrentTime;
+  mpf.pause()
+  TemporaryElement.innerText = CurrentTime;
+  if(TypeJudgment===1){
+  dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
+  }else{
+    dataBox[TemporaryElement.getAttribute('data-id')].endtime=CurrentTime;
+  }
+  }
+  
+  console.log(CurrentTime)
+}
+const advance = () =>{
+  CurrentTime = CurrentTime+0.1;
+  if(TemporaryElement){
+    mpf.currentTime=CurrentTime;
+  mpf.pause()
+  TemporaryElement.innerText = CurrentTime;
+ if(TypeJudgment===1){
+  dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
+  }else{
+    dataBox[TemporaryElement.getAttribute('data-id')].endtime=CurrentTime;
+  }
+  }
+  console.log(CurrentTime)
+}
+const changebody = (e) =>{
+  dataBox[e.getAttribute('data-id')].body=e.innerText;
+}
+const derive = () =>{
+  let body = "";
+  for(let i=0;i<dataBox.length;i++){
+    
+    
+    
+    body+=`${i+1}\r${formatTime(dataBox[i].time)} --> ${formatTime(dataBox[i].endtime)}\r ${dataBox[i].body}\r\r`;
+  }
+  const link = document.createElement('a');
+  link.href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(body);
+  link.download = "1.srt";
+  link.target = "_blank"; // 可选，如果希望在新窗口中下载文件，请取消注释此行
+  link.click();
+  console.log(body)
+}
+
+
+const formatTime = (number) =>{
+  let s=number;
+  let min=0;
+  let h=0;
+  if(number>=60){
+    min = Math.trunc(number/60);
+    s = number-(min*60);
+    if(min>=60){
+      h = Math.trunc(min/60);
+      min = min - (h*60);
+    }
+  }
+  return h+":"+min+":"+s
+}
+
+
+const lettime = () =>{
+mpf.addEventListener('timeupdate',lettime);
+document.getElementById('subtitle_time').innerText=mpf.currentTime;
+for(let i=0;i<dataBox.length;i++){
+  if(mpf.currentTime>=dataBox[i].time&&mpf.currentTime<dataBox[i].endtime){
+document.getElementById('subtitle').innerText = dataBox[i].body;
+}else{
+  document.getElementById('subtitle').innerText =" ";
+}
+}
+}
+</script>
+</body>
+</html>
