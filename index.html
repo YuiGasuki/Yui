@@ -3,54 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Yui_主页</title>
-<link href="index.css" rel="stylesheet" type="text/css">
-<link rel= "shortcut icon" href ="icon.jpg" type="image/x-icon" />
+<title>字幕制作</title>
 </head>
 <body>
-<div id="background_bur"></div>
-<div id="background"></div>
-<div style="display:flex" id="search"><input type="text" onkeydown="ent()" id="searchText"><img src="search.svg" id="search_img" onclick="openfeel()" ></div>
-<div id="body_centre">
-<img src="portrait1.jpg" id="body_portrait" alt="portrait" />
-<p id="body_name" onclick="TypingAnimation(this,'Yui_','',0)">Yui_</p>
-<div id="body_information">
-<img src="bilibili.svg" onclick="JavaScript:window.open('https://space.bilibili.com/1560384560')" alt="bili" />
-<img src="github.svg" onclick="JavaScript:window.open('https://github.com/YuiandAzucat')" alt="github" />
-<img src="x.svg" onclick="JavaScript:window.open('https://x.com/Yuicat414815?s=09')" alt="x" />
-<img src="youtube.svg" onclick="JavaScript:window.open('https://www.youtube.com/channel/UCEtisOmwHa1QUgts7b0PoYw')" alt="youtube" />
+<input type="file" id="files">
+<style>
+* {
+outline:none;
+font-family:Arial;
+}
+*::-webkit-scrollbar{ display:none; 
+}
+#mpf {
+  width:100vw;
+  height:55vw;
+  object-fit:scale-down;
+  margin-left:-8px;
+  background-color:#171717;
+  display: none;
+}
+</style>
+<video controls id="mpf">
+</video>
+<style>
+  #nows_body {
+    padding-top: 16px;
+    height: 60vh;
+    overflow: auto;
+  }
+  #nows_body .box {
+    padding-bottom: 16px;
+    border-style:solid none;
+    border-width:2px;
+    border-color:#aaaaaa;
+  }
+  #nows_body .box .input {
+    border-style:none none solid none;
+    width:100%;
+    border-width:1px;
+    border-color:#aaaaaa;
+  }
+</style>
+<div style="display:none" id="body_box" >
+ <p id="subtitle"></p>
+<p id="subtitle_time"></p>
+<button onclick="retreat()" ><</button>
+<button onclick="advance()">></button>
+<button onclick="add_li()">添加</button>
+<button onclick="derive()">导出</button>
+<div id="nows_body">
+ 
+ </div> 
 </div>
-<div id="body_ntroduction">
-<div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=3')">
-<ul id="ntroduction_ul">
-<li id="ntroduction_name">名字: 林海扬</li>
-<li id="ntroduction_age">年龄:16岁</li>
-<li id="ntroduction_hobby">爱好:看番剧和写代码</li>
-<li id="ntroduction_mailbox">邮箱: 2528197707@qq.com</li>
-</ul>
-</div>
-<div id="ntroduction_project" class="ntroduction">
-<object data="night.html" width="100%" height="103"></object>
-</div>
+<script>
+const files = document.getElementById('files'),
+       mpf = document.getElementById('mpf'),
+       nowsBody = document.getElementById('nows_body');
+files.onchange =function (){
+mpf.src = URL.createObjectURL(this.files[0]);
+mpf.style.display="inline";
+document.getElementById('body_box').style.display="inline";
+lettime();
+}
+let dataBox = [];
+let CurrentTime = 0;//临时储存时间
+const add_li = () =>{
+  let time = mpf.currentTime;
+  dataBox.push({time:time,endtime:time+5,body:''})
+  nowsBody.innerHTML += `
+  <div class="box" id="${dataBox.length-1}" >
+    <p onclick="sure(this,1)" class="box_p" data-id="${dataBox.length-1}">`+time+`</p>
+    <p onclick="sure(this,2)" class="box_p" data-id="${dataBox.length-1}">`+(time+5)+`</p>
+    <p contenteditable="true" data-id="${dataBox.length-1}" onkeyup="changebody(this)" class="input" >
+  </div>`;
+  console.log(dataBox)
+}
+let TemporaryElement;
+let TypeJudgment=1;
+const sure = (e,a) =>{
+  mpf.currentTime=e.innerText*1;
+  mpf.pause()
+  TypeJudgment=a;
+  document.querySelectorAll(".box_p").forEach(item=>{
+    item.style.color="black";
+  })
+  e.style.color="blue";
+  CurrentTime = e.innerText*1;
+  TemporaryElement=e;
+}
+const retreat = () =>{
+  CurrentTime = CurrentTime-0.1;
+  if(TemporaryElement){
+  mpf.currentTime=CurrentTime;
+  mpf.pause()
+  TemporaryElement.innerText = CurrentTime;
+  if(TypeJudgment===1){
+  dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
+  }else{
+    dataBox[TemporaryElement.getAttribute('data-id')].endtime=CurrentTime;
+  }
+  }
+  
+  console.log(CurrentTime)
+}
+const advance = () =>{
+  CurrentTime = CurrentTime+0.1;
+  if(TemporaryElement){
+    mpf.currentTime=CurrentTime;
+  mpf.pause()
+  TemporaryElement.innerText = CurrentTime;
+ if(TypeJudgment===1){
+  dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
+  }else{
+    dataBox[TemporaryElement.getAttribute('data-id')].endtime=CurrentTime;
+  }
+  }
+  console.log(CurrentTime)
+}
+const changebody = (e) =>{
+  dataBox[e.getAttribute('data-id')].body=e.innerText;
+}
+const derive = () =>{
+  let body = "";
+  for(let i=0;i<dataBox.length;i++){
+    
+    
+    
+    body+=`${i+1}\r${formatTime(dataBox[i].time)} --> ${formatTime(dataBox[i].endtime)}\r ${dataBox[i].body}\r\r`;
+  }
+  const link = document.createElement('a');
+  link.href = 'data:text/plain;charset=utf-8,'+encodeURIComponent(body);
+  link.download = "1.srt";
+  link.target = "_blank"; // 可选，如果希望在新窗口中下载文件，请取消注释此行
+  link.click();
+  console.log(body)
+}
 
-<div class="ntroduction" onclick="JavaScript:window.open('leave.html')" style="height:60px;display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;font-size:1.1em;
-font-weight:bold;letter-spacing:10px;">
-留言区
-</div>
 
-<div class="ntroduction" onclick="JavaScript:window.open('image.html')">
-<img src="/Yui/image/1.png" class="titleimg" />
-<p class="title">图片推荐</p>
-</div>
+const formatTime = (number) =>{
+  let s=number;
+  let min=0;
+  let h=0;
+  if(number>=60){
+    min = Math.trunc(number/60);
+    s = number-(min*60);
+    if(min>=60){
+      h = Math.trunc(min/60);
+      min = min - (h*60);
+    }
+  }
+  return h+":"+min+":"+s
+}
 
-</div>
-</div>
 
-<img src="music.svg" alt="music" id="music" />
-<audio id="music_audio" autoplay="autoplay" src="1.mp3"></audio>
-<script src="index.js"></script>
+const lettime = () =>{
+mpf.addEventListener('timeupdate',lettime);
+document.getElementById('subtitle_time').innerText=mpf.currentTime;
+for(let i=0;i<dataBox.length;i++){
+  if(mpf.currentTime>=dataBox[i].time&&mpf.currentTime<dataBox[i].endtime){
+document.getElementById('subtitle').innerText = dataBox[i].body;
+}else{
+  document.getElementById('subtitle').innerText =" ";
+}
+}
+}
+</script>
 </body>
 </html>
