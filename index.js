@@ -2,14 +2,7 @@ document.body.style.backgroundImage="url('"+(Math.floor(Math.random() * (3 - 1 +
 localStorage.clear();
 const musicAudio = document.getElementById('music_audio');
 
-if(navigator.language==="zh-CN"){
-document.getElementById('ntroduction_age').innerHTML="年龄: "+((new Date()).getFullYear() - 2008)+"岁";
-}else{
-document.getElementById('ntroduction_age').innerHTML="Age: "+((new Date()).getFullYear() - 2008)+" years old";
-document.getElementById('ntroduction_hobby').innerHTML="Hobbies:Watching anime and Coding";
-document.getElementById('ntroduction_name').innerHTML="Name: Lin Haiyang";
-document.getElementById('ntroduction_mailbox').innerHTML="Mailbox: 2528197707@qq.com";
-}
+
 
 const TypingAnimation = (e,name,present,i) =>{
 if(present === ''){
