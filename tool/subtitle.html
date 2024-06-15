@@ -95,7 +95,7 @@ const retreat = () =>{
   CurrentTime = CurrentTime-0.1;
   if(TemporaryElement){
   mpf.currentTime=CurrentTime;
-  mpf.pause()
+  
   TemporaryElement.innerText = CurrentTime;
   if(TypeJudgment===1){
   dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
@@ -110,7 +110,7 @@ const advance = () =>{
   CurrentTime = CurrentTime+0.1;
   if(TemporaryElement){
     mpf.currentTime=CurrentTime;
-  mpf.pause()
+  
   TemporaryElement.innerText = CurrentTime;
  if(TypeJudgment===1){
   dataBox[TemporaryElement.getAttribute('data-id')].time=CurrentTime;
