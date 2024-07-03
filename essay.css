@@ -1,0 +1,119 @@
+:root {
+--nightBrightness:0.3;
+--nightbackground:rgba(238,238,238,0.8);
+}
+
+body {
+background:#eee;
+}
+#body_box {
+margin-left:-8px;
+margin-top:-8px;
+width:100vw;
+}
+#titleimg {
+object-fit:cover;
+width:100%;
+height:calc(100vw / 3 * 2);
+position:absolute;
+transform: translate(0%,-100%);
+z-index: -1;
+}
+#title {
+margin-left:-8px;
+width:calc(100% - 16px);
+background:var(--nightbackground);
+transition:1s;
+font-family:"Times New Roman",Arial;
+color:#aaaaaa;
+padding-bottom:1em;
+padding-top:32px;
+padding-left:16px;
+padding-right:8px;
+font-size:1.2em;
+font-weight:bold;
+overflow:auto;
+transform: translate(0%,-100%);
+margin-bottom:-2em;
+}
+#body {
+padding:8px;
+font-family:Arial;
+color:#aaaaaa;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+line-height:25px;
+font-size:1.1em;
+overflow:hidden;
+}
+a {
+color:#FF6699;
+font-family:Arial;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+line-height:25px;
+font-size:1em;
+text-decoration: none; 
+}
+#body img {
+width:100%;
+}
+#body .code {
+width:calc(100% - 16px);
+padding-bottom:32px;
+padding-top:32px;
+background:#23241f;
+border-radius:8px;
+padding-left:16px;
+overflow:auto;
+}
+
+#label {
+width:calc(100% - 8px);
+padding-left:8px;
+display: flex;
+flex-wrap: wrap; 
+}
+.label {
+background:#FF6699;
+color:white;
+border-radius:6px;
+padding-left:5px;
+padding-right:5px;
+margin-right:4px;
+margin-bottom:8px;
+}
+
+#body ul {
+list-style-type:none;
+font-family:"Times New Roman",Arial;
+color:#7d7d7d;
+width:100%;
+margin-left:-40px;
+}
+#body li {
+margin:-8px 0px;
+}
+#body small {
+color:#aaaaaa9c;
+}
+#comments_Section {
+background:linear-gradient(to right, #FF6699,#FF6699)no-repeat left bottom;
+ background-size: 0% 2px;
+  transition:background-size 0.5s;
+color:#aaaaaa;
+font-weight:bold;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:5px;
+margin-right:4px;
+margin-bottom:8px;
+}
+
+#comments_Section:hover {
+  background-position: left bottom;
+  background-size: 100% 2px;
+  
+}
