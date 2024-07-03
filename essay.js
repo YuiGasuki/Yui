@@ -16,7 +16,7 @@ fetch(textp+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 
 
-var gitalk = new Gitalk({
+let gitalk = new Gitalk({
   clientID: 'Ov23lixpZ1DMx798MTCG',
   clientSecret: '05cafad17663d681d6ac0638568d4d8187042dc5',
   repo: 'LHYPL',
@@ -26,14 +26,14 @@ var gitalk = new Gitalk({
   createIssueManually: true,
   distractionFreeMode: false  // Facebook-like distraction free mode
   
-})
+});
 
-gitalk.render('gitalk-container')
+gitalk.render('gitalk-container');
 
 
 return response.text();
 }else{
-return "居然没有内容Σ(ŎдŎ|||)ﾉﾉ"
+return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 document.getElementById('body').innerHTML = data;
