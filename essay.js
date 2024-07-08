@@ -26,9 +26,9 @@ if (response.ok) {
 let gitalk = new Gitalk({
   clientID: 'Ov23liQRR4VjYR4dXXDv',
   clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
-  repo: 'LHYPL',
-  owner: 'Yuiandazucat',
-  admin: ['Yuiandazucat'],
+  repo: 'CommentYui',
+  owner: 'Yuigasuki',
+  admin: ['Yuigasuki'],
   id: location.pathname+"?Yui="+textp,  
   createIssueManually: true,
   distractionFreeMode: false  // Facebook-like distraction free mode
