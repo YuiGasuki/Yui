@@ -30,7 +30,6 @@ let gitalk = new Gitalk({
   owner: 'Yuigasuki',
   admin: ['Yuigasuki'],
   id: location.pathname+"?Yui="+textp,  
-  createIssueManually: true,
   distractionFreeMode: false  // Facebook-like distraction free mode
   
 });
