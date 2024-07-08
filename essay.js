@@ -24,8 +24,8 @@ if (response.ok) {
 
 
 let gitalk = new Gitalk({
-  clientID: 'Ov23lixpZ1DMx798MTCG',
-  clientSecret: '05cafad17663d681d6ac0638568d4d8187042dc5',
+  clientID: 'Ov23liQRR4VjYR4dXXDv',
+  clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
   repo: 'LHYPL',
   owner: 'Yuiandazucat',
   admin: ['Yuiandazucat'],
