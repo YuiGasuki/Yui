@@ -35,6 +35,9 @@ const Transform = () =>{
     if(e.split(Judge).length!=1){
     let b = e.split(Judge)[1].split("}")[0].split("text:")[1].replace("%3A",":");
     datac.push(e.split(Judge)[0]+`<a href="${b}">${b}</a><br>`+e.split("}")[1]);
+    }else if(e.split(",text:").length!=1){
+      let b = e.split(",text:")[0].split("url:")[1].replace("%3A",":");
+       datac.push(e.split("url:")[0]+`<a href="${b}">${b}</a><br>`+e.split("}")[1]);
     }else{
       datac.push(e);
     }
