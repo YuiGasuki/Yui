@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QQ获取链接小工具</title>
+<style>
+
+a {
+color:#FF6699;
+font-family:Arial;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+line-height:25px;
+font-size:1em;
+text-decoration: none;
+}
+</style>
+</head>
+<body>
+<p>请输入</p>
+<input type="text" id="inpu">
+<button onclick="Transform()">确定</button>
+<p id="p"></p>
+<script>
+const inp = document.getElementById('inpu'),
+      pt = document.getElementById('p');
+const Transform = () =>{
+  let data = inp.value;
+  data = data.split("{");
+  let datac = [];
+  let Judge = "url:https%3A//www.urlshare.cn/umirror_url_check?_wv=1&srctype=touch&apptype=android&loginuin=2174360856&plateform=mobileqq&url=";
+  data.forEach(e =>{
+    if(e.split(Judge).length!=1){
+    let b = e.split(Judge)[1].split("}")[0].split("text:")[1].replace("%3A",":");
+    datac.push(e.split(Judge)[0]+`<a href="${b}">${b}</a><br>`+e.split("}")[1]);
+    }else{
+      datac.push(e);
+    }
+  });
+  datac.forEach(a =>{
+  pt.innerHTML += a;
+  });
+}
+</script>
+</body>
+</html>
