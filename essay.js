@@ -29,7 +29,7 @@ let gitalk = new Gitalk({
   repo: 'LHYPL',
   owner: 'Yuiandazucat',
   admin: ['Yuiandazucat'],
-  id: location.pathname+textp,  
+  id: location.pathname+"?Yui="+textp,  
   createIssueManually: true,
   distractionFreeMode: false  // Facebook-like distraction free mode
   
