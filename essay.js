@@ -2,12 +2,19 @@ const params = new URLSearchParams(location.search);
 const textp=params.get('Yui');
 if(textp!=null&textp!=""){
 fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
-document.title="Yui的文章「"+data[textp-1].title+"」";
-document.getElementById('title').innerHTML = data[textp-1].title;
-for(let i=0;i<data[textp-1].label.length;i++){
-document.getElementById('label').innerHTML += `<span class="label" >`+data[textp-1].label[i]+`</span>`;
+let datab;
+for(let onei = 0;onei<data.length;onei++){
+if(data[onei].Yui===textp){
+datab = data[onei];
+break
 }
-document.getElementById('titleimg').src = data[textp-1].title_url;
+}
+document.title="Yui的文章「"+datab.title+"」";
+document.getElementById('title').innerHTML = datab.title;
+document.getElementById('titleimg').src = datab.title_url;
+for(let i=0;i<datab.label.length;i++){
+document.getElementById('label').innerHTML += `<span class="label" >`+datab.label[i]+`</span>`;
+}
 document.getElementById('titleimg').onerror = () =>{
 document.getElementById('titleimg').src="none.jpg";
 }
@@ -62,7 +69,7 @@ channel.addEventListener('message', (e) => {
 if(e.data.Type===0){
 document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
 document.body.style.background = "#eee";
-}else{
+}else if(e.data.Type===1){
 document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
 document.body.style.background = "rgba(86,86,86)";
 }
