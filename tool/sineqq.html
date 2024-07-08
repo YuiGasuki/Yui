@@ -30,10 +30,10 @@ const Transform = () =>{
   let data = inp.value;
   data = data.split("{");
   let datac = [];
-  let Judge = "url:https%3A//www.urlshare.cn/umirror_url_check?_wv=1&srctype=touch&apptype=android&loginuin=2174360856&plateform=mobileqq&url=";
+  let Judge = "url:https%3A//www.urlshare.cn/umirror_url_check?_wv=1&srctype=touch&apptype=android&loginuin";
   data.forEach(e =>{
     if(e.split(Judge).length!=1){
-    let b = e.split(Judge)[1].split("}")[0].split("text:")[1].replace("%3A",":");
+    let b = e.split("plateform=mobileqq&url=")[1].split("&src_uin")[0].replace(/\%252F/g,"/").replace("%253A",":");
     datac.push(e.split(Judge)[0]+`<a href="${b}">${b}</a><br>`+e.split("}")[1]);
     }else if(e.split(",text:").length!=1){
       let b = e.split(",text:")[0].split("url:")[1].replace("%3A",":");
