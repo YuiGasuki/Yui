@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>英语字母混淆</title>
+<style>
+p {
+width:100%;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+}
+</style>
+</head>
+<body>
+<p>请选择加密方式</p>
+<input type="radio" name="sex" onclick="choose(1)">拉丁</input>
+<input type="radio" name="sex" onclick="choose(2)" checked="checked">图案</input>
+<br>
+<br>
+<button onclick="cleara()">清空</button><br>
+<br>
+<input type="text" id="inpu">
+<br>
+<br>
+<button onclick="Transform()">加密</button>
+<button onclick="Transformi()">解密</button>
+<p id="p"></p>
+<script>
+let dictionaryOriginal = ["q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","C","X","V","B","N","M","1","2","3","4","5","6","7","8","9","0","+","/","="];
+let dictionary = ["△","▽","○","◇","□","☆","▷","◁","♤","♡","♢","♧","▲","▼","●","◆","■","★","▶","◀","⚄","⚃","⚁","⚂","◐","⚅","✪","☑","√","✔","☾","♂","☹","◑","✘","☚","☛","▪","•","‥","…","▁","▂","▃","▄","▅","▆","▇","█","∷","※","░","▒","▓","▏","▎","▍","▌","▋","▊","▉","▬","〓","☲","☶"];
+const inp = document.getElementById('inpu'),
+      pt = document.getElementById('p');
+const Transform = () =>{
+let data = btoa(unescape(encodeURIComponent(inp.value)));
+for(let i=0;i<dictionaryOriginal.length;i++){
+data=data.replaceAll(dictionaryOriginal[i],dictionary[i]);
+}
+pt.innerHTML=inp.value+`<br><br><br>`+data;
+}
+const Transformi = () =>{
+let data = inp.value;
+for(let i=0;i<dictionary.length;i++){
+data=data.replaceAll(dictionary[i],dictionaryOriginal[i]);
+}
+data=decodeURIComponent(escape(atob(data)))
+pt.innerHTML=inp.value+`<br><br><br>`+data;
+}
+function cleara(){
+pt.innerHTML="";
+inp.value="";
+}
+
+function choose(n){
+if(n===1){
+dictionary = ["À","Á","Â","Ã","Ä","Å","Ā","Æ","Ç","È","É","Ê","Ë","Ē","Ì","Í","Î","Ï","Ī","Ð","Ñ","Ò","Ó","Ô","Õ","Ö","Ō","Ø","Œ","Ù","Ú","Û","Ü","Ū","Ý","Ÿ","Þ","Š","à","á","â","ã","ä","å","æ","ç","è","é","ê","ë","ē","ì","í","î","ǐ","ï","ī","ð","ñ","ò","ó","õ","ǒ","ô","ö"];
+}else{
+dictionary = ["△","▽","○","◇","□","☆","▷","◁","♤","♡","♢","♧","▲","▼","●","◆","■","★","▶","◀","⚄","⚃","⚁","⚂","◐","⚅","✪","☑","√","✔","☾","♂","☹","◑","✘","☚","☛","▪","•","‥","…","▁","▂","▃","▄","▅","▆","▇","█","∷","※","░","▒","▓","▏","▎","▍","▌","▋","▊","▉","▬","〓","☲","☶"];
+}
+}
+</script>
+</body>
+</html>
