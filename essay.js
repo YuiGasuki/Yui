@@ -53,6 +53,28 @@ el.src="none.jpg";
 }
 });
 
+let i=0;
+document.querySelectorAll('.note').forEach(el => {
+i++;
+let data = el.innerHTML;
+el.dataset.text = data;
+el.dataset.i = i;
+el.innerHTML = `[${i}]`;
+el.onmouseover = () =>{
+let a = el.clientWidth;
+el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
+el.style.zIndex="10";
+if((el.childNodes[1].clientWidth+el.offsetLeft) > document.body.scrollWidth){
+el.childNodes[1].style.marginLeft= (0 - el.childNodes[1].clientWidth + a) + "px";
+}
+}
+el.onmouseout = () =>{
+el.innerHTML = `[${el.dataset.i}]`;
+el.style.zIndex="1";
+el.childNodes[0].style.marginLeft="0px";
+}
+});
+
 });
 
 

@@ -70,6 +70,8 @@ background:#23241f;
 border-radius:8px;
 padding-left:16px;
 overflow:auto;
+margin-bottom:16px;
+margin-top:32px;
 }
 #body .warn {
 color:#950606;
@@ -87,6 +89,25 @@ padding-top:16px;
 padding-left:16px;
 border-bottom-right-radius:8px;
 border-top-right-radius:8px;
+}
+#body .note {
+color:#FF6699;
+font-size:11px;
+position:absolute;
+transform: translate(-40%,-50%);
+display:inline-block;
+}
+#body .note div {
+background:var(--nightbackground);
+border-radius:2px;
+filter: drop-shadow(0px 2px 5px #aaaaaa);
+padding:3px;
+color:#aaaaaa;
+font-family:Arial;
+position:absolute;
+width:80px;
+font-size:15px;!important
+transform: translate(0%,-25%);
 }
 #label {
 width:calc(100% - 8px);
