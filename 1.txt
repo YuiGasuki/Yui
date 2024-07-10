@@ -1,2 +1,31 @@
-我是一个初中尚未读完的学生。一天，我在逛B站时，看到各位大佬的个人网站后，我也萌生了建站的想法。
-于是乎，我新建了个文件夹，开启了网站的搭建，一个晚上，网站基本功能也就写好了(不过我后来发现BUG还是有点多的)，服务器怎么搞定呢？我疑惑着，是去买一个云服务器，可是这样的话，作为一个学生，资金是不足的。所以，最后我选择了托管在Github上，服务器算是搞定了。网站就这么运行起来了
+<time>修改时间 2024年7月9日</time>
+<b>这是帮助文档</b>
+
+<b><i>一</i>，链接</b>
+<div class="code" >&#60;a href=""&#62;&#60;/a&#62;</div>
+效果: 
+<a href="index.html">这是链接</a>
+
+<b><i>二</i>，图片</b>
+<div class="code" >&#60;img src="" alt=""&#62;</div>
+效果: 
+<img src="none.jpg" alt="这是图片">
+
+<b><i>三</i>，代码</b>
+<div class="code" >&#60;div class="warn"&#62;&#60;/div&#62;</div>
+效果如上
+
+<b><i>四</i>，警告框</b>
+<div class="code" >&#60;div class="warn"&#62;&#60;/div&#62;</div>
+效果: 
+<div class="warn">! 这是警告</div>
+
+<b><i>五</i>，次要内容</b>
+<div class="code" >&#60;small&#62;&#60;/small&#62;</div>
+效果: 
+<small>这个是次要的</small>
+
+<b><i>六</i>，注释</b>
+<div class="code" >&#60;div class="note"&#62;&#60;/div&#62;</div>
+效果: 
+鹏之背<div class="note">背:代大鹏</div>
