@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>古B站语翻译器</title>
+<style>
+p {
+width:100%;
+white-space:pre-wrap;
+word-wrap:anywhere;
+word-break:break-all;
+}
+</style>
+</head>
+<body>
+<p>请输入</p>
+<input type="text" id="inpu">
+<button onclick="Transform()">加密</button>
+<button onclick="TransformB()">解密</button>
+<p id="p"></p>
+<script>
+const inp = document.getElementById('inpu'),
+      pt = document.getElementById('p');
+      
+function ascii2Unicode(str){
+if(!str){
+returnstr;
+}
+let r='';
+for(let i=0;i<str.length;i++){ 
+r+='&#'+str.charCodeAt(i)+';'; 
+}
+return r; 
+}      
+            
+
+      
+const Transform = () =>{
+  pt.innerText = ascii2Unicode(inp.value);
+ 
+}
+const TransformB = () =>{
+  pt.innerHTML = inp.value;
+ 
+}
+</script>
+</body>
+</html>
