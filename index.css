@@ -6,10 +6,11 @@
 outline:none;
 font-family:Arial;
 }
-*::-webkit-scrollbar{ display:none; 
+*::-webkit-scrollbar{
+display:none; 
 }
 body {
-background-image:url('1.jpg');
+background-image:url('b_1.webp');
 background-size:cover;
 background-repeat:no-repeat;
 background-attachment:fixed;
