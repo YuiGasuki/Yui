@@ -1,4 +1,17 @@
-document.body.style.backgroundImage = "url('" + (Math.floor(Math.random() * (3 - 1 + 1)) + 1) + ".jpg')";
+let pcpicture  = (Math.floor(Math.random() * (1 - 1 + 1)) + 1);
+let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
+function replacepicture() {
+    console.log(window.innerHeight)
+    console.log(window.innerWidth)
+    if(window.innerHeight <= window.innerWidth){
+        document.body.style.backgroundImage = "url('p_" + pcpicture + ".jpg')";
+    }else{
+        document.body.style.backgroundImage = "url('b_" + anpicture + ".jpg')";
+    }
+}
+replacepicture();
+window.addEventListener('resize', replacepicture);
+
 localStorage.clear();
 const musicAudio = document.getElementById('music_audio');
 

@@ -10,7 +10,7 @@ font-family:Arial;
 }
 body {
 background-image:url('1.jpg');
-background-size:100%;
+background-size:cover;
 background-repeat:no-repeat;
 background-attachment:fixed;
 }
@@ -93,6 +93,7 @@ filter: drop-shadow(0px 2px 5px #2b2b2bad);
 margin-top:calc(50vh - 8px);
 margin-left:calc(50vw - 8px);
 transform: translate(-50%,-50%);
+position:absolute;
 }
 #body_name {
 font-size:1em;
