@@ -1,5 +1,6 @@
 let pcpicture  = (Math.floor(Math.random() * (2 - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
+let portraitNumber = 6;//头像的总数
 function replacepicture() {
     console.log(window.innerHeight)
     console.log(window.innerWidth)
@@ -13,7 +14,7 @@ replacepicture();
 window.addEventListener('resize', replacepicture);
 
 localStorage.clear();
-const musicAudio = document.getElementById('music_audio');
+
 
 
 
@@ -69,7 +70,7 @@ bodyPortrait.onclick = () => {
     bodyPortrait.style.width = "0px";
     bodyPortrait.style.height = "0px";
     setTimeout(function() {
-        bodyPortrait.src = "portrait" + portrait + ".jpg";
+        bodyPortrait.src = "portrait" + portrait + ".webp";
         let a = setTimeout(function() {
             bodyPortrait.style.width = "80px";
             bodyPortrait.style.height = "80px";
@@ -81,21 +82,9 @@ bodyPortrait.onclick = () => {
         }
     }, 500);//为了让动画运行后再切换图片
     portrait++;
-    if (portrait === 5) {
+    if (portrait === portraitNumber + 1) {
         portrait = 1;
-    }
-    localStorage.musicone = musicAudio.currentTime;
-    if (portrait === 3) {       
-        musicAudio.src = "2.mp3";
-    } else if (portrait === 1) {
-        musicAudio.src = "1.mp3";
-    }
-    musicAudio.onloadedmetadata = () => {
-            if (localStorage.musictwo != undefined) {
-                musicAudio.currentTime = localStorage.musictwo;
-            }
-            musicAudio.play();
-        }
+    }    
     if (bodyInformation.style.display != "inline") {
         bodyInformation.style.display = "inline";
         idSearch.style.display = "inline";
@@ -189,19 +178,7 @@ function openfeel() {
 }
 
 
-const idMusic = document.getElementById('music');
 
-
-idMusic.onclick = () => {
-    if (musicAudio.paused) {
-        musicAudio.play();
-        idMusic.style.animationPlayState = "running";
-    } else {
-        musicAudio.pause();
-        idMusic.style.animationPlayState = "paused";
-    }
-
-}
 
 
 /**
