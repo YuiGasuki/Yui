@@ -14,6 +14,7 @@ background-image:url('b_1.webp');
 background-size:cover;
 background-repeat:no-repeat;
 background-attachment:fixed;
+background-position:center center;
 }
 #background {
 position:fixed;
@@ -151,6 +152,11 @@ margin-bottom: 16px;
 filter: drop-shadow(0px 2px 5px #2b2b2bad);
 
 overflow:hidden;
+}
+#ntroduction_project {
+display: flex;
+justify-content:center;
+flex-wrap: wrap;
 }
 #ntroduction_project object {
 width:100%;

@@ -1,4 +1,4 @@
-let pcpicture  = (Math.floor(Math.random() * (1 - 1 + 1)) + 1);
+let pcpicture  = (Math.floor(Math.random() * (2 - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
 function replacepicture() {
     console.log(window.innerHeight)
