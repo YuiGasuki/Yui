@@ -1,5 +1,6 @@
 :root {
---nightBrightness:0.3;
+--nightBrightness:0px;
+--nightbox:0;
 --nightbackground:rgba(255,255,255,0.733);
 }
 * {
@@ -22,10 +23,8 @@ top:0px;
 left:0px;
 width:100vw;
 height:100vh;
-backdrop-filter:blur(1.5px);
 background:black;
-opacity:var(--nightBrightness);
-transition:1s;
+opacity:0.35;
 }
 #background_bur {
 position:fixed;
@@ -33,9 +32,20 @@ top:0px;
 left:0px;
 width:100vw;
 height:100vh;
-backdrop-filter:blur(1.5px);
+backdrop-filter:blur(var(--nightBrightness));
+transition:backdrop-filter 1s;
 }
-
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
+}
 #search {
 position:absolute;
 top:0px;

@@ -49,10 +49,10 @@ channel.postMessage({
 channel.addEventListener('message', (e) => {
     if (e.data.Type === 0) {
         document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
-        document.documentElement.style.setProperty('--nightBrightness', '0.3');
+        document.documentElement.style.setProperty('--nightbox', '0');
     } else {
         document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
-        document.documentElement.style.setProperty('--nightBrightness', '0.5');
+        document.documentElement.style.setProperty('--nightbox', '0.5');
     }
 })
 
@@ -86,6 +86,7 @@ bodyPortrait.onclick = () => {
         portrait = 1;
     }    
     if (bodyInformation.style.display != "inline") {
+        document.documentElement.style.setProperty('--nightBrightness', '2.5px');
         bodyInformation.style.display = "inline";
         idSearch.style.display = "inline";
         let bodyInfheight = bodyInformation.offsetHeight;
@@ -96,6 +97,7 @@ bodyPortrait.onclick = () => {
         idSearch.style.transform = "translate(-50%,0%)";
     } else {
         goBackTotTop();
+        document.documentElement.style.setProperty('--nightBrightness', '0px');
         idSearch.style.transition = "0.5s";
         idSearch.style.transform = "translate(-50%,-200%)";
         bodyInformation.style.transition = "0.5s";
