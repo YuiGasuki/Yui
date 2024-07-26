@@ -75,16 +75,33 @@ function openfeel() {
 window.open("search.html?q="+document.getElementById("searchText").value);
 }
 
-const channel = new BroadcastChannel('Yui_night');
-channel.postMessage({
-    	Type:3
-})
-channel.addEventListener('message', (e) => {
-if(e.data.Type===0){
-document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
-document.documentElement.style.setProperty('--nightBrightness','0.3');
-}else if(e.data.Type!=3){
-document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
+
+
+const DarkMode = () =>{
+    if(document.cookie){
+        let data = document.cookie.split(";")[0].split("=")[1];
+        if(data==="true"){
+            document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
 document.documentElement.style.setProperty('--nightBrightness','0.5');
+document.documentElement.style.setProperty('--nightbox', '0.5');
+        }else{
+            document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
+document.documentElement.style.setProperty('--nightBrightness','0.3');
+document.documentElement.style.setProperty('--nightbox', '0');  
+        }
+    }else{
+        document.documentElement.style.setProperty('--nightbackground','rgba(255,255,255,0.8)');
+document.documentElement.style.setProperty('--nightBrightness','0.3');
+document.documentElement.style.setProperty('--nightbox', '0');  
+    }
 }
+
+DarkMode();
+
+
+
+const channel = new BroadcastChannel('Yui_night');
+
+channel.addEventListener('message', (e) => {
+    DarkMode();
 })

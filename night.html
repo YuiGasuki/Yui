@@ -339,7 +339,7 @@ transition:1s;
 </head>
 <body>
 
-<div id="body" onclick="night()">
+<div id="body" onclick="night(1)">
 
 <div id="head">
 <div id="head_a"></div>
@@ -376,45 +376,24 @@ transition:1s;
 </div>
 <script>
 var a=0;
+
+
 const channel = new BroadcastChannel('Yui_night');
-channel.addEventListener('message', (e) => {
-if(e.data.Type===3){
-if(a===1){
-channel.postMessage({
-    	Type:1
-    })
-}else{
-channel.postMessage({
-    	Type:0
-    })
-}
-}else{
-    if(e.data.Type===0){
-        if(a===1){
-        night();
-        }
-    }else{
-        if(a!=1){
-        night();
-        }
-    }
-}
-});
-channel.postMessage({
-    	Type:0
-});
+
+
 var r = document.querySelector('html');
-function night(){
+function night(b){
 a=a+1;
 if(a==3){
 a=1;
 }
 if(a==1){
-
-const channel = new BroadcastChannel('Yui_night');
+if(b){
 channel.postMessage({
     	Type:1
     })
+document.cookie="darkmode=true; max-age:2592000";
+}
 r.style.setProperty('--ha', '164px');
 r.style.setProperty('--a', '105px');
 r.style.setProperty('--b', '50px');
@@ -435,10 +414,12 @@ r.style.setProperty('--hd', '#999A98');
 r.style.setProperty('--hea', '1');
 }
 if(a==2){
-const channel = new BroadcastChannel('Yui_night');
+if(b){
 channel.postMessage({
     	Type:0
     })
+   }
+document.cookie="darkmode=false; max-age:2592000";
 r.style.setProperty('--ha', '10px');
 r.style.setProperty('--a', '-45px');
 r.style.setProperty('--b', '0px');
@@ -456,6 +437,28 @@ r.style.setProperty('--cb', '20px');
 r.style.setProperty('--cc', '10px');
 }
 }
+
+
+
+console.log(document.cookie)
+const DarkMode = () =>{
+    if(document.cookie){
+        let data = document.cookie.split(";")[0].split("=")[1];
+        if(data==="true"){
+            night();
+        }else{
+            a = 1;
+            night();
+        }
+    }else{
+        a = 1;
+        night();
+    }
+}
+DarkMode();
+channel.addEventListener('message', (e) => {
+    DarkMode()
+})
 </script>
 
 </body>

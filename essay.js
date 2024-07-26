@@ -23,18 +23,18 @@ fetch(textp+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 
 
-let gitalk = new Gitalk({
+ let gitalk = new Gitalk({
   clientID: 'Ov23liQRR4VjYR4dXXDv',
   clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
   repo: 'CommentYui',
   owner: 'Yuigasuki',
   admin: ['Yuigasuki'],
   id: location.pathname+"?Yui="+textp,  
-  distractionFreeMode: false  // Facebook-like distraction free mode
+   distractionFreeMode: false  // Facebook-like distraction free mode
   
-});
+ });
 
-gitalk.render('gitalk-container');
+ gitalk.render('gitalk-container'); 
 
 
 return response.text();
@@ -82,17 +82,31 @@ el.childNodes[0].style.marginLeft="0px";
 }
 
 
-const channel = new BroadcastChannel('Yui_night');
-channel.postMessage({
-    	Type:3
-})
-channel.addEventListener('message', (e) => {
-if(e.data.Type===0){
-document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
-document.body.style.background = "#eee";
-}else if(e.data.Type===1){
-document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
+const DarkMode = () =>{
+    if(document.cookie){
+        let data = document.cookie.split(";")[0].split("=")[1];
+        if(data==="true"){
+            document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
 document.body.style.background = "rgba(86,86,86)";
+document.documentElement.style.setProperty('--nightbox', '0.5');  
+        }else{
+            document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
+document.body.style.background = "#eee";
+document.documentElement.style.setProperty('--nightbox', '0');  
+        }
+    }else{
+        document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
+        document.documentElement.style.setProperty('--nightbox', '0');  
+document.body.style.background = "#eee";
+    }
 }
+
+DarkMode();
+
+
+const channel = new BroadcastChannel('Yui_night');
+
+channel.addEventListener('message', (e) => {
+DarkMode();
 })
 

@@ -1,5 +1,6 @@
 let pcpicture  = (Math.floor(Math.random() * (2 - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
+console.log(document.cookie)
 let portraitNumber = 6;//头像的总数
 function replacepicture() {
     console.log(window.innerHeight)
@@ -40,20 +41,32 @@ const TypingAnimation = (e, name, present, i) => {
 TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
     .innerHTML, "", 0);
 
+
+const DarkMode = () =>{
+    if(document.cookie){
+        let data = document.cookie.split(";")[0].split("=")[1];
+        if(data==="true"){
+            document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
+            document.documentElement.style.setProperty('--nightbox', '0.5');  
+        }else{
+            document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
+            document.documentElement.style.setProperty('--nightbox', '0');
+        }
+    }else{
+        document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
+            document.documentElement.style.setProperty('--nightbox', '0');
+    }
+}
+
+DarkMode();
 const channel = new BroadcastChannel('Yui_night');
 
-channel.postMessage({
-    Type: 3
-})
+// channel.postMessage({
+    // Type: 3
+// })
 
 channel.addEventListener('message', (e) => {
-    if (e.data.Type === 0) {
-        document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
-        document.documentElement.style.setProperty('--nightbox', '0');
-    } else {
-        document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
-        document.documentElement.style.setProperty('--nightbox', '0.5');
-    }
+DarkMode()
 })
 
 

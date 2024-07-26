@@ -1,6 +1,7 @@
 :root {
 --nightBrightness:0.3;
 --nightbackground:rgba(255,255,255,0.733);
+--nightbox:0;
 }
 * {
 outline:none;
@@ -35,6 +36,17 @@ width:100vw;
 height:100vh;
 backdrop-filter:blur(1.5px);
 z-index: -1;
+}
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
 }
 #search {
 position:relative;
