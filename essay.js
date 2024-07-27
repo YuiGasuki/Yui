@@ -43,9 +43,11 @@ return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 document.getElementById('body').innerHTML = data;
+
 document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
 });
+
 document.querySelectorAll('img').forEach(el => {
   
   el.onerror = () =>{
@@ -87,17 +89,17 @@ const DarkMode = () =>{
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
             document.documentElement.style.setProperty('--nightbackground','rgba(86,86,86,0.8)');
-document.body.style.background = "rgba(86,86,86)";
+document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa'); 
 document.documentElement.style.setProperty('--nightbox', '0.5');  
         }else{
             document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
-document.body.style.background = "#eee";
+    document.documentElement.style.setProperty('--nightfcolor', '#606266');
 document.documentElement.style.setProperty('--nightbox', '0');  
         }
     }else{
         document.documentElement.style.setProperty('--nightbackground','rgba(238,238,238,0.8)');
         document.documentElement.style.setProperty('--nightbox', '0');  
-document.body.style.background = "#eee";
+        document.documentElement.style.setProperty('--nightfcolor', '#606266'); 
     }
 }
 
