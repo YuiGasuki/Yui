@@ -50,7 +50,8 @@ font-size:1.2em;
 font-weight:bold;
 overflow:auto;
 transform: translate(0%,-100%);
-margin-bottom:-2em;
+margin-top:0px;
+position:absolute;
 }
 #body {
 padding:8px;
@@ -139,7 +140,6 @@ flex-wrap: wrap;
 background:var(--nightbackground);
 transition:1s;
 padding-top:32px;
-border-radius:16px 16px 0px 0px;
 
 }
 .label {
