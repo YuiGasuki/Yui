@@ -160,7 +160,7 @@ font-size:0.8em;
 #body ul {
 list-style-type:none;
 font-family:"Times New Roman",Arial;
-color:#7d7d7d;
+color:var(--nightfcolor);
 width:100%;
 margin-left:-40px;
 }
