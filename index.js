@@ -130,10 +130,11 @@ bodyPortrait.onclick = () => {
 
 fetch('1.json', {
     method: 'GET'
-})
-    .then(response => response.json())
-    .then(data => {
+}).then(response => response.json()).then(data => {
     for (let i = data.length - 1; i >= 0; i = i - 1) {
+        if(data[i].type==="1"){
+        continue
+        }
         let b = "";
         for (let ib = 0; ib < data[i].label.length; ib++) {
             b += `<span>` + data[i].label[ib] + `</span>`;

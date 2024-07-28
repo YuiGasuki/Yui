@@ -12,6 +12,9 @@ return []
 }
 }).then(data =>{
 for(let i = data.length-1;i>=0;i=i-1){
+if(data[i].type==="1"){
+        continue
+}
 let b = false;
 let t = "";
 for(let ib=0;ib<data[i].label.length;ib++){
