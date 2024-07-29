@@ -168,7 +168,8 @@ margin-left:-40px;
 margin:-8px 0px;
 }
 #body small {
-color:var(--nightfcolor)9c;
+color:var(--nightfcolor);
+filter:contrast(40%);
 }
 #comments_Section {
 color:var(--nightfcolor);
