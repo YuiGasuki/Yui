@@ -1,6 +1,10 @@
 const params = new URLSearchParams(location.search);
 const textp=params.get('Yui');
-if(textp!=null&textp!=""){
+let history = "";
+if(textp!=null&&textp!=""){
+if(params.get('history')!=null&&params.get('history')!=""){
+    history+= "-"+params.get('history');
+}
 fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
 let datab;
 for(let onei = 0;onei<data.length;onei++){
@@ -19,7 +23,7 @@ document.getElementById('titleimg').onerror = () =>{
 document.getElementById('titleimg').src="none.jpg";
 }
 });
-fetch(textp+'.txt',{method: 'GET'}).then(response => {
+fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 
 

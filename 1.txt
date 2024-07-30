@@ -12,7 +12,7 @@
 <img src="none.jpg" alt="这是图片">
 
 <b><i>三</i>，代码</b>
-<div class="code" >&#60;div class="warn"&#62;&#60;/div&#62;</div>
+<div class="code" >&#60;div class="code"&#62;&#60;/div&#62;</div>
 效果如上
 
 <b><i>四</i>，警告框</b>
