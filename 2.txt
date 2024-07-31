@@ -53,6 +53,18 @@ singer为音乐歌手
 cover为专辑图片来源
 支持数组[],会创建播放列表。
 
+<div class="code">
+SuspendedBall:Boolean,
+SuspendedPosition:""
+</div>
+悬浮小播放器
+SuspendedBall默认为false，开启则设置true
+SuspendedPosition属性的必须的，格式为
+"方向:长度 方向:长度"
+例如:"bottom:20px left:8px"
+
+
+
 <b>API</b>
 
 
