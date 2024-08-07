@@ -17,6 +17,13 @@ window.addEventListener('resize', replacepicture);
 localStorage.clear();
 
 
+document.querySelectorAll('.load').forEach(el => {
+  el.onload = () =>{
+    alert("成功");
+  }
+});
+
+
 
 
 const TypingAnimation = (e, name, present, i) => {
