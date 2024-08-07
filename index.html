@@ -36,13 +36,48 @@
     </div>
 </div>
 
+
+
+<style>
+#first_box p {
+display:flex;
+position:absolute;
+font-size:1.2em;
+}
+#first_box p span {
+animation:firstPAnime 0.9s;
+animation-iteration-count:infinite;
+animation-timing-function:ease-in-out;
+display:block;
+}
+#first_box p .a {
+animation-delay:0.6s;
+}
+#first_box p .b {
+animation-delay:0.3s;
+}
+#first_box p .c {
+animation-delay:0s;
+}
+@keyframes firstPAnime {
+    0% { margin-top: 0em; }
+    50% { margin-top: -0.2em; }
+    100% { margin-top: 0em; }
+}
+</style>
 <div id="first_box">
 <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
 </div>
 
 
-<div id="Azuplay"></div>
 <div id="nightbox" ></div>
+<script>
+let ifonload = setTimeout(function() {
+    if(document.getElementById('first_box')){
+            document.getElementById('first_box').remove();
+    }
+}, 8000);
+</script>
 <script src="index.js"></script>
 </body>
 </html>

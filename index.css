@@ -60,31 +60,7 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 }
-#first_box p {
-display:flex;
-position:absolute;
-font-size:1.2em;
-}
-#first_box p span {
-animation:firstPAnime 0.9s;
-animation-iteration-count:infinite;
-animation-timing-function:ease-in-out;
-display:block;
-}
-#first_box p .a {
-animation-delay:0.6s;
-}
-#first_box p .b {
-animation-delay:0.3s;
-}
-#first_box p .c {
-animation-delay:0s;
-}
-@keyframes firstPAnime {
-    0% { margin-top: 0em; }
-    50% { margin-top: -0.2em; }
-    100% { margin-top: 0em; }
-}
+
 #search {
 position:absolute;
 top:0px;
