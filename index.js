@@ -16,13 +16,9 @@ window.addEventListener('resize', replacepicture);
 
 localStorage.clear();
 
-
-document.querySelectorAll('.load').forEach(el => {
-  el.onload = () =>{
+window.onload = () =>{
     alert("成功");
-  }
-});
-
+}
 
 
 
