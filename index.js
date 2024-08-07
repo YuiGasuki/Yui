@@ -16,11 +16,15 @@ window.addEventListener('resize', replacepicture);
 
 localStorage.clear();
 
+let ifonload = setTimeout(function() {
+    if(document.getElementById('first_box')){
+            document.getElementById('first_box').remove();
+    }
+}, 8000);
 window.onload = () =>{
-    alert("成功");
+    document.getElementById('first_box').remove();
+    clearTimeout(ifonload);
 }
-
-
 
 const TypingAnimation = (e, name, present, i) => {
     if (present === '') {
