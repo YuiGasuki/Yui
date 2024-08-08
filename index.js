@@ -13,21 +13,16 @@ window.addEventListener('resize', replacepicture);
 
 localStorage.clear();
 
-let ifImgOnload = 0;
 document.querySelectorAll(".load").forEach(item => {
-        let img = new Image();
-        img.src = item.src;
-        img.onload = () =>{          
-            ifImgOnload++;           
-            if(ifImgOnload>=(document.querySelectorAll(".load").length-1)){
-                if(document.getElementById('first_box')){
-                document.getElementById('first_box').remove();
-                }
-            clearTimeout(ifonload);
-            }            
+    let img = new Image();
+    img.src = item.src;
+});
+window.onload = () =>{          
+    if(document.getElementById('first_box')){
+    document.getElementById('first_box').remove();
     }
-    });
-
+    clearTimeout(ifonload);     
+}
 
 const TypingAnimation = (e, name, present, i) => {
  
