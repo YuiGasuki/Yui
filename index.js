@@ -1,10 +1,7 @@
 let pcpicture  = (Math.floor(Math.random() * (2 - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
-console.log(document.cookie)
 let portraitNumber = 6;//头像的总数
 function replacepicture() {
-    console.log(window.innerHeight)
-    console.log(window.innerWidth)
     if(window.innerHeight <= window.innerWidth){
         document.body.style.backgroundImage = "url('p_" + pcpicture + ".webp')";
     }else{
@@ -22,13 +19,42 @@ window.onload = () =>{
 }
 
 const TypingAnimation = (e, name, present, i) => {
+ 
     if (present === '') {
         present = name[i];
     } else {
+        if (i >= name.length - 1) {
+            let a = name.length-(i-name.length);
+            if((i-name.length) <= 0){
+                i++
+                setTimeout(() => {
+                    TypingAnimation(e, name, present, i)
+                }, 400)
+                return
+            }
+            present = name.split(name[a])[0];
+            document.getElementById('body_name')
+        .innerHTML = present + '|';
+            if (i >=(name.length*2)){
+            i = 0;
+            setTimeout(() => {
+                TypingAnimation(e, name, present, i)
+            }, 400)
+            }else{
+            i++;
+            setTimeout(() => {
+                TypingAnimation(e, name, present, i)
+            }, 400)
+            }
+            return
+        }
         if (i >= name.length - 2) {
             present += name[i + 1];
-            document.getElementById('body_name')
-                .innerHTML = present;
+            document.getElementById('body_name').innerHTML = present;
+            i++;
+            setTimeout(() => {
+                TypingAnimation(e, name, present, i)
+            }, 1000)
             return
         }
         present += name[i + 1];
@@ -205,7 +231,6 @@ function openfeel() {
  */
 const goBackTotTop = () =>{
     if(document.documentElement.scrollTop > 0){
-            console.log(document.documentElement.scrollTop);
             document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/8);
             window.requestAnimationFrame(goBackTotTop)
 
