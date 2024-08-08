@@ -9,18 +9,18 @@
 
 </head>
 <body>
-<img id="background_img" src="b_1.webp" >
+<img id="background_img" class="load" >
 <div id="background_bur"></div>
 <div id="background"></div>
-<div style="display:flex" id="search"><input type="text" onkeydown="ent()" id="searchText"><img src="search.svg" id="search_img" onclick="openfeel()" alt="search" ></div>
+<div style="display:flex" id="search"><input type="text" onkeydown="ent()" id="searchText"><img src="search.svg" id="search_img" onclick="openfeel()" alt="search" class="load" ></div>
 <div id="body_centre">
-<img src="portrait1.webp" id="body_portrait" alt="portrait" />
+<img src="portrait1.webp" id="body_portrait" alt="portrait" class="load" />
 <p id="body_name" onclick="TypingAnimation(this,'Yui_','',0)">Yui_</p>
 <div id="body_information">
-<img src="bilibili.svg" onclick="JavaScript:window.open('https://space.bilibili.com/1560384560')" alt="bili" />
-<img src="github.svg" onclick="JavaScript:window.open('https://github.com/Yuigasuki')" alt="github" />
-<img src="x.svg" onclick="JavaScript:window.open('https://x.com/Yuicat414815?s=09')" alt="x" />
-<img src="youtube.svg" onclick="JavaScript:window.open('https://www.youtube.com/channel/UCEtisOmwHa1QUgts7b0PoYw')" alt="youtube" />
+<img src="bilibili.svg" onclick="JavaScript:window.open('https://space.bilibili.com/1560384560')" alt="bili" class="load" />
+<img src="github.svg" onclick="JavaScript:window.open('https://github.com/Yuigasuki')" alt="github" class="load" />
+<img src="x.svg" onclick="JavaScript:window.open('https://x.com/Yuicat414815?s=09')" alt="x" class="load" />
+<img src="youtube.svg" onclick="JavaScript:window.open('https://www.youtube.com/channel/UCEtisOmwHa1QUgts7b0PoYw')" alt="youtube" class="load" />
 </div>
     <div id="body_ntroduction">
         <div id="ntroduction_project" class="ntroduction">
@@ -51,6 +51,7 @@ animation-iteration-count:infinite;
 animation-timing-function:ease-in-out;
 display:block;
 }
+
 #first_box p .a {
 animation-delay:0.6s;
 }
@@ -69,7 +70,6 @@ animation-delay:0s;
 <div id="first_box">
 <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
 </div>
-
 
 <div id="nightbox" ></div>
 <script>
