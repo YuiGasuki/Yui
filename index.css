@@ -11,11 +11,16 @@ font-family:Arial;
 display:none; 
 }
 body {
-background-image:url('b_1.webp');
-background-size:cover;
-background-repeat:no-repeat;
-background-attachment:fixed;
-background-position:center center;
+
+}
+#background_img {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+object-fit:cover;
+border-style:none;
 }
 #background {
 position:fixed;

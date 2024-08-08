@@ -3,9 +3,9 @@ let anpicture = (Math.floor(Math.random() * (5 - 1 + 1)) + 1);
 let portraitNumber = 6;//头像的总数
 function replacepicture() {
     if(window.innerHeight <= window.innerWidth){
-        document.body.style.backgroundImage = "url('p_" + pcpicture + ".webp')";
+        document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
     }else{
-        document.body.style.backgroundImage = "url('b_" + anpicture + ".webp')";
+        document.getElementById('background_img').src = "b_" + anpicture + ".webp";
     }
 }
 replacepicture();
