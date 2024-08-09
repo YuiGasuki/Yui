@@ -20,7 +20,9 @@ document.querySelectorAll(".load").forEach(item => {
 window.onload = () =>{          
     if(document.getElementById('first_box')){
     document.getElementById('first_box').remove();
-    }
+    TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
+    .innerHTML, "", 0);
+    }   
     clearTimeout(ifonload);     
 }
 
@@ -72,8 +74,7 @@ const TypingAnimation = (e, name, present, i) => {
         TypingAnimation(e, name, present, i)
     }, 400)
 }
-TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
-    .innerHTML, "", 0);
+
 
 
 const DarkMode = () =>{
