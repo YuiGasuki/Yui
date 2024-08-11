@@ -26,7 +26,7 @@ window.onload = () =>{
     TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
     .innerHTML, "", 0);
     }   
-    clearTimeout(ifonload);     
+        
 }
 
 const TypingAnimation = (e, name, present, i) => {
