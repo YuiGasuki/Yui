@@ -5,11 +5,11 @@
 --nightfcolor:#606266;
 }
 @font-face {
-    font-family:'honoka-shin';
-    src:url("/Yui/font/honoka-shin-mincho-l.ttf");
+    font-family:'GenEiKoburiMin6';
+    src:url("GenEiKoburiMin6-R.ttf");
 }
 * {
-font-family:'honoka-shin';
+font-family:'GenEiKoburiMin6';
 }
 #nightbox {
 position:fixed;
