@@ -21,7 +21,7 @@ document.querySelectorAll(".load").forEach(item => {
     img.src = item.src;
 });
 
-const fontFile = new FontFace('SourceHanSerifCN','url(/Yui/font/SourceHanSerifCN-Medium-6.otf)');
+const fontFile = new FontFace('SourceHanSerifCN','url(https://yuigasuki.github.io/Yui/font/SourceHanSerifCN-Medium-6.otf)');
 document.fonts.add(fontFile);
 let ifLoadOk = 0;
 fontFile.load().then(()=>{
