@@ -1,10 +1,10 @@
 @font-face {
     font-family:'SourceHanSerifCN';
-    src:url("font/SourceHanSerifCN-Medium-6.otf");
+    src:url("/Yui/font/SourceHanSerifCN-Medium-6.otf");
 }
 @font-face {
     font-family:'NotoSansCJK';
-    src:url("font/NotoSansCJK-DemiLight-4.otf");
+    src:url("/Yui/font/NotoSansCJK-DemiLight-4.otf");
 }
 :root {
 --fontFamily: 'SourceHanSerifCN';
