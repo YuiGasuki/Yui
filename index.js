@@ -117,7 +117,7 @@ const bodyPortrait = document.getElementById('body_portrait');
 const idSearch = document.getElementById('search');
 
 bodyPortrait.onclick = () => {
-    bodyPortrait.style.transition = "0.5s";
+    bodyPortrait.style.transition = "0.4s";
     bodyPortrait.style.width = "0px";
     bodyPortrait.style.height = "0px";
     setTimeout(function() {
@@ -131,7 +131,7 @@ bodyPortrait.onclick = () => {
             bodyPortrait.style.height = "80px";
             clearTimeout(a);
         }
-    }, 500);//为了让动画运行后再切换图片
+    }, 400);//为了让动画运行后再切换图片
     portrait++;
     if (portrait === portraitNumber + 1) {
         portrait = 1;
@@ -142,16 +142,16 @@ bodyPortrait.onclick = () => {
         idSearch.style.display = "inline";
         let bodyInfheight = bodyInformation.offsetHeight;
         bodyInfheight = idSearch.offsetHeight;
-        bodyInformation.style.transition = "0.5s";
+        bodyInformation.style.transition = "0.4s";
         bodyInformation.style.opacity = "1";
-        idSearch.style.transition = "0.5s";
+        idSearch.style.transition = "0.4s";
         idSearch.style.transform = "translate(-50%,0%)";
     } else {
         goBackTotTop();
         document.documentElement.style.setProperty('--nightBrightness', '0px');
-        idSearch.style.transition = "0.5s";
+        idSearch.style.transition = "0.4s";
         idSearch.style.transform = "translate(-50%,-200%)";
-        bodyInformation.style.transition = "0.5s";
+        bodyInformation.style.transition = "0.4s";
         bodyInformation.style.opacity = "0";
         setTimeout(function() {
             bodyInformation.style.display = "none";
