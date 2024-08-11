@@ -4,6 +4,13 @@
 --nightbox:0;
 --nightfcolor:#606266;
 }
+@font-face {
+    font-family:'honoka-shin';
+    src:url("/Yui/font/honoka-shin-mincho-l.ttf");
+}
+* {
+font-family:'honoka-shin';
+}
 #nightbox {
 position:fixed;
 top:0px;
@@ -40,7 +47,6 @@ margin-left:-8px;
 width:calc(100% - 16px);
 background:var(--nightbackground);
 transition:1s;
-font-family:'SourceHanSerifCN';
 color:var(--nightfcolor);
 padding-bottom:1em;
 padding-top:32px;
@@ -55,7 +61,6 @@ position:absolute;
 }
 #body {
 padding:8px;
-font-family:'SourceHanSerifCN';
 border-radius:0px 0px 16px 16px;
 color:var(--nightfcolor);
 white-space:pre-wrap;
@@ -70,7 +75,6 @@ padding-bottom:32px;
 }
 a {
 color:#FF6699;
-font-family:'SourceHanSerifCN';
 white-space:pre-wrap;
 word-wrap:anywhere;
 word-break:break-all;
@@ -126,7 +130,6 @@ border-radius:2px;
 filter: drop-shadow(0px 2px 5px var(--nightfcolor));
 padding:3px;
 color:var(--nightfcolor);
-font-family:'SourceHanSerifCN';
 position:absolute;
 width:80px;
 font-size:15px;!important
@@ -159,7 +162,6 @@ font-size:0.8em;
 
 #body ul {
 list-style-type:none;
-font-family:'SourceHanSerifCN';
 color:var(--nightfcolor);
 width:100%;
 margin-left:-40px;
