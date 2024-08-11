@@ -20,28 +20,7 @@ document.querySelectorAll(".load").forEach(item => {
     let img = new Image();
     img.src = item.src;
 });
-
-const fontFile = new FontFace('SourceHanSerifCN','url(https://yuigasuki.github.io/Yui/font/SourceHanSerifCN-Medium-6.otf)');
-document.fonts.add(fontFile);
-let ifLoadOk = 0;
-fontFile.load().then(()=>{
-    ifLoadOk++;
-    if(ifLoadOk!=2){
-        return
-    }
-    if(document.getElementById('first_box')){
-    document.getElementById('first_box').remove();
-    TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
-    .innerHTML, "", 0);
-    }   
-    clearTimeout(ifonload);
-})
-
-window.onload = () =>{       
-    ifLoadOk++;
-    if(ifLoadOk!=2){
-        return
-    }   
+window.onload = () =>{          
     if(document.getElementById('first_box')){
     document.getElementById('first_box').remove();
     TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
