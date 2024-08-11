@@ -3,9 +3,11 @@
 --nightbox:0;
 --nightbackground:rgba(255,255,255,0.733);
 }
+
+
 * {
 outline:none;
-font-family:Arial;
+font-family:'SourceHanSerifCN';
 }
 *::-webkit-scrollbar{
 display:none; 
@@ -121,7 +123,7 @@ width:calc(100vw + 0px);
 font-size:1em;
 color:#aaaaaa;
 text-align:center;
-font-family:"Times New Roman",Arial;
+font-family:'SourceHanSerifCN';
 font-weight:bold;
 text-shadow:0px 2px 5px black;
 }
@@ -153,7 +155,7 @@ margin-top:18px;
 }
 #ntroduction_ul {
 list-style-type:none;
-font-family:"Times New Roman",Arial;
+font-family:'SourceHanSerifCN';
 color:#7d7d7d;
 width:100%;
 margin-left:-40px;
@@ -166,7 +168,7 @@ padding:8px;
 background:var(--nightbackground);
 transition:1s;
 border-radius:8px;
-font-family:"Times New Roman",Arial;
+font-family:'SourceHanSerifCN';
 color:#7d7d7d;
 
 margin-bottom: 16px;
@@ -201,7 +203,7 @@ background:#aaaaaa;
 position:absolute;
 margin-top:calc(0px - 40px + 0.5em);
 margin-left:60px;
-font-family:"Times New Roman",Arial;
+font-family:'SourceHanSerifCN';
 }
 .body {
 white-space:pre-wrap;
@@ -230,7 +232,7 @@ transform: translate(0%,-100%);
 width:100%;
 background:var(--nightbackground);
 transition:1s;
-font-family:"Times New Roman",Arial;
+font-family:'SourceHanSerifCN';
 color:#aaaaaa;
 padding-bottom:46px;
 padding-top:32px;

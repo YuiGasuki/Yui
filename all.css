@@ -1,0 +1,11 @@
+@font-face {
+    font-family:'SourceHanSerifCN';
+    src:url("/font/SourceHanSerifCN-Medium-6.otf");
+}
+@font-face {
+    font-family:'NotoSansCJK';
+    src:url("/font/NotoSansCJK-DemiLight-4.otf");
+}
+* {
+    font-family:'SourceHanSerifCN';
+}
