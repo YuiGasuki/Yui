@@ -32,7 +32,11 @@ document.getElementById('titleimg').src="none.webp";
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 
-
+ifOnlad++;
+if(ifOnlad>=2){
+    document.getElementById('first_box').remove();
+    document.body.style.overflow="auto";
+}
     
 
 
@@ -63,11 +67,7 @@ document.querySelectorAll('div.code').forEach(el => {
 });
 
 
-ifOnlad++;
-if(ifOnlad>=2){
-    document.getElementById('first_box').remove();
-    document.body.style.overflow="auto";
-}
+
 
 document.querySelectorAll('img').forEach(el => {
   
