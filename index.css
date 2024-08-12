@@ -132,7 +132,7 @@ body {
     padding:8px 0px;
     display:none;
     opacity:0;
-    margin-top:18px
+    margin-top:38px;
 }
 #ntroduction_ul {
     list-style-type:none;
@@ -144,7 +144,7 @@ body {
     margin:8px
 }
 .ntroduction {
-    padding:8px;
+    padding-bottom:8px;
     background:var(--nightbackground);
     transition:1s;
     border-radius:8px;
@@ -158,7 +158,7 @@ body {
     justify-content:center;
     flex-wrap:wrap
 }
-#ntroduction_project object {
+#ntroduction_project embed {
     width:100%;
     border-style:none;
     margin-bottom:5px;
@@ -195,7 +195,8 @@ body {
     width:100%;
     min-height:58px;
     --width:calc(100vw - 109px);
-    max-height:calc(var(--width) / 3 * 2)
+    max-height:calc(var(--width) / 3 * 2);
+    margin-bottom:85px;
 }
 .title {
     position:absolute;
@@ -212,7 +213,8 @@ body {
     font-size:1.1em;
     font-weight:bold;
     overflow:auto;
-    white-space:nowrap
+    white-space:nowrap;
+    backdrop-filter:blur(var(--nightBrightness)) brightness(70%);   
 }
 .label {
     width:calc(100% - 8px);

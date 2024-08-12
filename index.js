@@ -109,31 +109,12 @@ DarkMode()
 
 
 
-let portrait = 1;
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
 const idSearch = document.getElementById('search');
 
 bodyPortrait.onclick = () => {
-    bodyPortrait.style.transition = "0.4s";
-    bodyPortrait.style.width = "0px";
-    bodyPortrait.style.height = "0px";
-    setTimeout(function() {
-        bodyPortrait.src = "portrait" + portrait + ".webp";
-        let a = setTimeout(function() {
-            bodyPortrait.style.width = "80px";
-            bodyPortrait.style.height = "80px";
-        }, 1000);
-        bodyPortrait.onload = () => {
-            bodyPortrait.style.width = "80px";
-            bodyPortrait.style.height = "80px";
-            clearTimeout(a);
-        }
-    }, 400);//为了让动画运行后再切换图片
-    portrait++;
-    if (portrait === portraitNumber + 1) {
-        portrait = 1;
-    }    
+    
     if (bodyInformation.style.display != "inline") {
         document.documentElement.style.setProperty('--nightBrightness', '2.5px');
         bodyInformation.style.display = "inline";
@@ -141,7 +122,8 @@ bodyPortrait.onclick = () => {
         let bodyInfheight = bodyInformation.offsetHeight;
         bodyInfheight = idSearch.offsetHeight;
         bodyInformation.style.transition = "0.4s";
-        bodyInformation.style.opacity = "1";
+        bodyInformation.style.marginTop = "18px";
+        bodyInformation.style.opacity = "1";        
         idSearch.style.transition = "0.4s";
         idSearch.style.transform = "translate(-50%,0%)";
     } else {
@@ -150,6 +132,7 @@ bodyPortrait.onclick = () => {
         idSearch.style.transition = "0.4s";
         idSearch.style.transform = "translate(-50%,-200%)";
         bodyInformation.style.transition = "0.4s";
+        bodyInformation.style.marginTop = "38px"; 
         bodyInformation.style.opacity = "0";
         setTimeout(function() {
             bodyInformation.style.display = "none";
