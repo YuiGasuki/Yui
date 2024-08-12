@@ -9,7 +9,7 @@
     src:url("/Yui/font/GenEiKoburiMin6-R.ttf");
 }
 * {
-font-family:'GenEiKoburiMin6';
+font-family:'GenEiKoburiMin6',Georgia, serif, Arial,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 }
 #nightbox {
 position:fixed;
