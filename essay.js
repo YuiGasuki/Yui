@@ -1,12 +1,18 @@
 const params = new URLSearchParams(location.search);
 const textp=params.get('Yui');
 let history = "";
+let ifOnlad = 0;
 if(textp!=null&&textp!=""){
 if(params.get('history')!=null&&params.get('history')!=""){
     history+= "-"+params.get('history');
 }
 fetch('1.json',{method: 'GET'}).then(response => response.json()).then(data =>{
 let datab;
+ifOnlad++;
+if(ifOnlad>=2){
+    document.getElementById('first_box').remove();
+    document.body.style.overflow="auto";
+}
 for(let onei = 0;onei<data.length;onei++){
 if(data[onei].Yui===textp){
 datab = data[onei];
@@ -25,6 +31,13 @@ document.getElementById('titleimg').src="none.jpg";
 });
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
+
+ifOnlad++;
+if(ifOnlad>=2){
+    document.getElementById('first_box').remove();
+    document.body.style.overflow="auto";
+}
+        
 
 
  let gitalk = new Gitalk({

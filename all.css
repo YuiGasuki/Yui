@@ -8,4 +8,8 @@
 }*/
 * {
     font-family:Georgia, serif ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+    outline:none;
+}
+*::-webkit-scrollbar {
+    display:none;
 }

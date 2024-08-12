@@ -28,6 +28,7 @@ background-size:cover;
 background-repeat:no-repeat;
 background-attachment:fixed;
 background-position:center center;
+overflow:hidden;
 }
 #body_box {
 margin-left:-8px;

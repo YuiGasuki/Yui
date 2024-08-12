@@ -23,8 +23,8 @@ document.querySelectorAll(".load").forEach(item => {
 window.onload = () =>{          
     if(document.getElementById('first_box')){
     document.getElementById('first_box').remove();
-    TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name')
-    .innerHTML, "", 0);
+    document.body.style.overflow="auto";
+    TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name').innerHTML, "", 0);
     }   
         
 }
@@ -44,8 +44,7 @@ const TypingAnimation = (e, name, present, i) => {
                 return
             }
             present = name.split(name[a])[0];
-            document.getElementById('body_name')
-        .innerHTML = present + '|';
+            document.getElementById('body_name').innerHTML = present + '|';
             if (i >=(name.length*2)){
             i = 0;
             setTimeout(() => {
@@ -71,8 +70,7 @@ const TypingAnimation = (e, name, present, i) => {
         present += name[i + 1];
         i++;
     }
-    document.getElementById('body_name')
-        .innerHTML = present + '|';
+    document.getElementById('body_name').innerHTML = present + '|';
     setTimeout(() => {
         TypingAnimation(e, name, present, i)
     }, 400)

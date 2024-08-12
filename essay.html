@@ -1,32 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Yui_文章</title>
-<link rel= "shortcut icon" href ="icon.webp" type="image/x-icon" />
-<link href="all.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="essay.css" >
-<link rel="stylesheet" href="gitalk.css"> 
-
- <link rel="stylesheet" href="monokai-sublime.min.css">
-</head>
-<body>
-<div id="body_box">
-<img src="none.jpg" id="titleimg" alt="front cover" />
-<div style="margin-top:calc(100vw / 3 * 2);margin-bottom:32px;">
-<p id="title">₍˄·͈༝·͈˄*₎◞ ̑̑</p>
-<div id="label"></div>
-<div id="body">居然没有内容Σ(ŎдŎ|||)ﾉﾉ</div>
-</div>
-</div>
-
-<div id="comments_Section">评论区</div>
-<div id="gitalk-container"></div>
-<div id="nightbox" ></div>
-<script src="essay.js"></script>
-<script src="gitalk.min.js"></script>
- <script src="highlight.min.js"></script> 
-<script src="go.min.js"></script> 
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Yui_文章</title>
+        <link rel="shortcut icon" href="icon.webp" type="image/x-icon">
+        <link href="all.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="essay.css">
+        <link rel="stylesheet" href="gitalk.css">
+        <link rel="stylesheet" href="monokai-sublime.min.css">
+    </head>
+    <body>
+        <div id="body_box"><img src="none.jpg" id="titleimg" alt="front cover">
+            <div style="margin-top:calc(100vw / 3 * 2);margin-bottom:32px;">
+                <p id="title">₍˄·͈༝·͈˄*₎◞ ̑̑</p>
+                <div id="label"></div>
+                <div id="body">
+                    居然没有内容Σ(ŎдŎ|||)ﾉﾉ
+                </div>
+            </div>
+        </div>
+        <div id="comments_Section">
+            评论区
+        </div>
+        <div id="gitalk-container"></div>
+        <style>
+        #first_box {
+            position:fixed;
+            top:0px;
+            left:0px;
+            width:100vw;
+            height:100vh;
+            background:black;
+            color:#ffd354;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center
+        }
+        #first_box p {
+            display:flex;
+            position:absolute;
+            font-size:1.2em;
+            font-family:system-ui;
+            }
+        #first_box p span {
+            animation:firstPAnime 0.9s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            display:block;
+            }
+        #first_box p .a {
+            animation-delay:0.6s;
+            }
+        #first_box p .b {
+            animation-delay:0.3s;
+            }
+        #first_box p .c {
+            animation-delay:0s;
+            }
+        @keyframes firstPAnime {
+            0% { margin-top: 0em; }
+            50% { margin-top: -0.2em; }
+            100% { margin-top: 0em; }
+            }
+        </style>
+        <div id="first_box">
+            <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
+        </div>
+        <div id="nightbox"></div>
+        <script src="essay.js"></script>
+        <script src="gitalk.min.js"></script>
+        <script src="highlight.min.js"></script>
+        <script src="go.min.js"></script>
+    </body>
 </html>
