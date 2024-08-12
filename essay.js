@@ -56,6 +56,7 @@ window.location.assign("404");
 return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
+alert("成功");
 document.getElementById('body').innerHTML = data;
 ifOnlad++;
 if(ifOnlad>=2){
