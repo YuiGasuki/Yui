@@ -32,11 +32,7 @@ document.getElementById('titleimg').src="none.webp";
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 
-ifOnlad++;
-if(ifOnlad>=2){
-    document.getElementById('first_box').remove();
-    document.body.style.overflow="auto";
-}
+
     
 
 
@@ -61,6 +57,11 @@ return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 document.getElementById('body').innerHTML = data;
+ifOnlad++;
+if(ifOnlad>=2){
+    document.getElementById('first_box').remove();
+    document.body.style.overflow="auto";
+}
 
 document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
