@@ -5,11 +5,11 @@
 --nightfcolor:#606266;
 }
 @font-face {
-    font-family:'GenEiKoburiMin6';
-    src:url("/Yui/font/GenEiKoburiMin6-R.ttf");
+    font-family:GenEiKoburiMin6;
+    src:url("GenEiKoburiMin6-R.ttf");
 }
 * {
-font-family:'GenEiKoburiMin6',Georgia, serif, Arial,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+font-family:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 }
 #nightbox {
 position:fixed;
