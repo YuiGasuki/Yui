@@ -180,15 +180,20 @@ fetch('1.json', {
         for (let ib = 0; ib < data[i].label.length; ib++) {
             b += `<span>` + data[i].label[ib] + `</span>`;
         }
-        bodyInformation.innerHTML += `
-<div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[i].Yui + `')">
-<img src="` + data[i].title_url + `" class="titleimg" />
-<p class="title">` + data[i].title + `</p>
-<p class="label">` + b + `</p>
-</div>
-<div id="getBook"></div>
-`;
-    
+    let textAgin = "";
+    for (let ic = 0; ic < 4&&ic<data.length; ic++) {
+       textAgin  += `
+    <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[ic].Yui + `')">
+    <img src="` + data[ic].title_url + `" class="titleimg" />
+    <p class="title">` + data[ic].title + `</p>
+    <p class="label">` + b + `</p>
+    </div>
+    `;
+    }
+        b = "";
+    textAgin += `<div id="getBook"></div>`;
+    bodyInformation.innerHTML+=textAgin;
+    textAgin = "";
     const io = new IntersectionObserver((item) =>{
             if(item[0].isIntersecting){
                 i++;
@@ -197,20 +202,31 @@ fetch('1.json', {
                     document.getElementById('getBook').remove();
                     return
                 }
+                    for (let ic = (i*4); ic < ((i*4)+4)&&ic<data.length; ic++) {
+                   
+                        for (let ib = 0; ib < data[ic].label.length; ib++) {
+                                 b += `<span>` + data[ic].label[ib] + `</span>`;
+                         }
+          
+                       textAgin  += `
+                    <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[ic].Yui + `')">
+                    <img src="` + data[ic].title_url + `" class="titleimg" />
+                    <p class="title">` + data[ic].title + `</p>
+                    <p class="label">` + b + `</p>
+                    </div>
+                    `;
+                    }
+                    textAgin += `<div id="getBook"></div>`;
+                    bodyInformation.innerHTML+=textAgin;
+                    b = "";
+                    textAgin = "";
                 document.getElementById('getBook').remove();
-                bodyInformation.innerHTML+=`<div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[i].Yui + `')">
-<img src="` + data[i].title_url + `" class="titleimg" />
-<p class="title">` + data[i].title + `</p>
-<p class="label">` + b + `</p>
-</div>
-<div id="getBook"></div>`;
                 io.observe(document.getElementById('getBook'));
 
                 
             }
         });
     io.observe(document.getElementById('getBook'));
-    
 
     document.querySelectorAll(".titleimg").forEach(item => {
         item.onerror = () => {
