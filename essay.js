@@ -23,10 +23,10 @@ document.title="Yui的文章「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
 document.getElementById('titleimg').src = datab.title_url;
 for(let i=0;i<datab.label.length;i++){
-document.getElementById('label').innerHTML += `<span class="label" >`+datab.label[i]+`</span>`;
+document.getElementById('label').innerHTML += `<span class="label" onclick="JavaScript:window.open('search.html?q=${datab.label[i]}')">`+datab.label[i]+`</span>`;
 }
 document.getElementById('titleimg').onerror = () =>{
-document.getElementById('titleimg').src="none.jpg";
+document.getElementById('titleimg').src="none.webp";
 }
 });
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
@@ -52,6 +52,7 @@ if (response.ok) {
 
 return response.text();
 }else{
+window.location.assign("404");
 return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
@@ -71,7 +72,7 @@ if(ifOnlad>=2){
 document.querySelectorAll('img').forEach(el => {
   
   el.onerror = () =>{
-el.src="none.jpg";
+el.src="none.webp";
 }
 });
 
@@ -101,6 +102,8 @@ el.childNodes[0].style.marginLeft="0px";
 
 
   
+}else{
+    window.location.assign("404");
 }
 
 

@@ -49,7 +49,7 @@ item.style.marginTop="0px";
 
 document.querySelectorAll('img').forEach(el => {
   el.onerror = () =>{
-el.src="none.jpg";
+el.src="none.webp";
 }
 });
 

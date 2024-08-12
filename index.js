@@ -186,7 +186,7 @@ fetch('1.json', {
 
     document.querySelectorAll(".titleimg").forEach(item => {
         item.onerror = () => {
-            item.src = "none.jpg";
+            item.src = "none.webp";
         }
     });
 
