@@ -167,11 +167,16 @@ bodyPortrait.onclick = () => {
 fetch('1.json', {
     method: 'GET'
 }).then(response => response.json()).then(data => {
+    let DataList = [];
     for (let i = data.length - 1; i >= 0; i = i - 1) {
         if(data[i].type==="1"){
         continue
         }
-        let b = "";
+        DataList.push(data[i]);
+    }
+    data=DataList;
+    let i = 0;
+    let b = "";
         for (let ib = 0; ib < data[i].label.length; ib++) {
             b += `<span>` + data[i].label[ib] + `</span>`;
         }
@@ -181,8 +186,31 @@ fetch('1.json', {
 <p class="title">` + data[i].title + `</p>
 <p class="label">` + b + `</p>
 </div>
+<div id="getBook"></div>
 `;
-    }
+    
+    const io = new IntersectionObserver((item) =>{
+            if(item[0].isIntersecting){
+                i++;
+                if(i>=data.length){
+                   io.unobserve(document.getElementById('getBook'));
+                    document.getElementById('getBook').remove();
+                    return
+                }
+                document.getElementById('getBook').remove();
+                bodyInformation.innerHTML+=`<div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[i].Yui + `')">
+<img src="` + data[i].title_url + `" class="titleimg" />
+<p class="title">` + data[i].title + `</p>
+<p class="label">` + b + `</p>
+</div>
+<div id="getBook"></div>`;
+                io.observe(document.getElementById('getBook'));
+
+                
+            }
+        });
+    io.observe(document.getElementById('getBook'));
+    
 
     document.querySelectorAll(".titleimg").forEach(item => {
         item.onerror = () => {
@@ -245,4 +273,3 @@ const goBackTotTop = () =>{
     }
         
 }
-
