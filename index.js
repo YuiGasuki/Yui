@@ -83,14 +83,20 @@ const DarkMode = () =>{
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
             document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
-            document.documentElement.style.setProperty('--nightbox', '0.5');  
+            document.documentElement.style.setProperty('--nightbox', '0.5');           
+            document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
+            document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
         }else{
-            document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
+            document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
             document.documentElement.style.setProperty('--nightbox', '0');
+            document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
+            document.documentElement.style.setProperty('--nightfcolor', '#606266');
         }
     }else{
-        document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
+        document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
             document.documentElement.style.setProperty('--nightbox', '0');
+            document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
+            document.documentElement.style.setProperty('--nightfcolor', '#606266');
     }
 }
 
@@ -111,6 +117,7 @@ DarkMode()
 
 const bodyInformation = document.getElementById('body_ntroduction');
 const bodyPortrait = document.getElementById('body_portrait');
+const ntroductionProject = document.getElementById('ntroduction_project');
 const idSearch = document.getElementById('search');
 
 bodyPortrait.onclick = () => {
@@ -158,51 +165,36 @@ fetch('1.json', {
         DataList.push(data[i]);
     }
     data=DataList;
+    
     let i = 0;
-    let b = "";
-        for (let ib = 0; ib < data[i].label.length; ib++) {
-            b += `<span>` + data[i].label[ib] + `</span>`;
+    const setUpBook = () =>{
+                let textAgin = "";
+        for (let ic = (i*4); ic < ((i*4)+4)&&ic<data.length; ic++) {
+        let b = "";
+        for(let ib = 0; ib < data[ic].label.length; ib++){
+            b += `<span>` + data[ic].label[ib] + `</span>`;
         }
-    let textAgin = "";
-    for (let ic = 0; ic < 4&&ic<data.length; ic++) {
-       textAgin  += `
-    <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[ic].Yui + `')">
-    <img src="` + data[ic].title_url + `" class="titleimg" />
-    <p class="title">` + data[ic].title + `</p>
-    <p class="label">` + b + `</p>
-    </div>
-    `;
-    }
-        b = "";
-    textAgin += `<div id="getBook"></div>`;
-    bodyInformation.innerHTML+=textAgin;
-    textAgin = "";
+           textAgin  += `
+                <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=${data[ic].Yui}')">
+                <img src="${data[ic].title_url}" class="titleimg"  />
+                <p class="title">${data[ic].title}</p>
+                <p class="label">${b}</p>
+                </div>
+                `;        
+        }
+        textAgin += `<div id="getBook"></div>`;
+        bodyInformation.innerHTML+=textAgin;
+        i++;
+    }  
+    setUpBook();
     const io = new IntersectionObserver((item) =>{
             if(item[0].isIntersecting){
-                i++;
                 if(i>=data.length){
                    io.unobserve(document.getElementById('getBook'));
                     document.getElementById('getBook').remove();
                     return
                 }
-                    for (let ic = (i*4); ic < ((i*4)+4)&&ic<data.length; ic++) {
-                   
-                        for (let ib = 0; ib < data[ic].label.length; ib++) {
-                                 b += `<span>` + data[ic].label[ib] + `</span>`;
-                         }
-          
-                       textAgin  += `
-                    <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=` + data[ic].Yui + `')">
-                    <img src="` + data[ic].title_url + `" class="titleimg" />
-                    <p class="title">` + data[ic].title + `</p>
-                    <p class="label">` + b + `</p>
-                    </div>
-                    `;
-                    }
-                    textAgin += `<div id="getBook"></div>`;
-                    bodyInformation.innerHTML+=textAgin;
-                    b = "";
-                    textAgin = "";
+                setUpBook();
                 document.getElementById('getBook').remove();
                 io.observe(document.getElementById('getBook'));
 

@@ -1,7 +1,9 @@
 :root {
     --nightBrightness:0px;
     --nightbox:0;
-    --nightbackground:rgba(255,255,255,0.733)
+    --nightbackground:#F1F1F1;
+    --nightTitleground:rgba(241,241,241,0.8);
+    --nightfcolor:#606266;
 }
 
 body {
@@ -149,9 +151,10 @@ body {
     transition:1s;
     border-radius:8px;
     color:#7d7d7d;
-    margin-bottom:16px;
-    filter:drop-shadow(0px 2px 5px #2b2b2bad);
-    overflow:hidden
+    max-width:296px;
+    margin:24px auto;
+    overflow:hidden;
+    position:relative;
 }
 #ntroduction_project {
     display:flex;
@@ -193,37 +196,31 @@ body {
     aspect-ratio:3/2;
     object-fit:cover;
     width:100%;
-    min-height:58px;
-    --width:calc(100vw - 109px);
-    max-height:calc(var(--width) / 3 * 2);
-    margin-bottom:85px;
 }
 .title {
-    position:absolute;
-    margin-left:-16px;
-    margin-top:7px;
     transform:translate(0%,-100%);
-    width:100%;
-    background:var(--nightbackground);
+    width:calc(100% - 8px);
+    background:var(--nightTitleground);
     transition:1s;
-    color:#aaaaaa;
-    padding-bottom:46px;
-    padding-top:32px;
-    padding-left:28px;
+    position:absolute;
+    color:var(--nightfcolor);
+    padding-top:8px;
+    padding-bottom:8px;
+    margin:0px 0px 0px 0px;
+    padding-left:8px;
     font-size:1.1em;
     font-weight:bold;
     overflow:auto;
     white-space:nowrap;
-    backdrop-filter:blur(var(--nightBrightness)) brightness(70%);   
+    backdrop-filter:blur(var(--nightBrightness));   
 }
 .label {
     width:calc(100% - 8px);
-    padding-left:8px;
-    margin-top:-17px;
-    position:absolute;
-    transform:translate(0%,-50%);
+    padding:14px 4px 8px 4px;
+    margin: 0px;
     overflow:auto;
-    white-space:nowrap
+    display: flex;
+    flex-wrap: wrap; 
 }
 .label span {
     background:#FF6699;
@@ -231,5 +228,6 @@ body {
     border-radius:6px;
     padding-left:5px;
     padding-right:5px;
+    margin-bottom:8px;
     margin-right:4px
 }
