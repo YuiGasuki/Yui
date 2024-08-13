@@ -21,6 +21,7 @@ background:black;
 opacity:var(--nightbox);
 transition:opacity 1s;
 pointer-events: none;
+z-index: 999;
 }
 body {
 background-image:url('b_3.webp');
@@ -150,10 +151,10 @@ padding-top:32px;
 background:#FF6699;
 color:white;
 border-radius:6px;
-padding-left:5px;
-padding-right:5px;
+padding:5px;
 margin-right:4px;
 margin-bottom:8px;
+line-height:1em;
 }
 
 #body time {
