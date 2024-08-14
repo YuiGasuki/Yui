@@ -3,7 +3,7 @@
 Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网站添加个简单的播放器，但又不想自己写的的开发者。
 
 下图便是阿梓播放器的样式
-<img src="Yui2.webp" alt="Azuplayer">
+<img class="img"  src="Yui2.webp" alt="Azuplayer">
 
 <b>使用文档</b>
 

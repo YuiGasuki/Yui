@@ -8,7 +8,7 @@
 这是一个基于HTML5的audio标签的音乐播放器，目前支持播放歌词功能，歌单功能，你可以添加多首歌曲。
 
 优点:支持个性化，简洁，美观
-<img src="Yui2-1.jpg">
+<img class="img"  src="Yui2-1.jpg">
 
 Github地址: <a href="https://github.com/YuiandAzucat/Yuiplay">https://github.com/YuiandAzucat/Yuiplay</a>
 引用:

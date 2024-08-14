@@ -7,9 +7,9 @@
 <a href="index.html">这是链接</a>
 
 <b><i>二</i>，图片</b>
-<div class="code" >&#60;img src="" alt=""&#62;</div>
+<div class="code" >&#60;img class="img" src="" alt=""&#62;</div>
 效果: 
-<img src="none.jpg" alt="这是图片">
+<img class="img"  src="none.jpg" alt="这是图片">
 
 <b><i>三</i>，代码</b>
 <div class="code" >&#60;div class="code"&#62;&#60;/div&#62;</div>
