@@ -5,7 +5,7 @@ Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网�
 下图便是阿梓播放器的样式
 <img class="img"  src="Yui2.webp" alt="Azuplayer">
 
-<b>使用文档</b>
+<h2>使用文档</h2>
 
 引入代码
 <div class="code">
@@ -30,7 +30,7 @@ var Azuplayer = new player({
 });
 </div>
 
-<b>参数介绍</b>
+<h2>参数介绍</h2>
 <div class="code">id:""</div>
 你要使用的容器的id，容器使用div标签
 <div class="code">width:""</div>
@@ -65,7 +65,7 @@ SuspendedPosition属性的必须的，格式为
 
 
 
-<b>API</b>
+<h2>API</h2>
 
 
 播放音乐

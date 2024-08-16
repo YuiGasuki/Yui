@@ -6,9 +6,12 @@
     font-family:'NotoSansCJK';
     src:url("/Yui/font/NotoSansCJK-DemiLight-4.otf");
 }*/
+:root {
+    font-family:Georgia, serif ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;    
+}
 * {
-    font-family:Georgia, serif ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
-    outline:none;
+outline:none;
+    all:none;
 }
 *::-webkit-scrollbar {
     display:none;

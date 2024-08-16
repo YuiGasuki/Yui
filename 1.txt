@@ -1,6 +1,5 @@
 <time>修改时间 2024年7月9日</time>
-<b>这是帮助文档</b>
-
+<h2>这是帮助文档</h2>
 <b><i>一</i>，链接</b>
 <div class="code" >&#60;a href=""&#62;&#60;/a&#62;</div>
 效果: 
@@ -8,7 +7,7 @@
 
 <b><i>二</i>，图片</b>
 <div class="code" >&#60;img class="img" src="" alt=""&#62;</div>
-效果: 
+效果:
 <img class="img"  src="none.jpg" alt="这是图片">
 
 <b><i>三</i>，代码</b>
@@ -29,3 +28,8 @@
 <div class="code" >&#60;div class="note"&#62;&#60;/div&#62;</div>
 效果: 
 鹏之背<div class="note">背:代大鹏</div>
+
+<b><i>七</i>，副标题</b>
+<div class="code" >&#60h2&#62;&#60;/h2&#62;</div>
+效果: 
+<h2>这是标题</h2>

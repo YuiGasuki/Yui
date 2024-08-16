@@ -1,15 +1,13 @@
 :root {
 --nightBrightness:0.3;
---nightbackground:rgba(238,238,238,0.8);
+--nightbackground:rgba(238,238,238,0.85);
 --nightbox:0;
---nightfcolor:#606266;
+--nightfcolor:#000000;
+font-family:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 }
 @font-face {
     font-family:GenEiKoburiMin6;
-    src:url("GenEiKoburiMin6-R.ttf");
-}
-* {
-font-family:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+    src:url("/font/GenEiKoburiMin6-R.ttf");
 }
 #nightbox {
 position:fixed;
@@ -66,8 +64,8 @@ padding:8px;
 border-radius:0px 0px 16px 16px;
 color:var(--nightfcolor);
 white-space:pre-wrap;
-word-wrap:anywhere;
-word-break:break-all;
+overflow-wrap:anywhere;
+word-break:normal;
 line-height:25px;
 font-size:1.1em;
 overflow:hidden;
@@ -99,6 +97,8 @@ padding-left:16px;
 overflow:auto;
 margin-bottom:16px;
 margin-top:32px;
+font-family:"Courier New", Courier, monospace;
+font-size:0.9em;
 }
 #body .warn {
 color:#950606;
@@ -134,7 +134,7 @@ padding:3px;
 color:var(--nightfcolor);
 position:absolute;
 width:80px;
-font-size:15px;!important
+font-size:15px !important;
 transform: translate(0%,-25%);
 }
 #label {
@@ -160,10 +160,13 @@ line-height:1em;
 #body time {
 color:var(--nightfcolor)9c;
 font-size:0.8em;
+margin-bottom:18px;
+display: block;
 }
 
 #body ul {
-list-style-type:none;
+list-style-type:decimal-leading-zero;
+list-style-position:inside;
 color:var(--nightfcolor);
 width:100%;
 margin-left:-40px;
@@ -174,6 +177,7 @@ margin:-8px 0px;
 #body small {
 color:var(--nightfcolor);
 filter:contrast(40%);
+font-size:0.8em;
 }
 #comments_Section {
 color:var(--nightfcolor);
@@ -200,4 +204,21 @@ padding-bottom:32px;
 margin-left:-8px;
 color:var(--nightfcolor);
 }
-
+h2 {
+    font-size:1.15em;
+    margin:0px;
+    margin-left:14px;
+    position:relative;
+}
+h2::after {
+    content:"";
+    display: block;
+    height:100%;
+    width:6px;
+    border-radius:1px;
+    background:#FF6699;
+    position:absolute;
+    margin-left:-8px;
+    margin-top:-1px;
+    transform: translate(-100%,-100%);
+}
