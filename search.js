@@ -108,3 +108,17 @@ const channel = new BroadcastChannel('Yui_night');
 channel.addEventListener('message', (e) => {
     DarkMode();
 })
+
+
+function replacepicture() {
+    if(window.innerHeight <= window.innerWidth){
+        document.body.style.backgroundImage="url('p_1.webp')";
+    }else{
+        document.body.style.backgroundImage="url('b_3.webp')";
+    }
+}
+
+
+
+replacepicture();
+window.addEventListener('resize', replacepicture);
