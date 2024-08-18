@@ -96,7 +96,7 @@ function replacepicture() {
     if(window.innerHeight <= window.innerWidth){
         document.body.style.backgroundImage = "url('p_1.webp')";
     }else{
-        document.body.style.backgroundImage = "url('b_3.webp')";
+        document.body.style.backgroundImage = "url('b_5.webp')";
     }
 }
 replacepicture();

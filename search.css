@@ -10,7 +10,7 @@ outline:none;
 }
 body {
 background-image:url('b_3.webp');
-background-size:100%;
+background-size:cover;
 background-repeat:no-repeat;
 background-attachment:fixed;
 background-position:center center;
