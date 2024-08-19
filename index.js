@@ -24,6 +24,9 @@ window.onload = () =>{
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
     TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name').innerHTML, "", 0);
+    bodyInformationB.style.pointerEvents = "auto";
+        bodyInformationB.style.opacity="1";
+        bodyInformationB.style.transform="rotateX(0deg)";
     }   
         
 }
@@ -115,39 +118,11 @@ DarkMode()
 
 
 const bodyInformation = document.getElementById('body_ntroduction');
+const bodyInformationB = document.getElementById('body_information');
 const bodyPortrait = document.getElementById('body_portrait');
 const ntroductionProject = document.getElementById('ntroduction_project');
-const idSearch = document.getElementById('search');
 
-bodyPortrait.onclick = () => {
-    
-    if (bodyInformation.style.display != "inline") {
-        document.documentElement.style.setProperty('--nightBrightness', '2.5px');
-        bodyInformation.style.display = "inline";
-        idSearch.style.display = "inline";
-        let bodyInfheight = bodyInformation.offsetHeight;
-        bodyInfheight = idSearch.offsetHeight;
-        bodyInformation.style.transition = "0.4s";
-        bodyInformation.style.marginTop = "18px";
-        bodyInformation.style.opacity = "1";        
-        idSearch.style.transition = "0.4s";
-        idSearch.style.transform = "translate(-50%,0%)";
-    } else {
-        goBackTotTop();
-        document.documentElement.style.setProperty('--nightBrightness', '0px');
-        idSearch.style.transition = "0.4s";
-        idSearch.style.transform = "translate(-50%,-200%)";
-        bodyInformation.style.transition = "0.4s";
-        bodyInformation.style.marginTop = "38px"; 
-        bodyInformation.style.opacity = "0";
-        setTimeout(function() {
-            bodyInformation.style.display = "none";
-            idSearch.style.display = "none";
-        }, 500);
-        
-        
-    }
-}
+const idSearch = document.getElementById('search');
 
 
 
@@ -185,7 +160,7 @@ fetch('1.json', {
         bodyInformation.innerHTML+=textAgin;
         i++;
     }  
-    setUpBook();
+    
     const io = new IntersectionObserver((item) =>{
             if(item[0].isIntersecting){
                 if(i>=data.length){
@@ -263,3 +238,24 @@ const goBackTotTop = () =>{
     }
         
 }
+
+let ifIdSearch = false;
+window.onscroll = function() {
+if (document.documentElement.scrollTop > window.innerHeight) {
+idSearch.style.transition = "0.4s";
+idSearch.style.transform = "translate(-50%,0%)";
+ifIdSearch = true;
+document.documentElement.style.setProperty('--nightBrightness', "3px");
+
+}else if(document.documentElement.scrollTop < window.innerHeight){
+if(ifIdSearch){
+idSearch.style.transition = "0.4s";
+idSearch.style.transform = "translate(-50%,-200%)";
+ifIdSearch = false;
+document.documentElement.style.setProperty('--nightBrightness', "0px");
+}
+}
+
+
+}
+
