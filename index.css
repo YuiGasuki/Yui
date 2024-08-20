@@ -300,6 +300,9 @@ body {
     list-style-type:none;
     list-style-position:inside;
 }
-#side_box ul:hover {
+#side_box ul li{
+    margin:8px 0px;
+}
+#side_box ul li:hover {
     color:#FF6699;
 }

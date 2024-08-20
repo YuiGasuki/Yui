@@ -22,10 +22,7 @@ if(ifOnlad>=2){
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
 }
-if(data[textp-1]===undefined){
-    window.location.assign("404");
-    return "啊，居然加载错误Σ(°Д°;"
-}
+
 
 for(let onei = 0;onei<data.length;onei++){
 if(data[onei].Yui===textp){
@@ -33,6 +30,12 @@ datab = data[onei];
 break
 }
 }
+
+if(datab===undefined){
+    window.location.assign("404");
+    return "啊，居然加载错误Σ(°Д°;"
+}
+
 document.title="Yui的文章「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
 document.getElementById('titleimg').src = datab.title_url;
