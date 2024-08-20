@@ -84,7 +84,7 @@ const DarkMode = () =>{
     if(document.cookie){
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
-            document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
+            document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,1)');
             document.documentElement.style.setProperty('--nightbox', '0.5');           
             document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
@@ -118,6 +118,9 @@ DarkMode()
 
 
 const bodyInformation = document.getElementById('body_ntroduction');
+const sideOpen = document.getElementById('side_open');
+const sideBox = document.getElementById('side_box');
+const sideBack = document.getElementById('side_back');
 const bodyInformationB = document.getElementById('body_information');
 const bodyPortrait = document.getElementById('body_portrait');
 const ntroductionProject = document.getElementById('ntroduction_project');
@@ -243,14 +246,18 @@ let ifIdSearch = false;
 window.onscroll = function() {
 if (document.documentElement.scrollTop > window.innerHeight) {
 idSearch.style.transition = "0.4s";
-idSearch.style.transform = "translate(-50%,0%)";
+sideOpen.style.transition = "0.4s";
+idSearch.style.transform = "translate(0%,0%)";
+sideOpen.style.transform = "translate(0%,0%)";
 ifIdSearch = true;
 document.documentElement.style.setProperty('--nightBrightness', "3px");
 
 }else if(document.documentElement.scrollTop < window.innerHeight){
 if(ifIdSearch){
 idSearch.style.transition = "0.4s";
-idSearch.style.transform = "translate(-50%,-200%)";
+sideOpen.style.transition = "0.4s";
+idSearch.style.transform = "translate(0%,-200%)";
+sideOpen.style.transform = "translate(0%,-200%)";
 ifIdSearch = false;
 document.documentElement.style.setProperty('--nightBrightness', "0px");
 }
@@ -259,3 +266,11 @@ document.documentElement.style.setProperty('--nightBrightness', "0px");
 
 }
 
+sideOpen.onclick = () =>{        
+    sideBox.style.transform = "translate(0%,0%)";
+    sideBack.style.display="inline";
+}
+sideBack.onclick = () =>{
+    sideBox.style.transform = "translate(-100%,0%)";
+    sideBack.style.display="none";
+}
