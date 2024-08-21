@@ -119,6 +119,7 @@ DarkMode()
 
 const bodyInformation = document.getElementById('body_ntroduction');
 const sideOpen = document.getElementById('side_open');
+const backTop = document.getElementById('back_top');
 const sideBox = document.getElementById('side_box');
 const sideBack = document.getElementById('side_back');
 const bodyInformationB = document.getElementById('body_information');
@@ -244,20 +245,24 @@ const goBackTotTop = () =>{
 
 let ifIdSearch = false;
 window.onscroll = function() {
-if (document.documentElement.scrollTop > window.innerHeight) {
-idSearch.style.transition = "0.4s";
-sideOpen.style.transition = "0.4s";
-idSearch.style.transform = "translate(0%,0%)";
-sideOpen.style.transform = "translate(0%,0%)";
+if (document.documentElement.scrollTop > 56) {
+
+idSearch.style.transform = "translateY(0%)";
+sideOpen.style.transform = "translateY(0%)";
+backTop.style.transform = "translateY(0%)";
+backTop.style.pointerEvents = "auto";
+backTop.style.opacity = "1";
 ifIdSearch = true;
 document.documentElement.style.setProperty('--nightBrightness', "3px");
 
-}else if(document.documentElement.scrollTop < window.innerHeight){
+}else if(document.documentElement.scrollTop < 56){
 if(ifIdSearch){
-idSearch.style.transition = "0.4s";
-sideOpen.style.transition = "0.4s";
-idSearch.style.transform = "translate(0%,-200%)";
-sideOpen.style.transform = "translate(0%,-200%)";
+
+idSearch.style.transform = "translateY(-200%)";
+sideOpen.style.transform = "translateY(-200%)";
+backTop.style.transform = "translateY(50%)";
+backTop.style.opacity = "0";
+backTop.style.pointerEvents = "none";
 ifIdSearch = false;
 document.documentElement.style.setProperty('--nightBrightness', "0px");
 }
@@ -269,8 +274,13 @@ document.documentElement.style.setProperty('--nightBrightness', "0px");
 sideOpen.onclick = () =>{        
     sideBox.style.transform = "translate(0%,0%)";
     sideBack.style.display="inline";
+    document.body.style.overflow="hidden";
 }
 sideBack.onclick = () =>{
     sideBox.style.transform = "translate(-100%,0%)";
     sideBack.style.display="none";
+    document.body.style.overflow="auto";
+}
+backTop.onclick = () =>{
+    goBackTotTop();
 }
