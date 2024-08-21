@@ -235,10 +235,8 @@ function openfeel() {
  */
 const goBackTotTop = () =>{
     if(document.documentElement.scrollTop > 0){
-            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/8);
+            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/4);  
             window.requestAnimationFrame(goBackTotTop)
-
-            
     }
         
 }
@@ -249,9 +247,6 @@ if (document.documentElement.scrollTop > 56) {
 
 idSearch.style.transform = "translateY(0%)";
 sideOpen.style.transform = "translateY(0%)";
-backTop.style.transform = "translateY(0%)";
-backTop.style.pointerEvents = "auto";
-backTop.style.opacity = "1";
 ifIdSearch = true;
 document.documentElement.style.setProperty('--nightBrightness', "3px");
 
@@ -260,15 +255,19 @@ if(ifIdSearch){
 
 idSearch.style.transform = "translateY(-200%)";
 sideOpen.style.transform = "translateY(-200%)";
-backTop.style.transform = "translateY(50%)";
-backTop.style.opacity = "0";
-backTop.style.pointerEvents = "none";
 ifIdSearch = false;
 document.documentElement.style.setProperty('--nightBrightness', "0px");
 }
 }
-
-
+if(document.documentElement.scrollTop > 0){
+backTop.style.transform = "translateY(0%)";
+backTop.style.pointerEvents = "auto";
+backTop.style.opacity = "1";
+}else if(document.documentElement.scrollTop <= 0){
+backTop.style.transform = "translateY(50%)";
+backTop.style.opacity = "0";
+backTop.style.pointerEvents = "none";
+}
 }
 
 sideOpen.onclick = () =>{        
