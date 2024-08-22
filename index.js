@@ -270,13 +270,13 @@ backTop.style.pointerEvents = "none";
 }
 }
 
-sideOpen.onclick = () =>{        
-    sideBox.style.transform = "translate(0%,0%)";
+sideOpen.onclick = () =>{       
+    sideBox.style.marginLeft= "0px";
     sideBack.style.display="inline";
     document.body.style.overflow="hidden";
 }
 sideBack.onclick = () =>{
-    sideBox.style.transform = "translate(-100%,0%)";
+    sideBox.style.marginLeft="-255px";
     sideBack.style.display="none";
     document.body.style.overflow="auto";
 }

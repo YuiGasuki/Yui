@@ -281,9 +281,10 @@ body {
     height:100vh;
     background:var(--nightbackground);
     z-index:11;
-    transform:translate(-100%,0%);
+    margin-left:-255px;
     transition:0.5s;
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
     filter:drop-shadow(0px 0px 5px black);
 }
 #side_back {
