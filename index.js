@@ -8,6 +8,8 @@ function replacepicture() {
     }
 }
 
+let ifDarkMode = false;
+const idDarkMode = document.getElementById('dark_mode');
 
 
 replacepicture();
@@ -36,37 +38,9 @@ const TypingAnimation = (e, name, present, i) => {
     if (present === '') {
         present = name[i];
     } else {
-        if (i >= name.length - 1) {
-            let a = name.length-(i-name.length);
-            if((i-name.length) <= 0){
-                i++
-                setTimeout(() => {
-                    TypingAnimation(e, name, present, i)
-                }, 400)
-                return
-            }
-            present = name.split(name[a])[0];
-            document.getElementById('body_name').innerHTML = present + '|';
-            if (i >=(name.length*2)){
-            i = 0;
-            setTimeout(() => {
-                TypingAnimation(e, name, present, i)
-            }, 400)
-            }else{
-            i++;
-            setTimeout(() => {
-                TypingAnimation(e, name, present, i)
-            }, 400)
-            }
-            return
-        }
         if (i >= name.length - 2) {
             present += name[i + 1];
             document.getElementById('body_name').innerHTML = present;
-            i++;
-            setTimeout(() => {
-                TypingAnimation(e, name, present, i)
-            }, 1000)
             return
         }
         present += name[i + 1];
@@ -88,18 +62,21 @@ const DarkMode = () =>{
             document.documentElement.style.setProperty('--nightbox', '0.5');           
             document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
-        }else{
-            document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
-            document.documentElement.style.setProperty('--nightbox', '0');
-            document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
-            document.documentElement.style.setProperty('--nightfcolor', '#606266');
+            idDarkMode.style.setProperty('--leftData', '20px');
+            idDarkMode.style.setProperty('--divBackGround', '#FF6699');
+    
+            ifDarkMode = true;
+            return
         }
-    }else{
-        document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
-            document.documentElement.style.setProperty('--nightbox', '0');
-            document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
-            document.documentElement.style.setProperty('--nightfcolor', '#606266');
     }
+    document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
+    document.documentElement.style.setProperty('--nightbox', '0');
+    document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
+    document.documentElement.style.setProperty('--nightfcolor', '#606266');
+    idDarkMode.style.setProperty('--leftData', '-4px');
+    idDarkMode.style.setProperty('--divBackGround', '#aaaaaa');
+    ifDarkMode = false;
+    
 }
 
 DarkMode();
@@ -201,15 +178,28 @@ fetch('1.json', {
 });
 
 
+idDarkMode.onclick = () =>{
+    if(ifDarkMode){
+        idDarkMode.style.setProperty('--leftData', '-4px');
+        idDarkMode.style.setProperty('--divBackGround', '#aaaaaa');
+        document.cookie="darkmode=false; max-age:2592000";
+        DarkMode();
+        channel.postMessage({
+    	Type:0
+        })
+        ifDarkMode = false;
+    }else{
+        idDarkMode.style.setProperty('--leftData', '20px');
+        idDarkMode.style.setProperty('--divBackGround', '#FF6699');
+        document.cookie="darkmode=true; max-age:2592000";
+        DarkMode();
+        channel.postMessage({
+    	Type:1
+        })
+        ifDarkMode = true;
+    }
+}
 
-idSearch.onmouseover = () => {
-    idSearch.style.transition = "0.5s";
-    idSearch.style.padding = "10px 8px";
-}
-idSearch.onmouseout = () => {
-    idSearch.style.transition = "0.5s";
-    idSearch.style.padding = "4px 4px";
-}
 
 
 

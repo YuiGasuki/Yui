@@ -26,6 +26,7 @@ body {
     height:100vh;
     background:black;
     opacity:calc(var(--nightbox) + 0.1);
+    transition:opacity 0.5s;
 }
 #background_bur {
     position:fixed;
@@ -88,7 +89,8 @@ body {
     transform:translateY(-200%);  
     margin:0px;
     width:calc(100vw - 68px);
-    padding:4px 4px;
+    height:calc(1em + 24px);
+    padding:auto;
     border-radius:10px;
     filter:drop-shadow(0px 0px 5px black);
     background:var(--nightbackground);
@@ -99,6 +101,7 @@ body {
 }
 #search input {
     width:calc(100% - 42px);
+    font-size:1em;
     padding:4px 4px;
     background:none;
     border-style:none;
@@ -325,4 +328,42 @@ body {
 }
 #side_box ul li:hover {
     color:#FF6699;
+}
+#dark_mode {
+    --leftData:-4px;
+    --divBackGround:#aaaaaa;
+    width:50px;
+    height:25px;
+    background:var(--divBackGround);
+    border-radius:25px;
+    border-style:none;
+    margin-left:242px;
+    margin-top:calc(100vh - 158px);
+    transform:translate(-100%,-100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:var(--nightfcolor);
+    font-size:1em;
+    position:absolute;
+    transition:0.5s;
+}
+#dark_mode::after {
+    content:"";
+    display:inline-block;
+    width:22px;
+    height:22px;
+    border-radius:15px;
+    margin-left:var(--leftData);
+    padding:0px;
+    background:var(--nightbackground);
+    position:absolute;
+    transition:0.5s;
+}
+#dark_mode::before {
+    content:"夜间模式";
+    display:inline-block;
+    white-space:nowrap;
+    margin-left:-184px;
+    font-family:Georgia, serif ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;    
 }
