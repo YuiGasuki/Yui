@@ -127,14 +127,14 @@ document.getElementById('body').innerHTML = data+`<dov id="noteBox"></div>`;
 document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
 });
-let gitalk = new Gitalk({
+var gitalk = new Gitalk({
   clientID: 'Ov23liQRR4VjYR4dXXDv',
   clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
   repo: 'CommentYui',
   owner: 'Yuigasuki',
   admin: ['Yuigasuki'],
   id: location.pathname+"?Yui="+textp,  
-   distractionFreeMode: false  // Facebook-like distraction free mode
+  distractionFreeMode: false  // Facebook-like distraction free mode
   
  });
 
