@@ -3,6 +3,10 @@ const textp=params.get('Yui');
 let history = "";
 let ifOnlad = 0;
 
+
+window.onpageshow = () =>{
+if(textp!=null&&textp!=""){
+
 var gitalk = new Gitalk({
   clientID: 'Ov23liQRR4VjYR4dXXDv',
   clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
@@ -10,14 +14,13 @@ var gitalk = new Gitalk({
   owner: 'Yuigasuki',
   admin: ['Yuigasuki'],
   id: location.pathname+"?Yui="+textp,  
-  distractionFreeMode: false  // Facebook-like distraction free mode
+  distractionFreeMode: true  // Facebook-like distraction free mode
   
  });
 
 gitalk.render('gitalk-container'); 
 
-window.onpageshow = () =>{
-if(textp!=null&&textp!=""){
+
 if(params.get('history')!=null&&params.get('history')!=""){
     history+= "-"+params.get('history');
 }
