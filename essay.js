@@ -17,9 +17,6 @@ fetch('1.json',{method: 'GET'}).then(response => {
 if (response.ok) {
 getbody();
 return response.json();
-}else{
-window.location.assign("404");
-return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 let datab;
@@ -37,10 +34,6 @@ break
 }
 }
 
-if(datab===undefined){
-    window.location.assign("404");
-    return "啊，居然加载错误Σ(°Д°;"
-}
 
 document.title="Yui的文章「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
@@ -78,8 +71,6 @@ location.reload();
 }
 });
   
-}else{
-    window.location.assign("404");
 }
 }
 
@@ -129,9 +120,6 @@ function getbody(){
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 return response.text();
-}else{
-window.location.assign("404");
-return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 ifOnlad++;
