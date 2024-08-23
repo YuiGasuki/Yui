@@ -17,6 +17,9 @@ fetch('1.json',{method: 'GET'}).then(response => {
 if (response.ok) {
 getbody();
 return response.json();
+}else{
+window.location.assign("404");
+return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 let datab;
@@ -34,6 +37,10 @@ break
 }
 }
 
+if(datab===undefined){
+    window.location.assign("404");
+    return "啊，居然加载错误Σ(°Д°;"
+}
 
 document.title="Yui的文章「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
@@ -49,18 +56,7 @@ TimeLabel += `<span class="label" onclick="JavaScript:window.open('search.html?q
 }
 document.getElementById('label').innerHTML =TimeLabel;
 
-var gitalk = new Gitalk({
-  clientID: 'Ov23liQRR4VjYR4dXXDv',
-  clientSecret: 'b6e1ceaaea554e362eee96360da7b5f1a4bd0383',
-  repo: 'CommentYui',
-  owner: 'yuigasuki',
-  admin: 'yuigasuki',
-  id: location.pathname+"?Yui="+textp,  
-  distractionFreeMode: true  // Facebook-like distraction free mode
-  
- });
 
-gitalk.render('gitalk-container'); 
 
 
 }).catch(err =>{
@@ -71,6 +67,8 @@ location.reload();
 }
 });
   
+}else{
+    window.location.assign("404");
 }
 }
 
@@ -120,6 +118,9 @@ function getbody(){
 fetch(textp+history+'.txt',{method: 'GET'}).then(response => {
 if (response.ok) {
 return response.text();
+}else{
+window.location.assign("404");
+return "啊，居然加载错误Σ(°Д°;"
 }
 }).then(data =>{
 ifOnlad++;
