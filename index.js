@@ -102,6 +102,7 @@ const sideBack = document.getElementById('side_back');
 const bodyInformationB = document.getElementById('body_information');
 const bodyPortrait = document.getElementById('body_portrait');
 const ntroductionProject = document.getElementById('ntroduction_project');
+const BackGround = document.getElementById('background');
 
 const idSearch = document.getElementById('search');
 
@@ -226,7 +227,10 @@ function openfeel() {
 const goBackTotTop = () =>{
     if(document.documentElement.scrollTop > 0){
             document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/4);  
+            document.body.style.overflow="hidden";
             window.requestAnimationFrame(goBackTotTop)
+    }else{
+        document.body.style.overflow="auto";
     }
         
 }
@@ -261,15 +265,51 @@ backTop.style.pointerEvents = "none";
 }
 
 sideOpen.onclick = () =>{       
-    sideBox.style.marginLeft= "0px";
+    sideBox.style.marginLeft="255px";
     sideBack.style.display="inline";
     document.body.style.overflow="hidden";
 }
 sideBack.onclick = () =>{
-    sideBox.style.marginLeft="-255px";
+    sideBox.style.marginLeft="0px";
     sideBack.style.display="none";
     document.body.style.overflow="auto";
 }
 backTop.onclick = () =>{
     goBackTotTop();
 }
+
+window.addEventListener('touchstart',(e)=>{
+this.x = e.changedTouches[0].pageX;
+this._x = sideBox.style.marginLeft.slice(0, length-2);
+this.ifclick = false;
+})
+window.addEventListener('touchmove',(e)=>{
+if(Math.abs(this.x-e.touches[0].clientX)>50){
+this.ifclick = true;
+}else{
+return
+}
+this.disx =(this._x*1) + (e.touches[0].clientX - this.x);
+if(this.disx>255){
+this.disx = 255;
+}
+if(this.disx<=0){
+this.disx = 0;
+}
+
+document.body.style.overflow="hidden";
+sideBox.style.marginLeft=`${this.disx}px`;
+})
+window.addEventListener('touchend',(e)=>{
+if(!this.ifclick){
+return
+}
+if(this.disx<125){
+sideBox.style.marginLeft=`0px`;
+sideBack.style.display="none";
+document.body.style.overflow="auto";
+}else{
+sideBox.style.marginLeft=`255px`;
+sideBack.style.display="inline";
+}
+})

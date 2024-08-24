@@ -277,16 +277,15 @@
 #side_box {
     position:fixed;
     top:0px;
-    left:0px;
+    left:-255px;
     width:250px;
     height:100vh;
     background:var(--nightbackground);
     z-index:11;
-    margin-left:-255px;
-    transition:0.5s;
-    overflow-x:hidden;
-    overflow-y:auto;
     filter:drop-shadow(0px 0px 5px black);
+    transition:margin 0.3s;
+    overflow-x:hidden;
+    overflow-y:auto;    
 }
 #side_back {
     position:fixed;
