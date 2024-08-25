@@ -112,8 +112,8 @@
     transform:translate(0%,-50%)
 }
 #body_portrait {
-    width:80px;
-    height:80px;
+    width:82px;
+    height:82px;
     border-radius:41px;
 }
 
@@ -136,6 +136,7 @@
     padding-top:25px;
     transition:0.4s;
     overflow:hidden;
+    pointer-events:none;
 }
 #body_portrait *:nth-child(2) img{
     object-fit:cover;
