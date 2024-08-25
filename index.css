@@ -136,6 +136,9 @@
     height:82px;
     transition:0.4s;
 }
+#body_portrait:hover > *:nth-child(1){
+    filter:blur(1px);
+}
 #body_portrait:hover > *:nth-child(2){
     width:95px;
     height:95px;
