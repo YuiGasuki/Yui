@@ -25,6 +25,7 @@ return "啊，居然加载错误Σ(°Д°;"
 let datab;
 ifOnlad++;
 if(ifOnlad>=2){
+    delete ifOnlad;
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
 }
@@ -47,6 +48,9 @@ document.getElementById('title').innerHTML = datab.title;
 document.getElementById('titleimg').src = datab.title_url;
 
 document.getElementById('titleimg').onerror = () =>{
+document.getElementById('titleimg').onclick = () =>{
+    document.getElementById('titleimg').src = datab.title_url;
+}
 document.getElementById('titleimg').src="none.webp";
 }
 
@@ -56,7 +60,9 @@ TimeLabel += `<span class="label" onclick="JavaScript:window.open('search.html?q
 }
 document.getElementById('label').innerHTML =TimeLabel;
 
-
+let timeData = datab.time.split(".");
+document.querySelector("time").innerHTML = `${timeData[0]}年${timeData[1]}月${timeData[2]}日`;
+delete timeData;
 
 
 }).catch(err =>{
@@ -125,6 +131,7 @@ return "啊，居然加载错误Σ(°Д°;"
 }).then(data =>{
 ifOnlad++;
 if(ifOnlad>=2){
+    delete ifOnlad;
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
 }
