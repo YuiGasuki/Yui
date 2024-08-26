@@ -149,11 +149,11 @@
 }
 #body_portrait *:nth-child(3) {
     width:101px;
-    height:41px;
+    height:42px;
     object-fit:cover;    
     margin-left:-10px;
     position:absolute;
-    margin-top:-25px;
+    margin-top:-26px;
     padding-top:25px;
     transition:0.4s;
     overflow:hidden;
@@ -172,14 +172,14 @@
 #body_portrait:hover > *:nth-child(2) img{
     width:120px;
     height:120px;
-    margin-left:-28px;
-    margin-top:-71px;
+    margin-left:-25px;
+    margin-top:-79px;
 }
 #body_portrait:hover > *:nth-child(3) img{
     width:120px;
     height:120px;
-    margin-left:-18px;
-    margin-top:-30px;
+    margin-left:-15px;
+    margin-top:-37px;
 }
 #body_centre {
     margin-top:-8px;
