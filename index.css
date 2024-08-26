@@ -4,9 +4,14 @@
     --nightbackground:#F1F1F1;
     --nightTitleground:rgba(241,241,241,0.8);
     --nightfcolor:#606266;
+    --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+font-family:var(--fontSerif);
 }
 
-
+@font-face {
+    font-family:GenEiKoburiMin6;
+    src:url("/font/GenEiKoburiMin6-R.ttf");
+}
 #background_img {
     position:fixed;
     top:0px;
@@ -421,5 +426,5 @@
     display:inline-block;
     white-space:nowrap;
     margin-left:-184px;
-    font-family:Georgia, serif ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;    
+    font-family:var(--fontSerif);
 }

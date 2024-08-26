@@ -43,7 +43,7 @@ if(datab===undefined){
     return "啊，居然加载错误Σ(°Д°;"
 }
 
-document.title="Yui的文章「"+datab.title+"」";
+document.title="「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
 document.getElementById('titleimg').src = datab.title_url;
 
