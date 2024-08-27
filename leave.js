@@ -1,10 +1,9 @@
 const options = { 
  method: 'GET', 
- access_token:"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"
+ access_token:"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"
+
  };
-(['ghp_mQmCvnfKZcKPObcm'][0]+['n2lXR4Z2oUjZvw3wdtS5'][0])
 fetch(`https://api.github.com/repos/YuiandAzucat/Yui/issues/15/comments?time=${Date.now()}`,options).then(response => response.json()).then(data =>{ 
-console.log(data)
 document.getElementById('first_box').remove();
 document.body.style.overflow="auto";
 for(let i=data.length-1;i>=0;i=i-1){
