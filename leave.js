@@ -1,6 +1,6 @@
 const options = { 
  method: 'GET', 
- headers:{ 
+ header:{ 
  'access_token':'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' 
  } 
  };
