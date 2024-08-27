@@ -182,16 +182,6 @@ margin:-8px 0px;
 display:flex;
 align-items:center;
 }
-#body li::before {
-    content:"";
-    display:inline-block;
-    width:0.5em;
-    height:0.5em;
-    border-radius:0.5em;
-    margin-right:8px;
-    background:#FF6699;
-    
-}
 #body small {
 color:var(--nightfcolor);
 filter:contrast(40%);

@@ -150,7 +150,7 @@ font-family:var(--fontSerif);
     height:82px;
     margin-left:0px;
     margin-top:-41px;
-    transition:0.4s;
+    transition:0.4s ease-in;
 }
 #body_portrait *:nth-child(3) {
     width:101px;
@@ -171,7 +171,7 @@ font-family:var(--fontSerif);
     height:82px;
     margin-left:10px;
     
-    transition:0.4s;
+    transition:0.4s ease-in;
 }
 
 #body_portrait:hover > *:nth-child(2) img{
@@ -199,11 +199,33 @@ font-family:var(--fontSerif);
     justify-content:center;
 }
 #body_name {
-    font-size:1em;
-    color:#eee;
     text-align:center;
-    font-weight:bold;
-    text-shadow:0px 2px 5px black
+    text-shadow:0px 0px 18px black;
+    color:#eee;
+    margin:12px;
+   
+}
+#body_name::before {
+    content:"";    
+    animation:typewriter 2s steps(5) 1 forwards;
+    border-right-style:solid;
+    border-width:1px;
+    border-color:#eee;
+}
+
+@keyframes typewriter {
+    0% {content:""}
+    25% {content:"唯"}
+    50% {content:"唯の"}
+    75% {
+        content:"唯の小";
+        border-right-style:solid;
+
+    }
+    100% {
+        content:"唯の小屋";
+        border-right-style:none
+    }
 }
 #body_information {
     display:flex;
@@ -347,7 +369,7 @@ font-family:var(--fontSerif);
     background:var(--nightbackground);
     z-index:11;
     filter:drop-shadow(0px 0px 5px black);
-    transition:margin 0.3s;
+    transition:0.3s;
     overflow-x:hidden;
     overflow-y:auto;    
 }
@@ -411,7 +433,7 @@ font-family:var(--fontSerif);
 }
 #dark_mode::after {
     content:"";
-    display:inline-block;
+    display:block;
     width:22px;
     height:22px;
     border-radius:15px;
@@ -423,7 +445,7 @@ font-family:var(--fontSerif);
 }
 #dark_mode::before {
     content:"夜间模式";
-    display:inline-block;
+    display:block;
     white-space:nowrap;
     margin-left:-184px;
     font-family:var(--fontSerif);

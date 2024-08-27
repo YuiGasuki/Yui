@@ -22,24 +22,8 @@ document.querySelectorAll(".load").forEach(item => {
     img.src = item.src;
 });
 
-const TypingAnimation = (e, name, present, i) => {
- 
-    if (present === '') {
-        present = name[i];
-    } else {
-        if (i >= name.length - 2) {
-            present += name[i + 1];
-            document.getElementById('body_name').innerHTML = present;
-            return
-        }
-        present += name[i + 1];
-        i++;
-    }
-    document.getElementById('body_name').innerHTML = present + '|';
-    setTimeout(() => {
-        TypingAnimation(e, name, present, i)
-    }, 400)
-}
+
+
 
 
 
@@ -310,7 +294,6 @@ window.onload = () =>{
     TouchsOpan();
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
-    TypingAnimation(document.getElementById('body_name'), document.getElementById('body_name').innerHTML, "", 0);
     bodyInformationB.style.pointerEvents = "auto";
         bodyInformationB.style.opacity="1";
         bodyInformationB.style.transform="rotateX(0deg)";
