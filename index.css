@@ -198,6 +198,8 @@ font-family:var(--fontSerif);
     align-items:center;
     justify-content:center;
     perspective: 500px;
+        overflow:hidden;
+
 }
 #body_name {
     text-align:center;
