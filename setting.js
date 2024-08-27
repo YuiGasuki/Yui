@@ -39,12 +39,13 @@ SetupFamily.onclick = () =>{
         SetupFamily.style.setProperty('--leftData', '15px');
         SetupFamily.style.setProperty('--divBackGround', '#FF6699');
         document.documentElement.style.setProperty('--fontSerif', 'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times');
-        localStorage.removeItem(serif);
+        localStorage.removeItem("serif");
         ifSetupFamily = true;
     }
 }
 
-if(localStorage.serif&&localStorage.serif==="1"){
+if(localStorage.serif){
+    if(localStorage.serif==="1"){
     SetupFamily.click();
-    
+    }
 }
