@@ -1,7 +1,5 @@
 const options = { 
- method: 'GET', 
- access_token:"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"
-
+ method: 'GET'
  };
 fetch(`https://api.github.com/repos/YuiandAzucat/Yui/issues/15/comments?time=${Date.now()}`,options).then(response => response.json()).then(data =>{ 
 document.getElementById('first_box').remove();
