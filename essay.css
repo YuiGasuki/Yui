@@ -59,6 +59,76 @@ transform: translate(0%,-100%);
 margin-top:0px;
 position:absolute;
 }
+#setup {
+margin:0px;
+padding:0px 8px;
+width:calc(100vw - 16px);
+background:var(--nightbackground);
+transition:1s;
+color:var(--nightfcolor);
+list-style-type:none;
+list-style-position:inside;
+position:relative;
+}
+#setup::before {
+    content:"设置";
+    display:block;
+    transform:translate(-100%,-100%);
+    margin-top:-16px;
+    margin-left:calc(100vw - 16px);
+    white-space:nowrap;
+    color:var(--nightfcolor);
+    font-size:0.8em;
+    position:absolute;
+    transition:1s;
+}
+#setup li {
+    display:none;
+}
+#setup:hover::before {
+    margin-top:-24px;
+}
+#setup:hover {
+    border-bottom-style:solid;
+    border-width:1px;
+    border-color:var(--nightfcolor);
+    padding:8px;
+}
+#setup:hover > li {
+    display:inline;   
+}
+
+#setup_family {
+    --leftData:15px;
+    --divBackGround:#FF6699;
+    width:40px;
+    height:20px;
+    background:var(--divBackGround);
+    border-radius:20px;
+    border-style:none;
+    margin-left:calc(100vw - 16px);
+    transform:translate(-100%,-100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:var(--nightfcolor);
+    font-size:1em;
+    position:absolute;
+    transition:0.5s;
+}
+#setup_family::after {
+    content:"";
+    display:block;
+    width:17px;
+    height:17px;
+    border-radius:20px;
+    margin-left:var(--leftData);
+    padding:0px;
+    background:var(--nightbackground);
+    position:absolute;
+    transition:0.5s;
+}
+
 #body {
 padding:8px;
 border-radius:0px 0px 16px 16px;
@@ -126,6 +196,9 @@ position:relative;
 transform: translate(0%,-40%);
 display:inline-block;
 padding:0px;
+}
+#body .note:active {
+    background:#87ceebcc;
 }
 #body .note div {
 background:var(--nightbackground);
