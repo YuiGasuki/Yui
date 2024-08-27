@@ -3,50 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Yui_留言板</title>
+<title>Yui_说说</title>
 <link href="all.css" rel="stylesheet" type="text/css">
-<link href="index.css" rel="stylesheet" type="text/css">
+<link href="leave.css" rel="stylesheet" type="text/css">
 <link rel= "shortcut icon" href ="icon.webp" type="image/x-icon" />
-<style>
-#body_box {
-position:relative;
-    top:8px;
-    left:8px;
-}
-#body_box div {
-width:calc(100% - 32px);
-min-height:100px;
-background:white;
-border-radius:10px;
-padding:20px 8px 40px 8px;
-overflow:auto;
-margin-bottom:12px;
-color:#aaaaaa;
-filter: drop-shadow(0px 2px 10px black);
-}
-.avatar {
-width:40px;
-height:40px;
-border-radius:40px;
-object-fit:cover;
-border-style:solid;
-border-width:2px;
-border-color:#aaaaaa;
-margin-left:8px;
-background:#aaaaaa;
-}
-.name {
-position:absolute;
-margin-top:calc(0px - 40px + 0.5em);
-margin-left:60px;
-}
-.body {
-white-space:pre-wrap;
-word-wrap:anywhere;
-width:100%;
-overflow:hidden;
-}
-</style>
 </head>
 <body>
 <img id="background_img" src="b_1.webp" >
@@ -54,42 +14,54 @@ overflow:hidden;
 <div id="background"></div>
 <div id="body_box">
 </div>
-
- <script> 
- 
- 
- const options = { 
- method: 'GET', 
- header:{ 
- 'access_token':'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' 
- } 
- };
-
-fetch('https://api.github.com/repos/YuiandAzucat/Yui/issues?time='+(Date.now()),options).then(response => response.json()).then(data =>{ 
-
-for(let i =0;i<data.length;i++){
-if(data[i].title==="留言"){
-if(data[i].body.match(/!\[(.*?)\](.*?)\)/g)){
-document.getElementById('body_box').innerHTML += `
-<div>
-<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body.replace(/!\[(.*?)\](.*?)\)\r\n/g, '')+`</p>
-<img src="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('(')[1].split(')')[0]+`" alt="`+data[i].body.match(/!\[(.*?)\](.*?)\)/g)[0].split('![')[1].split(']')[0]+`" class="img" />
-</div>
-`;
-
-}else{
-document.getElementById('body_box').innerHTML += `
-<div>
-<img src="`+data[i].user.avatar_url+`" class="avatar" onclick="JavaScript:window.open('`+data[i].user.html_url+`')" /><p class="name" onclick="JavaScript:window.open('`+data[i].user.html_url+`')">`+data[i].user.login+`</p>
-<p class="body">`+data[i].body+`</p>
-</div>
-`;}}
-
-
-
- }
- });
-</script>
+        <style>
+        body {
+            overflow:hidden;
+            }
+        #first_box {
+            position:fixed;
+            top:0px;
+            left:0px;
+            width:100vw;
+            height:100vh;
+            background:black;
+            color:white;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+        }
+        #first_box p {
+            display:flex;
+            position:absolute;
+            font-size:1.2em;
+            line-height:1.2em;
+            }
+        #first_box p span {
+            animation:firstPAnime 0.9s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            display:block;
+            }
+        #first_box p .a {
+            animation-delay:0.6s;
+            }
+        #first_box p .b {
+            animation-delay:0.3s;
+            }
+        #first_box p .c {
+            animation-delay:0s;
+            }
+        @keyframes firstPAnime {
+            0% { margin-top: 0em; }
+            50% { margin-top: -0.2em; }
+            100% { margin-top: 0em; }
+            }
+        </style>
+        <div id="first_box">
+            <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
+        </div>
+<div id="nightbox"></div>
+<script src="leave.js"></script>
 </body>
 </html>
