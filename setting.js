@@ -33,13 +33,13 @@ SetupFamily.onclick = () =>{
         SetupFamily.style.setProperty('--leftData', '-4px');
         SetupFamily.style.setProperty('--divBackGround', '#aaaaaa');
         document.documentElement.style.setProperty('--fontSerif', 'fontSerif:GenEiKoburiMin6, Arial Black, Gadget, sans-serif');
-        localStorage.removeItem(serif);
+        localStorage.serif = "1";
         ifSetupFamily = false;
     }else{
         SetupFamily.style.setProperty('--leftData', '15px');
         SetupFamily.style.setProperty('--divBackGround', '#FF6699');
         document.documentElement.style.setProperty('--fontSerif', 'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times');
-        localStorage.serif = "1";
+        localStorage.removeItem(serif);
         ifSetupFamily = true;
     }
 }
