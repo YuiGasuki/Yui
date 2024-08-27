@@ -197,6 +197,7 @@ font-family:var(--fontSerif);
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    perspective: 500px;
 }
 #body_name {
     text-align:center;
