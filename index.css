@@ -203,12 +203,11 @@ font-family:var(--fontSerif);
     text-shadow:0px 0px 18px black;
     color:#eee;
     margin:12px;
-   
 }
-#body_name::before {
-    content:"";    
-    animation:typewriter 2s steps(5) 1 forwards;
+.body_name::before {
+    content:"";        
     border-right-style:solid;
+    animation:typewriter 2s steps(5) 1 forwards;
     border-width:1px;
     border-color:#eee;
 }

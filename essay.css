@@ -97,10 +97,12 @@ position:relative;
 #setup:hover > li {
     display:inline;   
 }
-
 #setup_family {
     --leftData:15px;
     --divBackGround:#FF6699;
+}
+.setupli {
+    
     width:40px;
     height:20px;
     background:var(--divBackGround);
@@ -116,7 +118,7 @@ position:relative;
     position:absolute;
     transition:0.5s;
 }
-#setup_family::after {
+.setupli::after {
     content:"";
     display:block;
     width:17px;

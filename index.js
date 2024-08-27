@@ -67,15 +67,14 @@ DarkMode()
 
 
 
-const bodyInformation = document.getElementById('body_ntroduction');
+const bodyNtroduction = document.getElementById('body_ntroduction');
 const sideOpen = document.getElementById('side_open');
 const backTop = document.getElementById('back_top');
 const sideBox = document.getElementById('side_box');
 const sideBack = document.getElementById('side_back');
-const bodyInformationB = document.getElementById('body_information');
-const bodyPortrait = document.getElementById('body_portrait');
-const ntroductionProject = document.getElementById('ntroduction_project');
+const bodyInformation = document.getElementById('body_information');
 const BackGround = document.getElementById('background');
+const bodyName = document.getElementById('body_name');
 
 const idSearch = document.getElementById('search');
 
@@ -112,7 +111,7 @@ fetch('1.json', {
                 `;        
         }
         textAgin += `<div id="getBook"></div>`;
-        bodyInformation.innerHTML+=textAgin;
+        bodyNtroduction.innerHTML+=textAgin;
         i++;
     }  
     
@@ -139,7 +138,7 @@ fetch('1.json', {
     });
 
 
-    if (bodyInformation.style.display === "inline") {
+    if (bodyNtroduction.style.display === "inline") {
         document.querySelectorAll(".ntroduction")
             .forEach(item => {
             if (item.style.opacity != "1") {
@@ -288,15 +287,16 @@ sideBack.style.display="inline";
 }
 })
 }
-
+bodyName.style.animationPlayState = "paused";
 window.onload = () =>{          
     if(document.getElementById('first_box')){
     TouchsOpan();
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
-    bodyInformationB.style.pointerEvents = "auto";
-        bodyInformationB.style.opacity="1";
-        bodyInformationB.style.transform="rotateX(0deg)";
+    bodyInformation.style.pointerEvents = "auto";
+    bodyName.setAttribute("class","body_name");
+        bodyInformation.style.opacity="1";
+        bodyInformation.style.transform="rotateX(0deg)";
     }   
         
 }
