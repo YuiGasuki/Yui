@@ -44,9 +44,7 @@ SetupFamily.onclick = () =>{
     }
 }
 
-if(localStorage.serif){
-    if(localStorage.serif==="1"){
-        ifSetupFamily = false;
-    }
+if(localStorage.serif&&localStorage.serif==="1"){
     SetupFamily.click();
+    
 }
