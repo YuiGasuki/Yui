@@ -8,7 +8,7 @@ font-family:var(--fontSerif);
 }
 @font-face {
     font-family:GenEiKoburiMin6;
-    src:url("/font/GenEiKoburiMin6-R.ttf");
+    src:url("/Yui/font/GenEiKoburiMin6-R.ttf");
 }
 #nightbox {
 position:fixed;
