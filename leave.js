@@ -1,8 +1,12 @@
 const options = { 
  method: 'GET', 
+ headers:{ 
+ 'access_token':'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' 
+ } 
  };
 
-fetch(`https://api.github.com/repos/YuiandAzucat/Yui/issues/15/comments?time=${Date.now()}&access_token="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"`,options).then(response => response.json()).then(data =>{ 
+fetch(`https://api.github.com/repos/YuiandAzucat/Yui/issues/15/comments?time=${Date.now()}`,options).then(response => response.json()).then(data =>{ 
+console.log(data)
 document.getElementById('first_box').remove();
 document.body.style.overflow="auto";
 for(let i=data.length-1;i>=0;i=i-1){
@@ -20,6 +24,7 @@ document.getElementById('body_box').innerHTML += `
 
  
  }).catch(err =>{
+ console.log(err)
 document.querySelectorAll('#first_box p')[0].innerHTML = '加载错误 点击刷新';
 document.querySelectorAll('#first_box p')[0].style.color='red';
 document.querySelectorAll('#first_box p')[0].onclick = () =>{
