@@ -94,8 +94,10 @@ transition:0.4s;
 
 #setup_box img {
     position:fixed;
-    width:var(--widthSize);
-    height:var(--widthSize);
+    top:calc(var(--widthSize) / 2 - 11px);
+    left:calc(var(--widthSize) / 2 - 11px);
+    width:22px;
+    height:22px;
     animation:typewriter 4s linear infinite;
 }
 @keyframes typewriter {
