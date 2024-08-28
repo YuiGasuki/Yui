@@ -59,47 +59,81 @@ transform: translate(0%,-100%);
 margin-top:0px;
 position:absolute;
 }
+#back_top {
+    --widthSize:35px;
+    position:fixed;
+    bottom:calc(2 * var(--widthSize) + 16px);
+    right:4px;
+    margin:0px;
+    width:var(--widthSize);
+    height:var(--widthSize);
+    border-radius:4px;
+    filter:drop-shadow(0px 0px 5px black);
+    background:var(--nightbackground);
+    color:#aaaaaa;
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+    z-index:10;
+}
+#setup_box {
+--widthSize:35px;
+position:fixed;
+bottom:calc(var(--widthSize) + 8px);
+right:4px;
+width:var(--widthSize);
+height:var(--widthSize);
+border-radius:4px;
+filter: drop-shadow(0px 0px 2px var(--nightfcolor));
+background:var(--nightbackground);
+z-index: 10;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+}
+
+#setup_box img {
+    position:fixed;
+    width:var(--widthSize);
+    height:var(--widthSize);
+    animation:typewriter 4s linear infinite;
+}
+@keyframes typewriter {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+
 #setup {
 margin:0px;
 padding:0px 8px;
+position:fixed;
+bottom:calc(0px - var(--widthSize) - 8px);
+right:-4px;
 width:calc(100vw - 16px);
+height:0px;
 background:var(--nightbackground);
-transition:1s;
+transition:0.4s;
 color:var(--nightfcolor);
 list-style-type:none;
 list-style-position:inside;
-position:relative;
-}
-#setup::before {
-    content:"设置";
-    display:block;
-    transform:translate(-100%,-100%);
-    margin-top:-16px;
-    margin-left:calc(100vw - 16px);
-    white-space:nowrap;
-    color:var(--nightfcolor);
-    font-size:0.8em;
-    position:absolute;
-    transition:1s;
+filter: drop-shadow(0px 0px 2px var(--nightfcolor));
+overflow:auto;
 }
 #setup li {
-    display:none;
+    padding:8px 0px;
 }
-#setup:hover::before {
-    margin-top:-24px;
-}
-#setup:hover {
-    border-bottom-style:solid;
-    border-width:1px;
-    border-color:var(--nightfcolor);
-    padding:8px;
-}
-#setup:hover > li {
-    display:inline;   
+#setup_box:hover > #setup {
+    height:50vh;
+    padding:16px 8px;
 }
 #setup_family {
     --leftData:15px;
     --divBackGround:#FF6699;
+}
+#dark_mode {
+    --leftData:-4px;
+    --divBackGround:#aaaaaa;
 }
 .setupli {
     

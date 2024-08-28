@@ -15,12 +15,17 @@
                 <hi id="title">₍˄·͈༝·͈˄*₎◞ ̑̑</hi>
                 <div id="label"></div>
                 <time></time>
-                <ul id="setup">
-                    <li>启用Serif<button id="setup_family" class="setupli"></button></li>
-                </ul>
                 <div id="body">居然没有内容Σ(ŎдŎ|||)ﾉﾉ
                 </div>
             </div>
+        </div>
+        <img src="back_top.svg" id="back_top" />
+        <div id="setup_box">
+        <img src="setUp.svg" alt="setting">
+        <ul id="setup">
+            <li>使用serif字体<button id="setup_family" class="setupli"></button></li>
+            <li>夜间模式<button id="dark_mode" class="setupli"></button></li>
+        </ul>
         </div>
         <style>
         body {
@@ -38,6 +43,7 @@
             flex-direction:column;
             align-items:center;
             justify-content:center;
+            z-index: 998;
         }
         #first_box p {
             display:flex;
