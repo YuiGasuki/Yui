@@ -89,24 +89,28 @@ if(localStorage.serif){
 
 window.onscroll = function() {
 if(document.documentElement.scrollTop > 0){
-SetupBox.style.cssText = "pointerEvents:auto;opacity:1;";
-backTop.style.cssText = "opacity:1;pointerEvents:auto;";
+SetupBox.style.pointerEvents = "auto";
+SetupBox.style.opacity = "1";
+backTop.style.pointerEvents = "auto";
+backTop.style.opacity = "1";
 }else if(document.documentElement.scrollTop <= 0){
-SetupBox.style.cssText = "pointerEvents:none;opacity:0;";
-backTop.style.cssText = "opacity:0;pointerEvents:none;";
+SetupBox.style.opacity = "0";
+SetupBox.style.pointerEvents = "none";
+backTop.style.opacity = "0";
+backTop.style.pointerEvents = "none";
 }
 }
 
 
-function goBackTotTop() {
-    if(document.documentElement.scrollTop > 0){
-            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/4);  
+function goBackTotTop(numBer) {
+    if(document.documentElement.scrollTop > numBer){
+            document.documentElement.scrollTop = document.documentElement.scrollTop - ((document.documentElement.scrollTop-numBer)/4);  
             document.body.style.overflow="hidden";
-            window.requestAnimationFrame(goBackTotTop)
+            window.requestAnimationFrame(()=>goBackTotTop(numBer))
     }else{
         document.body.style.overflow="auto";
     }
         
 }
 
-backTop.onclick = () =>goBackTotTop();
+backTop.onclick = () =>goBackTotTop(0);

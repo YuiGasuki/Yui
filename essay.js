@@ -136,7 +136,7 @@ el.dataset.text = data;
 el.dataset.i = i;
 el.innerHTML = `[${i}]`;
 el.id=`note${i}`;
-noteBox +=`<br><a href="#note${i}">[${i}]${data.replaceAll(`<br>`,'')}</a>`;
+noteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replaceAll(`<br>`,'')}</a>`;
 el.onclick = () =>{
 let a = el.clientWidth;
 el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
@@ -164,4 +164,15 @@ location.reload();
 
 
 
+function GoToNote(id){
+    let e = document.getElementById(id).getBoundingClientRect();
+    let Y = e.y;
+    let data;
+    if(Y >= 0){
+        data = document.documentElement.scrollTop + Y;
+    }else{
+        data = document.documentElement.scrollTop + Y;
+    }
+    goBackTotTop(data)
+}
 
