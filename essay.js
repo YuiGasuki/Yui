@@ -118,7 +118,20 @@ document.querySelectorAll('div.code').forEach(el => {
 });
 
 
+const H2List = document.querySelectorAll('h2');
+let outlineLi = "";
+for(let i=0;i<H2List.length;i++){
+if(outlineBox.style.display===""){
+outlineBox.style.display = "inline";
+}
+H2List[i].id = `H2_${i}`;
+outlineLi += `<li onclick="GoToNote('${H2List[i].id}')">${H2List[i].innerText}</li>`;
 
+}
+console.log(outlineLi)
+if(outlineLi!=""){
+    outlineBox.children[0].innerHTML = outlineLi;
+}
 
 document.querySelectorAll('img').forEach(el => {
   
@@ -151,7 +164,6 @@ el.style.zIndex="1";
 }
 });
 document.getElementById('noteBox').innerHTML +=noteBox;
-console.log(noteBox);
 
 }).catch(err =>{
 document.querySelectorAll('#first_box p')[0].innerHTML = '网络错误 点击刷新';
@@ -163,7 +175,6 @@ location.reload();
 }
 
 
-
 function GoToNote(id){
     let e = document.getElementById(id).getBoundingClientRect();
     let Y = e.y;
@@ -173,6 +184,6 @@ function GoToNote(id){
     }else{
         data = document.documentElement.scrollTop + Y;
     }
-    goBackTotTop(data)
+    document.documentElement.scrollTop = data;
 }
 

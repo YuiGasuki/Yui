@@ -62,7 +62,7 @@ position:absolute;
 #back_top {
     --widthSize:35px;
     position:fixed;
-    bottom:calc(2 * var(--widthSize) + 16px);
+    bottom:calc(var(--widthSize) + 8px);
     right:4px;
     margin:0px;
     width:var(--widthSize);
@@ -76,10 +76,64 @@ position:absolute;
     transition:0.4s;
     z-index:10;
 }
+#outline_box {
+    --widthSize:35px;
+    position:fixed;
+    bottom:calc(3 * var(--widthSize) + 24px);
+    right:4px;
+    margin:0px;
+    width:var(--widthSize);
+    height:var(--widthSize);
+    border-radius:4px;
+    filter:drop-shadow(0px 0px 2px var(--nightfcolor));
+    background:var(--nightbackground);
+    color:#aaaaaa
+    z-index:10;
+    background-image:url('side.svg');
+    background-size:calc(var(--widthSize) / 7 * 5);
+    background-repeat:no-repeat;
+    background-position:center center;
+    display:none;
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+}
+#outline_box:hover > #outline_ul {
+    width:200px;
+    padding:8px 8px;
+    max-height:calc(4 * var(--widthSize) + 24px);
+}
+#outline_ul {
+    margin:0px;
+    padding:0px 0px;
+    position:fixed;
+    right:calc(var(--widthSize) + 8px);
+    bottom:0px;
+    width:0px;
+    max-height:0px;
+    background:var(--nightbackground);
+    transition:0.3s;
+    color:var(--nightfcolor);
+    list-style-type:none;
+    list-style-position:inside;
+    overflow:auto;
+}
+#outline_ul li {
+    padding:4px 0px;
+    white-space:nowrap;
+    counter-increment: section;
+}
+#outline_ul li:before {
+content:"#" counter(section) " ";
+color:#FF6699;
+}
+#outline_ul li:active {
+    background:#87ceebcc;
+}
 #setup_box {
 --widthSize:35px;
 position:fixed;
-bottom:calc(var(--widthSize) + 8px);
+bottom:calc(2 * var(--widthSize) + 16px);
 right:4px;
 width:var(--widthSize);
 height:var(--widthSize);
@@ -89,7 +143,7 @@ background:var(--nightbackground);
 z-index: 10;
 opacity:0;
 pointer-events:none;
-transition:0.4s;
+transition:0.3s;
 }
 
 #setup_box img {
@@ -110,12 +164,12 @@ transition:0.4s;
 margin:0px;
 padding:0px 8px;
 position:fixed;
-bottom:calc(0px - var(--widthSize) - 8px);
+bottom:calc(0px - (var(--widthSize) * 2) - 16px);
 right:-4px;
 width:calc(100vw - 16px);
 height:0px;
 background:var(--nightbackground);
-transition:0.4s;
+transition:0.3s;
 color:var(--nightfcolor);
 list-style-type:none;
 list-style-position:inside;
