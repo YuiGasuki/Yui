@@ -68,7 +68,7 @@ position:absolute;
     width:var(--widthSize);
     height:var(--widthSize);
     border-radius:4px;
-    filter:drop-shadow(0px 0px 5px black);
+    filter:drop-shadow(0px 0px 2px var(--nightfcolor));
     background:var(--nightbackground);
     color:#aaaaaa;
     opacity:0;

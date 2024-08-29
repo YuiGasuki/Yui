@@ -47,12 +47,12 @@ document.title="「"+datab.title+"」";
 document.getElementById('title').innerHTML = datab.title;
 document.getElementById('titleimg').src = datab.title_url;
 
-document.getElementById('titleimg').onerror = () =>{
-document.getElementById('titleimg').onclick = () =>{
-    document.getElementById('titleimg').src = datab.title_url;
-}
-document.getElementById('titleimg').src="none.webp";
-}
+
+document.getElementById('titleimg').addEventListener('error', () =>{
+document.getElementById('titleimg').src = datab.title_url;
+document.getElementById('titleimg').addEventListener('error', () =>{document.getElementById('titleimg').src = "none.webp";});
+}, { once: true });
+
 
 let TimeLabel = ``;
 for(let i=0;i<datab.label.length;i++){
@@ -111,7 +111,7 @@ if(ifOnlad>=2){
 }
 
 
-document.getElementById('body').innerHTML = data+`<dov id="noteBox"></div>`;
+document.getElementById('body').innerHTML = data+`<div id="noteBox"></div>`;
 
 document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
