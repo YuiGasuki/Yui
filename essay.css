@@ -5,6 +5,7 @@
 --nightfcolor:#000000;
 --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 font-family:var(--fontSerif);
+--fontSize:1em;
 }
 @font-face {
     font-family:GenEiKoburiMin6;
@@ -114,18 +115,18 @@ position:absolute;
     background:var(--nightbackground);
     transition:0.3s;
     color:var(--nightfcolor);
-    list-style-type:none;
+    list-style-type:decimal;
     list-style-position:inside;
-    overflow:auto;
+    overflow:auto;    
+}
+#outline_ul::before {
+    content:"目录";
+    font-size:1em;
 }
 #outline_ul li {
     padding:4px 0px;
     white-space:nowrap;
-    counter-increment: section;
-}
-#outline_ul li:before {
-content:"#" counter(section) " ";
-color:#FF6699;
+    font-size:0.9em;
 }
 #outline_ul li:active {
     background:#87ceebcc;
@@ -229,7 +230,7 @@ white-space:pre-wrap;
 overflow-wrap:anywhere;
 word-break:normal;
 line-height:25px;
-font-size:1.1em;
+font-size:var(--fontSize);
 overflow:hidden;
 background:var(--nightbackground);
 transition:1s;
@@ -241,7 +242,7 @@ white-space:pre-wrap;
 word-wrap:anywhere;
 word-break:break-all;
 line-height:25px;
-font-size:1em;
+font-size:var(--fontSize);
 text-decoration: none; 
 }
 #body .img {
@@ -264,7 +265,7 @@ font-size:0.9em;
 }
 #body .warn {
 color:#950606;
-font-size:1em;
+font-size:var(--fontSize);
 margin-top:8px;
 margin-left:-8px;
 overflow:auto;
@@ -300,7 +301,7 @@ padding:3px;
 color:var(--nightfcolor);
 position:absolute;
 width:80px;
-font-size:15px !important;
+font-size:15px; !important
 transform: translate(0%,-25%);
 }
 #label {
@@ -352,31 +353,7 @@ color:var(--nightfcolor);
 filter:contrast(40%);
 font-size:0.8em;
 }
-#comments_Section {
-color:var(--nightfcolor);
-font-weight:bold;
-width:calc(100vw - 8px);
-padding-top:32px;
-padding-left:8px;
-margin-right:4px;
-margin-bottom:8px;
-margin-left:-8px;
-background:var(--nightbackground);
-transition:1s;
-padding-bottom:32px;
-border-radius:16px;
-}
-#gitalk-container {
-background:var(--nightbackground);
-transition:1s;
-padding-left:8px;
-padding-right:8px;
-border-radius:16px;
-width:calc(100vw - 16px);
-padding-bottom:32px;
-margin-left:-8px;
-color:var(--nightfcolor);
-}
+
 h2 {
     font-size:1.15em;
     margin:0px;
@@ -385,18 +362,16 @@ h2 {
     white-space:nowrap;
     overflow:auto;
     width:calc(100% - 22px);
+    display:flex;
 }
-h2::after {
+h2::before {
     content:"";
-    display: block;
+    width:0.4em;
     height:100%;
-    width:6px;
-    border-radius:1px;
-    background:#FF6699;
     position:absolute;
-    margin-left:-8px;
-    margin-top:-1px;
-    transform: translate(-100%,-100%);    
+    display;block;
+    margin-left:-16px;
+    background:#FF6699;
 }
 #noteBox {
     display: block;
