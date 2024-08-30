@@ -141,7 +141,7 @@ el.src="none.webp";
 });
 
 let i=0;
-let noteBox = ``;
+let NoteBox = ``;
 document.querySelectorAll('.note').forEach(el => {
 i++;
 let data = el.innerHTML;
@@ -149,7 +149,9 @@ el.dataset.text = data;
 el.dataset.i = i;
 el.innerHTML = `[${i}]`;
 el.id=`note${i}`;
-noteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replaceAll(`<br>`,'')}</a>`;
+
+
+NoteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replace(/<br>/g,'')}</a>`;
 el.onclick = () =>{
 let a = el.clientWidth;
 el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
@@ -163,7 +165,7 @@ el.innerHTML = `[${el.dataset.i}]`;
 el.style.zIndex="1";
 }
 });
-document.getElementById('noteBox').innerHTML +=noteBox;
+document.getElementById('noteBox').innerHTML +=NoteBox;
 
 }).catch(err =>{
 document.querySelectorAll('#first_box p')[0].innerHTML = '网络错误 点击刷新';
