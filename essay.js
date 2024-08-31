@@ -33,6 +33,7 @@ if(ifOnlad>=2){
 
 for(let onei = 0;onei<data.length;onei++){
 if(data[onei].Yui===textp){
+document.getElementById('body_foot_p').innerHTML = `Yui: ${textp}` ;
 datab = data[onei];
 break
 }

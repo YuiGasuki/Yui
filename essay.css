@@ -6,6 +6,7 @@
 --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 font-family:var(--fontSerif);
 --fontSize:1em;
+--widthSize:35px;
 }
 @font-face {
     font-family:GenEiKoburiMin6;
@@ -61,7 +62,6 @@ margin-top:0px;
 position:absolute;
 }
 #back_top {
-    --widthSize:35px;
     position:fixed;
     bottom:calc(var(--widthSize) + 8px);
     right:4px;
@@ -78,7 +78,6 @@ position:absolute;
     z-index:10;
 }
 #outline_box {
-    --widthSize:35px;
     position:fixed;
     bottom:calc(3 * var(--widthSize) + 24px);
     right:4px;
@@ -132,7 +131,6 @@ position:absolute;
     background:#87ceebcc;
 }
 #setup_box {
---widthSize:35px;
 position:fixed;
 bottom:calc(2 * var(--widthSize) + 16px);
 right:4px;
@@ -235,6 +233,32 @@ overflow:hidden;
 background:var(--nightbackground);
 transition:1s;
 padding-bottom:32px;
+margin-bottom:calc(4 * var(--widthSize) - 32px);
+}
+
+time {
+width:calc(100% - 8px);
+background:var(--nightbackground);
+padding-left:8px;
+padding-bottom:16px;
+transition:1s;
+color:var(--nightfcolor);
+font-size:0.8em;
+margin:0px;
+display: block;
+}
+time::before {
+    content:"更新时间";
+}
+#body_foot_p {
+font-size:0.8em;
+display:block;
+position:absolute;
+margin:0px;
+color:var(--nightfcolor);
+margin-left:calc(100% - 8px);
+transform: translateX(-100%);
+white-space:nowrap;
 }
 a {
 color:#FF6699;
@@ -324,17 +348,7 @@ margin-bottom:8px;
 line-height:1em;
 }
 
-time {
-width:calc(100% - 8px);
-padding-left:8px;
-padding-bottom:16px;
-background:var(--nightbackground);
-transition:1s;
-color:var(--nightfcolor);
-font-size:0.8em;
-margin:0px;
-display: block;
-}
+
 
 #body ul {
 list-style-type:none;
