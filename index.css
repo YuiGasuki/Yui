@@ -102,9 +102,10 @@ font-family:var(--fontSerif);
     transition:0.4s;
     z-index:10;
 }
+
 #search input {
     width:calc(100% - 42px);
-    font-size:1em;
+    font-size:0.9em;
     padding:4px 4px;
     background:none;
     border-style:none;
