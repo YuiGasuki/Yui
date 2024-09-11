@@ -52,7 +52,6 @@ font-family:var(--fontSerif);
     pointer-events:none;
     z-index:100000
 }
-
 #side_open {
     position:fixed;
     top:2px;
@@ -241,6 +240,9 @@ font-family:var(--fontSerif);
     transition:5s;
     pointer-events:none;
 }
+#body_information:hover img {
+    opacity:0.5;
+}
 #body_information img {
     object-fit:none;
     display:flex;
@@ -256,7 +258,8 @@ font-family:var(--fontSerif);
     transition:background 1s  
 }
 #body_information img:hover {
-    filter:drop-shadow(0px 0px 3px white)
+    filter:drop-shadow(0px 0px 3px white);
+    opacity:1;
 }
 #body_ntroduction {
     overflow:hidden;
