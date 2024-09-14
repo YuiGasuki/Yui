@@ -75,7 +75,7 @@ const sideBack = document.getElementById('side_back');
 const bodyInformation = document.getElementById('body_information');
 const BackGround = document.getElementById('background');
 const bodyName = document.getElementById('body_name');
-
+const SearchText = document.getElementById("searchText");
 const idSearch = document.getElementById('search');
 
 
@@ -132,9 +132,12 @@ fetch('1.json', {
     io.observe(document.getElementById('getBook'));
 
     document.querySelectorAll(".titleimg").forEach(item => {
-        item.onerror = () => {
-            item.src = "none.webp";
-        }
+        item.addEventListener('error', () =>{
+            item.src = item.src;
+            item.addEventListener('error', () =>{
+                item.src = "none.webp";
+            });
+        }, { once: true });
     });
 
 
@@ -183,9 +186,12 @@ function ent(ev) {
     }
 }
 
-function openfeel() {
-    window.open("search.html?q=" + document.getElementById("searchText")
-        .value);
+function openfeel() {    
+    if(SearchText.value.trim()===""){
+        return
+     }
+    window.open("search.html?q=" + SearchText.value);
+    
 }
 
 
@@ -295,8 +301,8 @@ window.onload = () =>{
     document.body.style.overflow="auto";
     bodyInformation.style.pointerEvents = "auto";
     bodyName.setAttribute("class","body_name");
-        bodyInformation.style.opacity="1";
-        bodyInformation.style.transform="rotateX(0deg)";
+    bodyInformation.style.opacity="1";
+    bodyInformation.style.transform="rotateX(0deg)";
     }   
         
 }

@@ -87,10 +87,10 @@ font-family:var(--fontSerif);
 #search {
     position:fixed;
     top:2px;
-    left:50px;
+    right:4px;
     transform:translateY(-200%);  
     margin:0px;
-    width:calc(100vw - 68px);
+    width:calc(1em + 24px);
     height:calc(1em + 24px);
     padding:auto;
     border-radius:10px;
@@ -102,10 +102,17 @@ font-family:var(--fontSerif);
     z-index:10;
 }
 
-#search input {
+#search:hover {
+    width:calc(100vw - 55px);
+}
+#search:hover input {
     width:calc(100% - 42px);
+    padding:4px 4px 4px 8px;
+}
+#search input {
+    width:0px;
     font-size:0.9em;
-    padding:4px 4px;
+    padding:0px;
     background:none;
     border-style:none;
     color:#aaaaaa
@@ -237,7 +244,7 @@ font-family:var(--fontSerif);
     margin-left:0px;
     opacity:0;
     transform: rotateX(90deg);
-    transition:5s;
+    transition:2s;
     pointer-events:none;
 }
 #body_information:hover img {
@@ -412,7 +419,7 @@ font-family:var(--fontSerif);
     list-style-position:inside;
 }
 #side_box ul li{
-    margin:8px 0px;
+    margin:12px 0px;
 }
 #side_box ul li:hover {
     color:#FF6699;

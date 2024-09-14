@@ -31,13 +31,13 @@ const DarkMode = () =>{
     if(document.cookie){
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
-            document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,1)');
+            document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,0.8)');
             document.documentElement.style.setProperty('--nightbox', '0.5');           
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
             return
         }
     }
-    document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
+    document.documentElement.style.setProperty('--nightbackground', 'rgba(255,255,255,0.8)');
     document.documentElement.style.setProperty('--nightbox', '0');
     document.documentElement.style.setProperty('--nightfcolor', '#606266');
     

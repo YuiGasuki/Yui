@@ -1,26 +1,28 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>唯の小屋-主页</title>
-        <link href="index.css" rel="stylesheet" type="text/css">
-        <link href="all.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="icon.webp" type="image/x-icon">
-    </head>
-    <body>
-        <img id="background_img" class="load">
-        <div id="background_bur"></div>
-        <div id="background"></div>
-        <div id="head_box">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>唯の小屋-主页</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="all.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="icon.webp" type="image/x-icon">
+</head>
+
+<body>
+    <img id="background_img" class="load">
+    <div id="background_bur"></div>
+    <div id="background"></div>
+    <div id="head_box">
         <img src="side.svg" id="side_open" />
         <img src="back_top.svg" id="back_top" />
         <div style="display:flex" id="search">
-            <input type="text" onkeydown="ent()" id="searchText" placeholder="搜索..."><img src="search.svg" id="search_img" onclick="openfeel()" alt="search" class="load">
+            <input type="text" onkeydown="ent()" id="searchText" placeholder="搜索..."><img src="search.svg" id="search_img"  alt="search" class="load">
         </div>
-        </div>
-        <div id="body_centre">
-            <div id="body_portrait">
+    </div>
+    <div id="body_centre">
+        <div id="body_portrait">
             <img src="portrait.webp" alt="portrait" class="load">
             <div>
                 <img src="portrait_1.webp" alt="portrait" class="load">
@@ -28,27 +30,28 @@
             <div>
                 <img src="portrait_1.webp" alt="portrait" class="load">
             </div>
-            </div>
-            <div id="body_name"></div>
-            <div id="body_information">
-                <img src="bilibili.svg" onclick="JavaScript:window.open('https://space.bilibili.com/1560384560')" alt="bili" class="load"><img src="github.svg" onclick="JavaScript:window.open('https://github.com/Yuigasuki')" alt="github" class="load"><img src="x.svg" onclick="JavaScript:window.open('https://x.com/Yuicat414815?s=09')" alt="x" class="load"><img src="youtube.svg" onclick="JavaScript:window.open('https://www.youtube.com/channel/UCEtisOmwHa1QUgts7b0PoYw')" alt="youtube" class="load">
-            </div>
+        </div>
+        <div id="body_name"></div>
+        <div id="body_information">
+            <img src="bilibili.svg" onclick="JavaScript:window.open('https://space.bilibili.com/1560384560')" alt="bili" class="load"><img src="github.svg" onclick="JavaScript:window.open('https://github.com/Yuigasuki')" alt="github" class="load"><img src="x.svg" onclick="JavaScript:window.open('https://x.com/Yuicat414815?s=09')" alt="x" class="load"><img src="youtube.svg" onclick="JavaScript:window.open('https://www.youtube.com/channel/UCEtisOmwHa1QUgts7b0PoYw')" alt="youtube" class="load">
+        </div>
 
-        </div>
-        <div id="body_ntroduction">
-            <div id="getBook"></div>
-        </div>
-        <div id="side_back"></div>
-        <div id="side_box">
-            <p id="side_title">唯の小屋</p>
-            <img src="c_1.webp" id="side_img">
-            <button id="dark_mode"></button>
-            <ul>
-                <li onclick="JavaScript:window.open('leave.html')">说说</li>
-                <li onclick="JavaScript:window.open('essay.html?Yui=0')">关于</li>
-            </ul>
-        </div>
-        <style>
+    </div>
+    <div id="body_ntroduction">
+        <div id="getBook"></div>
+    </div>
+    <div id="side_back"></div>
+    <div id="side_box">
+        <p id="side_title">唯の小屋</p>
+        <img src="c_1.webp" id="side_img">
+        <button id="dark_mode"></button>
+        <ul>
+            <li onclick="JavaScript:window.open('leave.html')">说说</li>
+            <li onclick="JavaScript:window.open('Introduce.html')">简介</li>
+            <li onclick="JavaScript:window.open('essay.html?Yui=0')">关于</li>
+        </ul>
+    </div>
+    <style>
         body {
             overflow:hidden;
             }
@@ -92,11 +95,12 @@
             50% { margin-top: -0.2em; }
             100% { margin-top: 0em; }
             }
-        </style>
-        <div id="first_box">
-            <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
-        </div>
-        <div id="nightbox"></div>
-        <script src="index.js"></script>
-    </body>
+    </style>
+    <div id="first_box">
+        <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
+    </div>
+    <div id="nightbox"></div>
+    <script src="index.js"></script>
+</body>
+
 </html>

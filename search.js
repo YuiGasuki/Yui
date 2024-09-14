@@ -48,9 +48,12 @@ item.style.marginTop="0px";
 });
 
 document.querySelectorAll('img').forEach(el => {
-  el.onerror = () =>{
-el.src="none.webp";
-}
+    el.addEventListener('error', () =>{
+                el.src = el.src;
+                el.addEventListener('error', () =>{
+                    el.src = "none.webp";
+                });
+            }, { once: true });
 });
 
 }).catch(()=>{

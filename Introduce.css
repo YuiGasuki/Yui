@@ -1,0 +1,59 @@
+:root {
+--nightbackground:rgba(255,255,255,0.7);
+--nightbox:0;
+--nightfcolor:#000000;
+--fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+--fontSize:1em;
+font-family:var(--fontSerif);
+}
+@font-face {
+    font-family:GenEiKoburiMin6;
+    src:url("/Yui/font/GenEiKoburiMin6-R.ttf");
+}
+#background_img {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    border-style:none;
+    z-index: -2;
+}
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
+z-index: 999;
+}
+#body_main_box {
+    padding:0px;
+    width:100vw;
+    position:relative;
+    margin-left:-8px;
+}
+.body_box {
+    width:calc(100vw - 48px);
+    max-width:300px;
+    padding:0px 16px;
+    background:var(--nightbackground);
+    margin:24px auto;
+    overflow:hidden;
+    position:relative;
+    border-radius:8px;
+    backdrop-filter:blur(2px)    
+}
+.body_box h2 {
+    color:var(--nightfcolor);
+    font-size:calc(var(--fontSize) / 100 * 110);
+}
+.body_box li {
+    padding:8px 0px;
+    color:var(--nightfcolor);
+}

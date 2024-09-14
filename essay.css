@@ -1,6 +1,6 @@
 :root {
 --nightBrightness:0.3;
---nightbackground:rgba(238,238,238,0.85);
+--nightbackground:rgba(238,238,238,0.8);
 --nightbox:0;
 --nightfcolor:#000000;
 --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
@@ -58,6 +58,7 @@ font-size:1.2em;
 font-weight:bold;
 overflow:auto;
 transform: translate(0%,-100%);
+backdrop-filter:blur(2px);
 margin-top:0px;
 position:absolute;
 }
@@ -233,6 +234,8 @@ overflow:hidden;
 background:var(--nightbackground);
 transition:1s;
 padding-bottom:32px;
+backdrop-filter:blur(2px);
+
 margin-bottom:calc(4 * var(--widthSize) - 32px);
 }
 
@@ -246,6 +249,8 @@ color:var(--nightfcolor);
 font-size:0.8em;
 margin:0px;
 display: block;
+backdrop-filter:blur(2px);
+
 }
 time::before {
     content:"更新时间";
@@ -336,7 +341,7 @@ flex-wrap: wrap;
 background:var(--nightbackground);
 transition:1s;
 padding-top:32px;
-
+backdrop-filter:blur(2px);
 }
 .label {
 background:#FF6699;
