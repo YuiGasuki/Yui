@@ -1,5 +1,7 @@
 Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网站添加个简单的播放器，但又不想自己写的的开发者。
 
+开源地址
+<a href="https://github.com/YuiGasuki/Azuplayer">https://github.com/YuiGasuki/Azuplayer</a>
 下图便是阿梓播放器的样式
 <img class="img"  src="Yui2.webp" alt="Azuplayer">
 
@@ -18,7 +20,6 @@ Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网�
 var Azuplayer = new player({
     id:"",
     width:"",
-    fontSize:"",
     url:{
         url:"",
         title:"",
@@ -61,7 +62,11 @@ SuspendedPosition属性的必须的，格式为
 "方向:长度 方向:长度"
 例如:"bottom:20px left:8px"
 
-
+<div class="code">
+fontFamily:""
+</div>
+自定义字体
+字符串格式按css的font-family样式编写
 
 <h2>API</h2>
 

@@ -33,3 +33,16 @@ const channel = new BroadcastChannel('Yui_night');
 channel.addEventListener('message', (e) => {
 DarkMode();
 })
+
+var Azuplayer = new player({
+id:"azucat",
+width:"300px",
+fontSize:"",//默认按比例缩放
+fontFamily:'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;',
+url:{
+            url:"http://music.163.com/song/media/outer/url?id=514543069.mp3",
+            title:"相遇天使",
+            singer:"放學後茶會",
+            cover:"http://p1.music.126.net/e1n_xjLFAm_GY8ZETmka4g==/109951163048673023.jpg?param=300x300"
+        }
+});

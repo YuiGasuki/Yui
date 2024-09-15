@@ -57,3 +57,6 @@ z-index: 999;
     padding:8px 0px;
     color:var(--nightfcolor);
 }
+#azucat {
+    margin:32px auto;
+}
