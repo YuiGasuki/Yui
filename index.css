@@ -5,9 +5,11 @@
     --nightTitleground:rgba(241,241,241,0.8);
     --nightfcolor:#606266;
     --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
-font-family:var(--fontSerif);
+    
 }
-
+* {
+ font-family:var(--fontSerif);
+ }
 @font-face {
     font-family:GenEiKoburiMin6;
     src:url("/Yui/font/GenEiKoburiMin6-R.ttf");

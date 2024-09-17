@@ -45,7 +45,54 @@
         </div>
     </div>
 <script src="https://yuigasuki.github.io/Azuplayer/Azuplayer.js"></script>
-
+    <style>
+        body {
+            overflow:hidden;
+            }
+        #first_box {
+            position:fixed;
+            top:0px;
+            left:0px;
+            width:100vw;
+            height:100vh;
+            background:black;
+            color:white;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            z-index:99999
+        }
+        #first_box p {            
+            position:absolute;
+            font-size:1.2em;
+            display:flex;
+            line-height:1.2em;
+            }
+        #first_box p span {
+            animation:firstPAnime 0.9s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            display:block;
+            }
+        #first_box p .a {
+            animation-delay:0.6s;
+            }
+        #first_box p .b {
+            animation-delay:0.3s;
+            }
+        #first_box p .c {
+            animation-delay:0s;
+            }
+        @keyframes firstPAnime {
+            0% { margin-top: 0em; }
+            50% { margin-top: -0.2em; }
+            100% { margin-top: 0em; }
+            }
+    </style>
+    <div id="first_box">
+        <p>少女祈祷中<span class="a">.</span><span class="b">.</span><span class="c">.</span></p>
+    </div>
     <script src="Introduce.js"></script>
 </body>
 

@@ -46,3 +46,12 @@ url:{
             cover:"http://p1.music.126.net/e1n_xjLFAm_GY8ZETmka4g==/109951163048673023.jpg?param=300x300"
         }
 });
+
+
+window.onload = () =>{          
+    if(document.getElementById('first_box')){
+    document.getElementById('first_box').remove();
+    document.body.style.overflow="auto";
+    }   
+        
+}
