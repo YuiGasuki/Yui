@@ -71,10 +71,10 @@ const bodyNtroduction = document.getElementById('body_ntroduction');
 const sideOpen = document.getElementById('side_open');
 const backTop = document.getElementById('back_top');
 const sideBox = document.getElementById('side_box');
+const headBox = document.getElementById('head_box');
 const sideBack = document.getElementById('side_back');
 const bodyInformation = document.getElementById('body_information');
 const BackGround = document.getElementById('background');
-const bodyName = document.getElementById('body_name');
 const SearchText = document.getElementById("searchText");
 const idSearch = document.getElementById('search');
 
@@ -204,7 +204,7 @@ function openfeel() {
  */
 const goBackTotTop = () =>{
     if(document.documentElement.scrollTop > 0){
-            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/4);  
+            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/6);  
             document.body.style.overflow="hidden";
             window.requestAnimationFrame(goBackTotTop)
     }else{
@@ -213,30 +213,19 @@ const goBackTotTop = () =>{
         
 }
 
-let ifIdSearch = false;
 window.onscroll = function() {
-if (document.documentElement.scrollTop > 56) {
 
-idSearch.style.transform = "translateY(0%)";
-sideOpen.style.transform = "translateY(0%)";
-ifIdSearch = true;
-document.documentElement.style.setProperty('--nightBrightness', "3px");
-
-}else if(document.documentElement.scrollTop < 56){
-if(ifIdSearch){
-
-idSearch.style.transform = "translateY(-200%)";
-sideOpen.style.transform = "translateY(-200%)";
-ifIdSearch = false;
-document.documentElement.style.setProperty('--nightBrightness', "0px");
-}
-}
-if(document.documentElement.scrollTop > 0){
+if(document.documentElement.scrollTop > (screen.height / 2)){
 backTop.style.transform = "translateY(0%)";
+headBox.style.transform = "translateY(0%)";
+headBox.style.opacity = "1";
+backTop.style.opacity = "1";
 backTop.style.pointerEvents = "auto";
 backTop.style.opacity = "1";
-}else if(document.documentElement.scrollTop <= 0){
+}else if(document.documentElement.scrollTop <= (screen.height / 2)){
 backTop.style.transform = "translateY(50%)";
+headBox.style.transform = "translateY(-200%)";
+headBox.style.opacity = "0";
 backTop.style.opacity = "0";
 backTop.style.pointerEvents = "none";
 }
@@ -293,14 +282,12 @@ sideBack.style.display="inline";
 }
 })
 }
-bodyName.style.animationPlayState = "paused";
 window.onload = () =>{          
     if(document.getElementById('first_box')){
     TouchsOpan();
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
     bodyInformation.style.pointerEvents = "auto";
-    bodyName.setAttribute("class","body_name");
     bodyInformation.style.opacity="1";
     bodyInformation.style.transform="rotateX(0deg)";
     }   
