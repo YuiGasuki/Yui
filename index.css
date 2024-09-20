@@ -1,6 +1,8 @@
 :root {
     --nightbox:0;
     --nightbackground:#F1F1F1;
+    --QuasiphysicalA:white;
+    --QuasiphysicalB:#aaaaaa;
     --nightTitleground:rgba(241,241,241,0.8);
     --nightfcolor:#606266;
     --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
@@ -54,7 +56,7 @@
     height:calc(1em + 8px);
     padding:8px;
     border-radius:10px;
-    filter:drop-shadow(0px 0px 3px #aaaaaa);
+    box-shadow: -2px -2px 4px var(--QuasiphysicalA),2px 2px 4px var(--QuasiphysicalB);
     background:var(--nightbackground);
     color:#aaaaaa;
     z-index:10;
@@ -99,7 +101,7 @@
     height:calc(1em + 24px);
     padding:auto;
     border-radius:10px;
-    filter:drop-shadow(0px 0px 3px #aaaaaa);
+    box-shadow: -2px -2px 4px var(--QuasiphysicalA),2px 2px 4px var(--QuasiphysicalB);
     background:var(--nightbackground);
     display:none;
     color:#aaaaaa;
@@ -243,6 +245,7 @@
 }
 #body_information img:hover {
     filter:drop-shadow(0px 0px 3px white);
+    transform: scale(1.1);
     opacity:1;
 }
 #body_ntroduction {
@@ -253,6 +256,7 @@
     margin-top:100vh;
     position:relative;
     background:var(--nightTitleground);
+    box-shadow: 0px 0px 8px black;
     backdrop-filter:blur(5px)
 }
 #ntroduction_ul {
@@ -272,8 +276,13 @@
     margin:24px auto;
     overflow:hidden;
     position:relative;
-    filter:drop-shadow(0px 0px 8px #aaaaaa);
-
+    box-shadow: 0px 0px 8px #aaaaaa;
+    transition:transform 0.4s;
+}
+.ntroduction:hover {
+    box-shadow: 0px 0px 16px black;
+    transform: scale(1.05);
+    filter:blur(0px);
 }
 #ntroduction_project {
     display:flex;

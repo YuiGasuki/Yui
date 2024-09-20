@@ -36,6 +36,8 @@ const DarkMode = () =>{
             document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
             idDarkMode.style.setProperty('--leftData', '20px');
+            document.documentElement.style.setProperty('--QuasiphysicalA', '#6f6f6f');
+    document.documentElement.style.setProperty('--QuasiphysicalB', 'rgb(60,60,60)');
             idDarkMode.style.setProperty('--divBackGround', '#FF6699');
     
             ifDarkMode = true;
@@ -44,6 +46,8 @@ const DarkMode = () =>{
     }
     document.documentElement.style.setProperty('--nightbackground', '#F1F1F1');
     document.documentElement.style.setProperty('--nightbox', '0');
+    document.documentElement.style.setProperty('--QuasiphysicalA', 'white');
+    document.documentElement.style.setProperty('--QuasiphysicalB', '#aaaaaa');
     document.documentElement.style.setProperty('--nightTitleground', 'rgba(241,241,241,0.8)');  
     document.documentElement.style.setProperty('--nightfcolor', '#606266');
     idDarkMode.style.setProperty('--leftData', '-4px');
