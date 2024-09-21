@@ -6,7 +6,7 @@
     --nightTitleground:rgba(241,241,241,0.8);
     --nightfcolor:#606266;
     --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
-    
+
 }
 * {
  font-family:var(--fontSerif);
@@ -70,7 +70,7 @@
     width:28px;
     padding:4px;
     border-radius:10px;
-    filter:drop-shadow(0px 0px 5px black);
+    filter:drop-shadow(0px 0px 5px var(--nightfcolor));
     background:var(--nightbackground);
     color:#aaaaaa;
     opacity:0;
@@ -211,6 +211,7 @@
     align-items:center;
     justify-content:center;
     perspective: 500px;
+    -webkit-perspective: 500px;
     overflow:hidden;
 
 }
@@ -226,9 +227,12 @@
     transform: rotateX(90deg);
     transition:transform 2s;
     pointer-events:none;
+    perspective: 500px;
+    -webkit-perspective: 500px;
 }
 #body_information:hover img {
-    opacity:0.5;
+    opacity:0.8;
+    transform: rotateY(45deg);
 }
 #body_information img {
     object-fit:none;
@@ -241,12 +245,16 @@
     background:var(--nightbackground);
     margin:10px;
     border-radius:5px;
-    filter:drop-shadow(0px 0px 3px black);
+    transition:transform 0.3s;
+    box-shadow: 0px 0px 3px black;
 }
 #body_information img:hover {
     filter:drop-shadow(0px 0px 3px white);
-    transform: scale(1.1);
-    opacity:1;
+    opacity:1;   
+    transform: rotateY(0deg);
+}
+#body_information img:hover ~ img {
+    transform: rotateY(-45deg);
 }
 #body_ntroduction {
     overflow:hidden;
@@ -276,11 +284,11 @@
     margin:24px auto;
     overflow:hidden;
     position:relative;
-    box-shadow: 0px 0px 8px #aaaaaa;
+    box-shadow: 0px 0px 8px var(--nightfcolor);
     transition:transform 0.4s;
 }
 .ntroduction:hover {
-    box-shadow: 0px 0px 16px black;
+    box-shadow: 0px 0px 16px var(--nightfcolor);
     transform: scale(1.05);
     filter:blur(0px);
 }
@@ -359,16 +367,19 @@
     line-height:1em;
     
 }
-#side_box {
+#side_box {    
+    --thisLeft:0px;
     position:fixed;
     top:0px;
-    left:-255px;
+    left:-5px;
     width:250px;
+    margin-left:var(--thisLeft);
+    transform:translateX(-100%);
     height:100vh;
     background:var(--nightbackground);
     z-index:11;
     filter:drop-shadow(0px 0px 5px black);
-    transition:0.3s;
+    transition:margin-left 0.5s;
     overflow-x:hidden;
     overflow-y:auto;    
 }
@@ -402,6 +413,8 @@
 }
 #side_box ul {
     color:var(--nightfcolor);
+    height:calc(100% - 208px);
+    overflow-y:auto;
     list-style-type:none;
     list-style-position:inside;
 }
@@ -443,7 +456,7 @@
     transition:0.5s;
 }
 #dark_mode::before {
-    content:"夜间模式";
+    content:"夜间";
     display:block;
     white-space:nowrap;
     margin-left:-184px;

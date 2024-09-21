@@ -236,12 +236,12 @@ backTop.style.pointerEvents = "none";
 }
 
 sideOpen.onclick = () =>{       
-    sideBox.style.marginLeft="255px";
+    sideBox.style.setProperty('--thisLeft', `255px`);
     sideBack.style.display="inline";
     document.body.style.overflow="hidden";
 }
 sideBack.onclick = () =>{
-    sideBox.style.marginLeft="0px";
+    sideBox.style.setProperty('--thisLeft', `0px`);
     sideBack.style.display="none";
     document.body.style.overflow="auto";
 }
@@ -252,7 +252,7 @@ backTop.onclick = () =>{
 const TouchsOpan = () =>{
 window.addEventListener('touchstart',(e)=>{
 this.x = e.changedTouches[0].pageX;
-this._x = sideBox.style.marginLeft.slice(0, length-2);
+this._x = Number(getComputedStyle(sideBox).getPropertyValue('--thisLeft').slice(0, length-2));
 this.ifclick = false;
 })
 window.addEventListener('touchmove',(e)=>{
@@ -261,27 +261,22 @@ this.ifclick = true;
 }else{
 return
 }
-this.disx =(this._x*1) + (e.touches[0].clientX - this.x);
-if(this.disx>255){
-this.disx = 255;
-}
-if(this.disx<=0){
-this.disx = 0;
-}
-
+this.disx =this._x + (e.touches[0].clientX - this.x);
+if (this.disx>255) this.disx = 255;
+if (this.disx<=0) this.disx = 0;
 document.body.style.overflow="hidden";
-sideBox.style.marginLeft=`${this.disx}px`;
+sideBox.style.setProperty('--thisLeft', `${this.disx}px`);
 })
 window.addEventListener('touchend',(e)=>{
 if(!this.ifclick){
 return
 }
 if(this.disx<125){
-sideBox.style.marginLeft=`0px`;
+sideBox.style.setProperty('--thisLeft', `0px`);
 sideBack.style.display="none";
 document.body.style.overflow="auto";
 }else{
-sideBox.style.marginLeft=`255px`;
+sideBox.style.setProperty('--thisLeft', `255px`);
 sideBack.style.display="inline";
 }
 })
