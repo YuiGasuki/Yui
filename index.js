@@ -71,16 +71,7 @@ DarkMode()
 
 
 
-const bodyNtroduction = document.getElementById('body_ntroduction');
-const sideOpen = document.getElementById('side_open');
-const backTop = document.getElementById('back_top');
-const sideBox = document.getElementById('side_box');
-const headBox = document.getElementById('head_box');
-const sideBack = document.getElementById('side_back');
-const bodyInformation = document.getElementById('body_information');
-const BackGround = document.getElementById('background');
-const SearchText = document.getElementById("searchText");
-const idSearch = document.getElementById('search');
+const bodyNtroduction = document.getElementById('body_ntroduction'),sideOpen = document.getElementById('side_open'),backTop = document.getElementById('back_top'),sideBox = document.getElementById('side_box'),headBox = document.getElementById('head_box'),sideBack = document.getElementById('side_back'),bodyInformation = document.getElementById('body_information'),BackGround = document.getElementById('background'),SearchText = document.getElementById("searchText");
 
 
 

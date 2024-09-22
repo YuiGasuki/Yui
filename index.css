@@ -284,12 +284,12 @@
     transform: scale(1.05);
     filter:blur(0px);
 }
-footer {
+#announcement {
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:32px 0px;
+    padding:16px 0px;
     background:var(--nightbackground);
     color:#7d7d7d;
     max-width:300px;
@@ -297,14 +297,29 @@ footer {
     overflow:hidden;
     position:relative;
     box-shadow:inset -2px -2px 4px var(--QuasiphysicalA),inset 2px 2px 4px var(--QuasiphysicalB);
+    color:var(--nightfcolor);
 }
-footer p {
-    line-height:0px;
-    font-size:0.9em;
+#announcement_p {
+    width:calc(100% - 32px);
+    font-size:0.8em;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    max-height:500px;
+    overflow:auto;
+    margin:0px;
+    margin-top:8px;
 }
-footer a {
+#announcement a {
 color:#FF6699;
 text-decoration: none; 
+}
+#announcement h2 {
+    font-size:1em;
+    border-bottom-style:solid;
+    border-width:2px;
+    border-color:#FF6699;
+    margin:0px;
 }
 .img {
     max-width:100%;
