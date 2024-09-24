@@ -3,6 +3,7 @@ let ifdarkMode = false;
 const SetupFamily = document.getElementById('setup_family');
 const SetupBox = document.getElementById('setup_box');
 const Setup = document.getElementById('setup');
+const SetupBlack = document.getElementById('setup_black');
 const backTop = document.getElementById('back_top');
 const darkMode = document.getElementById('dark_mode');
 const outlineBox = document.getElementById('outline_box');
@@ -139,3 +140,15 @@ function goBackTotBotton(numBer,h) {
 }
 
 backTop.onclick = () =>goBackTotTop(0);
+
+
+SetupBox.onclick = () =>{   
+    Setup.style.pointerEvents = "auto";
+    Setup.style.opacity = "1";
+    SetupBlack.style.display = "inline";
+}
+SetupBlack.onclick = () =>{
+    Setup.style.pointerEvents = "none";
+    Setup.style.opacity = "0";
+    SetupBlack.style.display = "none";
+}
