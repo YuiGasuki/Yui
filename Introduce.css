@@ -47,7 +47,7 @@ z-index: 999;
     overflow:hidden;
     position:relative;
     border-radius:8px;
-    backdrop-filter:blur(2px)    
+    backdrop-filter:blur(10px)    
 }
 .body_box h2 {
     color:var(--nightfcolor);
