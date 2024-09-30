@@ -272,11 +272,27 @@ sideBack.style.display="inline";
 }
 })
 }
+
+
+const warnBox = document.getElementById('warn_box');
+
+function PopUp(text){
+    warnBox.innerText=text;
+    warnBox.style.transform="translateX(0%)";
+    setTimeout(()=>{
+        warnBox.style.transform="translateX(100%)";
+    },8000)
+}
+
+
 window.onload = () =>{          
     if(document.getElementById('first_box')){
     TouchsOpan();
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
+    if(new Date().getHours()>22||new Date().getHours()<4){
+        PopUp("💤 夜深了，早点休息吧");
+    }
     bodyInformation.style.pointerEvents = "auto";
     bodyInformation.style.opacity="1";
     bodyInformation.style.transform="rotateX(0deg)";
