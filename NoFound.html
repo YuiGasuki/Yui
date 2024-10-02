@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<permalink: /404.html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>出错了-唯の小屋</title>
+<link rel="shortcut icon" href="icon.webp" type="image/x-icon">
+<style>
+:root {
+    --nightbox:0;
+}
+body {
+    background:#eee;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
+z-index: 999;
+}
+img {
+    width:300px;
+}
+h1 {
+    color:#aaaaaa;
+    font-size:1.2em;
+}
+</style>
+</head>
+<body>
+<img src="404.png" alt="404 no found">
+<h1>无法找到该页面(ﾟ⊿ﾟ)ﾂ</h1>
+<div id="nightbox"></div>
+<script>
+const DarkMode = () =>{
+    if(document.cookie){
+        let data = document.cookie.split(";")[0].split("=")[1];
+        if(data==="true"){
+            document.documentElement.style.setProperty('--nightbox', '0.5');           
+            return
+        }
+    }
+    document.documentElement.style.setProperty('--nightbox', '0');
+    
+}
+
+DarkMode();
+const channel = new BroadcastChannel('Yui_night');
+channel.addEventListener('message', (e) => {
+DarkMode();
+})
+</script>
+</body>
+</html>
