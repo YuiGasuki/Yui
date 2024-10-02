@@ -11,6 +11,8 @@ let Day = DateTime.getUTCDate();
 let Month = DateTime.getMonth()+1;
 let DateData = "";
 
+
+
 switch(Month)
 {
     case 1:
@@ -26,6 +28,10 @@ switch(Month)
         {
             case 2:
                 DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/琴吹紬">琴吹紬</a>的生日`;
+                break;
+            case 18:
+                DateData+=`✿ 悼念京阿尼纵火案中逝去的36名创作者`;
+                PopUp(`✿ 悼念纵火案中逝去的创作者`);
                 break;
         }
         break;
