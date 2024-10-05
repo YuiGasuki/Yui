@@ -9,6 +9,8 @@
 <style>
 :root {
     --nightbox:0;
+    --nightColor:#aaaaaa;
+    font-family: serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
 }
 body {
     background:#eee;
@@ -16,6 +18,9 @@ body {
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    height:100vh;
+    width:100vw;
+    margin-top:-8px;
 }
 #nightbox {
 position:fixed;
@@ -30,10 +35,10 @@ pointer-events: none;
 z-index: 999;
 }
 img {
-    width:300px;
+    width:260px;
 }
 h1 {
-    color:#aaaaaa;
+    color:var(--nightColor);
     font-size:1.2em;
     display:flex;
     flex-direction:column;
@@ -43,20 +48,25 @@ h1 {
 </style>
 </head>
 <body>
+<div style="margin-left:-8px;">
 <img src="404.webp" alt="404 no found">
 <h1>无法找到该页面(ﾟ⊿ﾟ)ﾂ</h1>
+</div>
 <div id="nightbox"></div>
 <script>
 const DarkMode = () =>{
     if(document.cookie){
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
-            document.documentElement.style.setProperty('--nightbox', '0.5');           
+            document.documentElement.style.setProperty('--nightbox', '0.5');  
+    document.documentElement.style.setProperty('--nightColor', '#eee'); 
+            document.body.style.background = "#aaaaaa";
             return
         }
     }
     document.documentElement.style.setProperty('--nightbox', '0');
-    
+    document.documentElement.style.setProperty('--nightColor', '#aaaaaa'); 
+            document.body.style.background = "#eee";
 }
 
 DarkMode();
