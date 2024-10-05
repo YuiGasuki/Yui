@@ -38,13 +38,18 @@ var Azuplayer = new player({
 id:"azucat",
 width:"300px",
 fontSize:"",//默认按比例缩放
-fontFamily:'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;',
-url:{
+fontFamily:"GenEiKoburiMin6, serif, Georgia ,'Palatino Linotype', 'Book Antiqua','Times New Roman', Times;",
+url:[{
             url:"http://music.163.com/song/media/outer/url?id=514543069.mp3",
             title:"相遇天使",
             singer:"放學後茶會",
             cover:"http://p1.music.126.net/e1n_xjLFAm_GY8ZETmka4g==/109951163048673023.jpg?param=300x300"
-        }
+        },{
+            url:"http://music.163.com/song/media/outer/url?id=1440363251.mp3",
+            title:"幸せ願う彼方から",
+            singer:"神前暁,島本須美",
+            cover:"http://p2.music.126.net/PDrnLyzT7-If6c83U-bPDQ==/109951164903215580.jpg?param=300x300"
+        }]
 });
 
 
