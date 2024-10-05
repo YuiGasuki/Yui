@@ -11,9 +11,9 @@
     --nightbox:0;
     --nightColor:#aaaaaa;
     font-family: serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
-}
-body {
     background:#eee;
+}
+body {    
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -60,13 +60,13 @@ const DarkMode = () =>{
         if(data==="true"){
             document.documentElement.style.setProperty('--nightbox', '0.5');  
     document.documentElement.style.setProperty('--nightColor', '#eee'); 
-            document.body.style.background = "#aaaaaa";
+            document.documentElement.style.background = "#aaaaaa";
             return
         }
     }
     document.documentElement.style.setProperty('--nightbox', '0');
     document.documentElement.style.setProperty('--nightColor', '#aaaaaa'); 
-            document.body.style.background = "#eee";
+    document.documentElement.style.background = "#eee";
 }
 
 DarkMode();
