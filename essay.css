@@ -2,7 +2,7 @@
 --nightBrightness:0.3;
 --nightbackground:rgba(238,238,238,0.7);
 --nightNoback:#eaeaea;
-
+--ThemeColor:#8583CE;
 --nightbox:0;
 --nightfcolor:#000000;
 --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
@@ -234,7 +234,7 @@ backdrop-filter:blur(10px)
 }
 #setup_family {
     --leftData:15px;
-    --divBackGround:#FF6699;
+    --divBackGround:var(--ThemeColor);
 }
 #dark_mode {
     --leftData:-4px;
@@ -296,7 +296,7 @@ white-space:nowrap;
 z-index: 1;
 }
 a {
-color:#FF6699;
+color:var(--ThemeColor);
 white-space:pre-wrap;
 word-wrap:anywhere;
 word-break:break-all;
@@ -342,7 +342,7 @@ border-bottom-right-radius:8px;
 border-top-right-radius:8px;
 }
 #body .note {
-color:#FF6699;
+color:var(--ThemeColor);
 font-size:0.7em;
 position:relative;
 transform: translate(0%,-40%);
@@ -371,7 +371,7 @@ flex-wrap: wrap;
 padding-top:32px;
 }
 .label {
-background:#FF6699;
+background:var(--ThemeColor);
 color:white;
 border-radius:6px;
 padding:5px;
@@ -412,7 +412,7 @@ h2 {
     padding-left:8px;
     border-left-style:solid;
     border-width:8px;
-    border-color:#FF6699;
+    border-color:var(--ThemeColor);
 }
 
 #noteBox {
@@ -434,4 +434,23 @@ h2 {
     margin-left:calc(var(--widthAll) * 0.1);
     object-fit:cover;
     margin-top:calc(4 * var(--widthSize) - 32px);
+}
+#Theme_color {
+display: flex;
+flex-wrap: wrap; 
+color:var(--nightfcolor);
+}
+#Theme_color button {
+    padding:4px 8px;
+    border-radius:4px;
+    border-style:none;
+    margin:0px 4px;
+    color:white;
+}
+#Theme_color *:nth-child(1) {
+    background:#FF6699;
+    margin-left:8px;
+}
+#Theme_color *:nth-child(2) {
+    background:#8583CE;
 }

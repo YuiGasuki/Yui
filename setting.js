@@ -11,7 +11,7 @@ const outlineBox = document.getElementById('outline_box');
 
 const ifdarkModeTrue = () =>{
     darkMode.style.setProperty('--leftData', '15px');
-    darkMode.style.setProperty('--divBackGround', '#FF6699');
+    darkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
     ifdarkMode = true;
 }
 const ifdarkModeFalse = () =>{
@@ -60,7 +60,7 @@ SetupFamily.onclick = () =>{
         ifSetupFamily = false;
     }else{
         SetupFamily.style.setProperty('--leftData', '15px');
-        SetupFamily.style.setProperty('--divBackGround', '#FF6699');
+        SetupFamily.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
         document.documentElement.style.setProperty('--fontSerif', 'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times');
         localStorage.removeItem("serif");
         ifSetupFamily = true;
@@ -153,4 +153,16 @@ SetupBlack.onclick = () =>{
     Setup.style.pointerEvents = "none";
     Setup.style.opacity = "0";
     SetupBlack.style.display = "none";
+}
+
+
+if(localStorage.ThemeColor){
+    document.documentElement.style.setProperty('--ThemeColor',localStorage.ThemeColor);
+}
+const ThemeColor = (color) =>{
+    localStorage.ThemeColor = color;
+    channel.postMessage({
+    	Type:3
+        })
+    document.documentElement.style.setProperty('--ThemeColor',color);
 }

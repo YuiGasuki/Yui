@@ -109,7 +109,13 @@ DarkMode();
 const channel = new BroadcastChannel('Yui_night');
 
 channel.addEventListener('message', (e) => {
-    DarkMode();
+    if(e.data.Type===0){
+DarkMode()
+}else if(e.data.Type===3){
+if(localStorage.ThemeColor){
+    document.documentElement.style.setProperty('--ThemeColor',localStorage.ThemeColor);
+}
+}
 })
 
 
@@ -121,7 +127,9 @@ function replacepicture() {
     }
 }
 
-
+if(localStorage.ThemeColor){
+    document.documentElement.style.setProperty('--ThemeColor',localStorage.ThemeColor);
+}
 
 replacepicture();
 window.addEventListener('resize', replacepicture);

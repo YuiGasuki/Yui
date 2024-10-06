@@ -15,7 +15,6 @@ const idDarkMode = document.getElementById('dark_mode');
 replacepicture();
 window.addEventListener('resize', replacepicture);
 
-localStorage.clear();
 
 document.querySelectorAll(".load").forEach(item => {
     let img = new Image();
@@ -23,7 +22,9 @@ document.querySelectorAll(".load").forEach(item => {
 });
 
 
-
+if(localStorage.ThemeColor){
+    document.documentElement.style.setProperty('--ThemeColor',localStorage.ThemeColor);
+}
 
 
 
@@ -32,13 +33,13 @@ const DarkMode = () =>{
         let data = document.cookie.split(";")[0].split("=")[1];
         if(data==="true"){
             document.documentElement.style.setProperty('--nightbackground', 'rgba(86,86,86,1)');
-            document.documentElement.style.setProperty('--nightbox', '0.5');           
+            document.documentElement.style.setProperty('--nightbox', '0.5');   
             document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
             idDarkMode.style.setProperty('--leftData', '20px');
             document.documentElement.style.setProperty('--QuasiphysicalA', '#6f6f6f');
     document.documentElement.style.setProperty('--QuasiphysicalB', 'rgb(60,60,60)');
-            idDarkMode.style.setProperty('--divBackGround', '#FF6699');
+            idDarkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
     
             ifDarkMode = true;
             return
@@ -64,7 +65,13 @@ const channel = new BroadcastChannel('Yui_night');
 // })
 
 channel.addEventListener('message', (e) => {
+if(e.data.Type===0){
 DarkMode()
+}else if(e.data.Type===3){
+if(localStorage.ThemeColor){
+    document.documentElement.style.setProperty('--ThemeColor',localStorage.ThemeColor);
+}
+}
 })
 
 
@@ -161,7 +168,7 @@ idDarkMode.onclick = () =>{
         ifDarkMode = false;
     }else{
         idDarkMode.style.setProperty('--leftData', '20px');
-        idDarkMode.style.setProperty('--divBackGround', '#FF6699');
+        idDarkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
         document.cookie="darkmode=true; max-age:2592000";
         DarkMode();
         channel.postMessage({
@@ -275,13 +282,28 @@ sideBack.style.display="inline";
 
 
 const warnBox = document.getElementById('warn_box');
-
-function PopUp(text){
+let ifPopUp;
+function PopUp(text){    
+    if(!this.CanSee){
     warnBox.innerText=text;
     warnBox.style.transform="translateX(0%)";
+    ifPopUp = setTimeout(()=>{
+        this.CanSee = true;
+        ifPopUp = setTimeout(()=>{
+            warnBox.style.transform="translateX(100%)";
+            ifPopUp = setTimeout(()=>{
+                this.CanSee = false;
+            },500)   
+        },8000)
+    },500)       
+}else{
+    warnBox.style.transform="translateX(100%)";   
+    clearTimeout(ifPopUp); 
     setTimeout(()=>{
-        warnBox.style.transform="translateX(100%)";
-    },8000)
+        this.CanSee = false;
+        PopUp(text)
+    },500)
+}
 }
 
 
