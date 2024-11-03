@@ -1,5 +1,5 @@
-let pcpicture  = (Math.floor(Math.random() * (9 - 1 + 1)) + 1);
-let anpicture = (Math.floor(Math.random() * (8 - 1 + 1)) + 1);
+let pcpicture  = (Math.floor(Math.random() * (11 - 1 + 1)) + 1);
+let anpicture = (Math.floor(Math.random() * (13 - 1 + 1)) + 1);
 function replacepicture() {
     if(window.innerHeight <= window.innerWidth){
         document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
