@@ -33,9 +33,14 @@
             <li>夜间模式<button id="dark_mode" class="setupli"></button></li>
             <li id="Theme_color">
             主题设置
+            <div>
             <button onclick="ThemeColor('#FF6699')">樱花粉</button>
             <button onclick="ThemeColor('#8583CE')">樱庭紫</button>
+            <button onclick="ThemeColor('#DD8892')">七宫粉</button>
+            <button onclick="ThemeColor('#EE2222')">平泽红</button>
+            </div>
             </li>
+            <li class="clearAll"><button onclick="localStorage.clear();document.cookie='darkmode=;max-age=0';location.reload()">清空设置数据</button></li>
         </ul>
         <style>
         body {
