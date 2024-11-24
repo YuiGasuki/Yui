@@ -55,7 +55,7 @@ SetupFamily.onclick = () =>{
     if(ifSetupFamily){
         SetupFamily.style.setProperty('--leftData', '-4px');
         SetupFamily.style.setProperty('--divBackGround', '#aaaaaa');
-        document.documentElement.style.setProperty('--fontSerif', 'fontSerif:GenEiKoburiMin6, Arial Black, Gadget, sans-serif');
+        document.documentElement.style.setProperty('--fontSerif', 'GenEiKoburiMin6, Arial Black, Gadget, sans-serif');
         localStorage.serif = "1";
         ifSetupFamily = false;
     }else{
