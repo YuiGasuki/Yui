@@ -11,7 +11,7 @@ const outlineBox = document.getElementById('outline_box');
 
 const ifdarkModeTrue = () =>{
     darkMode.style.setProperty('--leftData', '15px');
-    darkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
+    darkMode.style.setProperty('--divBackGround', "var(--ThemeColor)");
     ifdarkMode = true;
 }
 const ifdarkModeFalse = () =>{
@@ -60,7 +60,7 @@ SetupFamily.onclick = () =>{
         ifSetupFamily = false;
     }else{
         SetupFamily.style.setProperty('--leftData', '15px');
-        SetupFamily.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
+        SetupFamily.style.setProperty('--divBackGround', "var(--ThemeColor)");
         document.documentElement.style.setProperty('--fontSerif', 'GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times');
         localStorage.removeItem("serif");
         ifSetupFamily = true;
