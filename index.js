@@ -1,11 +1,30 @@
 let pcpicture  = (Math.floor(Math.random() * (23 - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (21 - 1 + 1)) + 1);
+let ifFirstBox = true;
+function KillFirstBox(){
+    if(ifFirstBox){
+    TouchsOpan();
+    document.getElementById('first_box').style.display="none";
+    ifFirstBox = false;
+    document.body.style.overflow="auto";
+    if(new Date().getHours()>22||new Date().getHours()<4){
+        PopUp("💤 夜深了，早点休息吧");
+    }
+    bodyInformation.style.pointerEvents = "auto";
+    bodyInformation.style.opacity="1";
+    bodyInformation.style.transform="rotateX(0deg)";
+    }   
+}
 function replacepicture() {
+    document.getElementById('first_box').style.display="flex";
+    ifFirstBox = true;
     if(window.innerHeight <= window.innerWidth){
         document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
     }else{
         document.getElementById('background_img').src = "b_" + anpicture + ".webp";
     }
+    document.getElementById('background_img').onload = () => KillFirstBox();
+    document.getElementById('background_img').onerror = () => KillFirstBox();
 }
 
 let ifDarkMode = false;
@@ -307,17 +326,5 @@ function PopUp(text){
 }
 
 
-window.onload = () =>{          
-    if(document.getElementById('first_box')){
-    TouchsOpan();
-    document.getElementById('first_box').remove();
-    document.body.style.overflow="auto";
-    if(new Date().getHours()>22||new Date().getHours()<4){
-        PopUp("💤 夜深了，早点休息吧");
-    }
-    bodyInformation.style.pointerEvents = "auto";
-    bodyInformation.style.opacity="1";
-    bodyInformation.style.transform="rotateX(0deg)";
-    }   
-        
-}
+
+window.onload = () => KillFirstBox();
