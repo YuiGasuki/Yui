@@ -16,7 +16,10 @@ replacepicture();
 window.addEventListener('resize', replacepicture);
 
 
-
+document.querySelectorAll(".load").forEach(item => {
+    let img = new Image();
+    img.src = item.src;
+});
 
 
 if(localStorage.ThemeColor){
@@ -303,13 +306,9 @@ function PopUp(text){
 }
 }
 
-let ifOnlad=0;
-document.querySelectorAll(".load").forEach(item => {
-    item.onload = () =>{
-    ifOnlad++;
-    if(ifOnlad>=document.querySelectorAll(".load").length){
-        delete ifOnlad;
-        if(document.getElementById('first_box')){
+
+window.onload = () =>{          
+    if(document.getElementById('first_box')){
     TouchsOpan();
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
@@ -320,11 +319,5 @@ document.querySelectorAll(".load").forEach(item => {
     bodyInformation.style.opacity="1";
     bodyInformation.style.transform="rotateX(0deg)";
     }   
-    }
-    }
-});
-
-window.onload = () =>{          
-    
         
 }
