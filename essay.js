@@ -153,14 +153,7 @@ el.id=`note${i}`;
 
 
 NoteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replace(/<br>/g,'')}</a>`;
-el.onclick = () =>{
-let a = el.clientWidth;
-el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
-el.style.zIndex="10";
-if((el.childNodes[1].clientWidth+el.offsetLeft) > document.body.scrollWidth){
-el.childNodes[1].style.marginLeft= (0 - el.childNodes[1].clientWidth + a) + "px";
-}
-}
+el.onclick = () => ShowNote(el);
 el.onmouseout = () =>{
 el.innerHTML = `[${el.dataset.i}]`;
 el.style.zIndex="1";
@@ -190,3 +183,11 @@ function GoToNote(id){
     document.documentElement.scrollTop = data;
 }
 
+function ShowNote(el){
+let a = el.clientWidth;
+el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
+el.style.zIndex="10";
+if((el.childNodes[1].clientWidth+el.offsetLeft) > document.body.scrollWidth){
+el.childNodes[1].style.marginLeft= (0 - el.childNodes[1].clientWidth + a) + "px";
+}
+}
