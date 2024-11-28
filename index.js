@@ -305,8 +305,7 @@ function PopUp(text){
 
 let ifOnlad=0;
 document.querySelectorAll(".load").forEach(item => {
-    let img = new Image();
-    img.src = item.src;
+    item.onload = () =>{
     ifOnlad++;
     if(ifOnlad>=document.querySelectorAll(".load").length){
         delete ifOnlad;
@@ -321,6 +320,7 @@ document.querySelectorAll(".load").forEach(item => {
     bodyInformation.style.opacity="1";
     bodyInformation.style.transform="rotateX(0deg)";
     }   
+    }
     }
 });
 
