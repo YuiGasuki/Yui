@@ -7,13 +7,7 @@ function KillFirstBox(){
     document.getElementById('first_box').style.display="none";
     ifFirstBox = false;
     document.body.style.overflow="auto";
-    if(new Date().getHours()>22||new Date().getHours()<4){
-        PopUp("💤 夜深了，早点休息吧");
     }
-    bodyInformation.style.pointerEvents = "auto";
-    bodyInformation.style.opacity="1";
-    bodyInformation.style.transform="rotateX(0deg)";
-    }   
 }
 function replacepicture() {
     document.getElementById('first_box').style.display="flex";
@@ -23,6 +17,7 @@ function replacepicture() {
     }else{
         document.getElementById('background_img').src = "b_" + anpicture + ".webp";
     }
+    document.body.style.overflow="hidden";
     document.getElementById('background_img').onload = () => KillFirstBox();
     document.getElementById('background_img').onerror = () => KillFirstBox();
 }
@@ -327,4 +322,12 @@ function PopUp(text){
 
 
 
-window.onload = () => KillFirstBox();
+window.onload = () => {
+KillFirstBox();
+if(new Date().getHours()>22||new Date().getHours()<4){
+        PopUp("💤 夜深了，早点休息吧");
+    }
+    bodyInformation.style.pointerEvents = "auto";
+    bodyInformation.style.opacity="1";
+    bodyInformation.style.transform="rotateX(0deg)";
+}
