@@ -120,16 +120,22 @@ fetch('1.json', {
         for(let ib = 0; ib < data[ic].label.length; ib++){
             b += `<span>` + data[ic].label[ib] + `</span>`;
         }
-           textAgin  += `
-                <div class="ntroduction" onclick="JavaScript:window.open('essay.html?Yui=${data[ic].Yui}')">
-                <img src="${data[ic].title_url}" class="titleimg"  />
-                <p class="title">${data[ic].title}</p>
-                <p class="label">${b}</p>
-                </div>
-                `;        
+        let div = document.createElement("div");
+        div.innerHTML = `
+            <img src="${data[ic].title_url}" class="titleimg"  />
+            <p class="title">${data[ic].title}</p>
+            <p class="label">${b}</p>
+        `;
+        div.className = "ntroduction";
+        div.onclick = () =>{
+        window.open(`essay.html?Yui=${data[ic].Yui}`);
         }
-        textAgin += `<div id="getBook"></div>`;
-        bodyNtroduction.innerHTML+=textAgin;
+        bodyNtroduction.appendChild(div)
+        }
+        let div = document.createElement("div");
+        div.id="getBook";
+        bodyNtroduction.appendChild(div)
+        
         i++;
     }  
     

@@ -236,8 +236,9 @@
 #body_ntroduction {
     overflow:hidden;
     margin-left:-8px;
+    margin-bottom:-8px;
     width:100vw;
-    padding:calc(1em + 51px) 0px 0px 0px;
+    padding:calc(1em + 51px) 0px 200px 0px;
     margin-top:100vh;
     position:relative;
     background:var(--nightTitleground);
@@ -256,6 +257,18 @@
     position:relative;
     box-shadow: 0px 0px 8px var(--nightfcolor);
     transition:transform 0.4s;
+    animation:BookAnime 0.5s;
+}
+
+    
+
+@keyframes BookAnime {
+    from {
+    transform: translateY(50%);
+    }
+    to {
+    transform: translateY(0%);
+    }
 }
 .ntroduction:hover {
     box-shadow: 0px 0px 16px var(--nightfcolor);
@@ -368,9 +381,21 @@ text-decoration: none;
     z-index:11;
 }
 #side_img {
+width:100%;
+height:142px;
+overflow:hidden;
+}
+#side_img img {   
     width:100%;
-    height:142px;
+    height:100%;
     object-fit:cover;
+    transition:0.8s;
+}
+#side_img img:hover {
+width:106%;
+height:106%;
+margin-left:-3%;
+margin-top:-3%;
 }
 #side_title {
     display: block;
@@ -381,6 +406,7 @@ text-decoration: none;
     position:absolute;
     margin:0px;
     display:flex;
+    pointer-events:none;
     flex-direction:column;
     align-items:center;
     justify-content:center;
