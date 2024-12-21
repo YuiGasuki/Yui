@@ -109,7 +109,7 @@ DarkMode();
 const channel = new BroadcastChannel('Yui_night');
 
 channel.addEventListener('message', (e) => {
-    if(e.data.Type===0){
+    if(e.data.Type!=3){
 DarkMode()
 }else if(e.data.Type===3){
 if(localStorage.ThemeColor){
