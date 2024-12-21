@@ -1,5 +1,5 @@
 let pcpictureN = 23;
-let anpictureN = 21;
+let anpictureN = 28;
 let pcpicture  = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
 let ifFirstBox = true;
@@ -337,6 +337,7 @@ if(new Date().getHours()>22||new Date().getHours()<4){
 const changePicture = document.getElementById('change_picture');
 changePicture.onclick = () =>{
     changePicture.style.animationPlayState="running";
+    changePicture.style.pointerEvents="none";
     document.getElementById('background_img').style.filter="blur(50px)";
     setTimeout(()=>{
     if(window.innerHeight <= window.innerWidth){
@@ -351,7 +352,9 @@ changePicture.onclick = () =>{
     setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
         document.getElementById('background_img').style.filter="blur(0px)";
-           
+        setTimeout(()=>{
+            changePicture.style.pointerEvents="auto";
+        },800);
         },800);
     }
 }
