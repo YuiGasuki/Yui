@@ -1,5 +1,7 @@
-let pcpicture  = (Math.floor(Math.random() * (23 - 1 + 1)) + 1);
-let anpicture = (Math.floor(Math.random() * (21 - 1 + 1)) + 1);
+let pcpictureN = 23;
+let anpictureN = 21;
+let pcpicture  = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
+let anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
 let ifFirstBox = true;
 function KillFirstBox(){
     if(ifFirstBox){
@@ -330,4 +332,26 @@ if(new Date().getHours()>22||new Date().getHours()<4){
     bodyInformation.style.pointerEvents = "auto";
     bodyInformation.style.opacity="1";
     bodyInformation.style.transform="rotateX(0deg)";
+}
+
+const changePicture = document.getElementById('change_picture');
+changePicture.onclick = () =>{
+    changePicture.style.animationPlayState="running";
+    document.getElementById('background_img').style.filter="blur(50px)";
+    setTimeout(()=>{
+    if(window.innerHeight <= window.innerWidth){
+        pcpicture = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
+        document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
+    }else{
+        anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
+        document.getElementById('background_img').src = "b_" + anpicture + ".webp";
+    }
+    },800);
+    document.getElementById('background_img').onload = () =>{   
+    setTimeout(()=>{
+        changePicture.style.animationPlayState="paused";
+        document.getElementById('background_img').style.filter="blur(0px)";
+           
+        },800);
+    }
 }
