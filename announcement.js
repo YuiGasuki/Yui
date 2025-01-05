@@ -58,8 +58,17 @@ switch(Month)
     case 9:
         switch(Day)
         {
+            case 3:
+                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/哆啦A梦七小子">哆啦七小子</a>共同的生日`;
+                break;
             case 18:
                 DateData+=`🎂 今天是站长生日`;
+                break;
+            case 23:
+                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/藤子·F·不二雄">藤子·F·不二雄老师</a>一路走好`;
+                break;
+            case 29:
+                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/大山羡代">大山羡代老师</a>一路走好`;
                 break;
         }
         break;
@@ -76,7 +85,7 @@ switch(Month)
                 DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/高良美幸">高良美幸</a>的生日`;
                 break;
             case 27:
-                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/松来未祐">松来未祐</a>一路走好`;
+                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/松来未祐">松来未祐老师</a>一路走好`;
                 break;
         }
         break;
