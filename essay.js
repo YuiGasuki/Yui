@@ -229,7 +229,7 @@ function ClickComeBig(el){
                 bodyAlretImg.lastElementChild.style.marginTop = "0px";
                 setTimeout(()=>{
                 bodyAlretImg.lastElementChild.style.maxHeight = "100vh";
-                },500)
+                },300)
                 hododa = false;
             }
         }
