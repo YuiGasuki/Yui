@@ -134,7 +134,13 @@ if(outlineLi!=""){
     outlineBox.children[0].innerHTML = outlineLi;
 }
 
+document.getElementById('body').querySelectorAll('img').forEach(el => {
+el.onclick = () =>{
+  ClickComeBig(el);
+  }
+});
 document.querySelectorAll('img').forEach(el => {
+  
   
   el.onerror = () =>{
 el.src="none.webp";
@@ -191,3 +197,52 @@ if((el.childNodes[1].clientWidth+el.offsetLeft) > document.body.scrollWidth){
 el.childNodes[1].style.marginLeft= (0 - el.childNodes[1].clientWidth + a) + "px";
 }
 }
+
+let bodyAlretImg = document.getElementById('body_alret_img');
+let bodyAlretImgSet = null;
+function ClickComeBig(el){
+    document.body.style.overflow="hidden";
+    let Img = document.createElement("img");
+    Img.src = el.src;
+    bodyAlretImg.style.display="flex";
+    bodyAlretImg.appendChild(Img);
+    bodyAlretImg.lastElementChild.onload = () =>{
+        let hododa;
+        this.ondblclick = () =>{
+            clearTimeout(bodyAlretImgSet);
+            let e = event || window.event;
+            let X = e.screenX;
+            let Y = e.screenY;
+            // alert(X)
+            let enlargeData = 80;
+            if(!hododa){
+                bodyAlretImg.lastElementChild.style.width=`${bodyAlretImg.lastElementChild.offsetWidth + enlargeData}px`;
+
+                bodyAlretImg.lastElementChild.style.marginLeft = `${(screen.width/2)-X}px`
+               
+                bodyAlretImg.lastElementChild.style.marginTop = `${(screen.height/2)-Y}px`
+                bodyAlretImg.lastElementChild.style.maxHeight = "none";
+                hododa = true;
+            }else{
+                bodyAlretImg.lastElementChild.style.width="100vw";
+                bodyAlretImg.lastElementChild.style.marginLeft = "0px";
+                bodyAlretImg.lastElementChild.style.marginTop = "0px";
+                setTimeout(()=>{
+                bodyAlretImg.lastElementChild.style.maxHeight = "100vh";
+                },500)
+                hododa = false;
+            }
+        }
+    }
+}
+
+
+bodyAlretImg.querySelectorAll('div')[0].onclick = () =>{
+    clearTimeout(bodyAlretImgSet);
+    bodyAlretImgSet=setTimeout(()=>{
+    document.body.style.overflow="auto";
+    bodyAlretImg.lastElementChild.remove();
+    bodyAlretImg.style.display="none";
+    },300);
+}
+
