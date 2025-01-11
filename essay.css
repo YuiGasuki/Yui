@@ -27,7 +27,7 @@ margin-bottom:0px;
 #body_alret_img img {
 width:100vw;
 height:auto;
-max-height:90vh;
+max-height:100vh;
 max-width:none;
 object-fit:contain;
 transition:0.3s;
@@ -40,12 +40,7 @@ transition:0.3s;
 #body {
 padding:32px;
 }
-#body_alret_img img {
-height:100vh;
-width:auto;
-max-width:90vw;
-max-height:none;
-}
+
 
 }
 @font-face {

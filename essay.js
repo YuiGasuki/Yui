@@ -206,31 +206,48 @@ function ClickComeBig(el){
     Img.src = el.src;
     bodyAlretImg.style.display="flex";
     bodyAlretImg.appendChild(Img);
+    let measure = el.offsetWidth / el.offsetHeight;
     bodyAlretImg.lastElementChild.onload = () =>{
         let hododa;
-        this.ondblclick = () =>{
-            clearTimeout(bodyAlretImgSet);
-            let e = event || window.event;
-            let X = e.screenX;
-            let Y = e.screenY;
-            // alert(X)
-            let enlargeData = 80;
-            if(!hododa){
-                bodyAlretImg.lastElementChild.style.width=`${bodyAlretImg.lastElementChild.offsetWidth + enlargeData}px`;
-
-                bodyAlretImg.lastElementChild.style.marginLeft = `${(screen.width/2)-X}px`
-               
-                bodyAlretImg.lastElementChild.style.marginTop = `${(screen.height/2)-Y}px`
-                bodyAlretImg.lastElementChild.style.maxHeight = "none";
-                hododa = true;
-            }else{
+        const NoOndblc = () =>{
+                if(measure<1){
+                bodyAlretImg.lastElementChild.style.width=`calc(100vh * ${measure})`;
+                }else{
                 bodyAlretImg.lastElementChild.style.width="100vw";
+                }
                 bodyAlretImg.lastElementChild.style.marginLeft = "0px";
                 bodyAlretImg.lastElementChild.style.marginTop = "0px";
                 setTimeout(()=>{
                 bodyAlretImg.lastElementChild.style.maxHeight = "100vh";
                 },300)
                 hododa = false;
+        }
+        
+        const screenChangeDetection = () =>{
+            if(window.innerHeight <= window.innerWidth){
+            NoOndblc();
+            }
+        }
+        window.addEventListener('resize', screenChangeDetection);
+        this.ondblclick = () =>{
+            if(window.innerHeight <= window.innerWidth){
+            return
+            }
+            clearTimeout(bodyAlretImgSet);
+            let e = event || window.event;
+            let X = e.screenX;
+            let Y = e.screenY;
+            let enlargeData = 150;
+            if(!hododa){
+                bodyAlretImg.lastElementChild.style.width=`${bodyAlretImg.lastElementChild.offsetWidth + enlargeData}px`;
+
+                bodyAlretImg.lastElementChild.style.marginLeft = `calc((100vw / 2) - ${X}px)`
+               
+                bodyAlretImg.lastElementChild.style.marginTop = `calc((100vh / 2) - ${Y}px)`
+                bodyAlretImg.lastElementChild.style.maxHeight = "none";
+                hododa = true;
+            }else{
+                NoOndblc();
             }
         }
     }
@@ -245,4 +262,5 @@ bodyAlretImg.querySelectorAll('div')[0].onclick = () =>{
     bodyAlretImg.style.display="none";
     },300);
 }
+
 
