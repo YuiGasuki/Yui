@@ -10,7 +10,7 @@ let DateTime = new Date();
 let Day = DateTime.getUTCDate();
 let Month = DateTime.getMonth()+1;
 let DateData = "";
-
+let searchEngine = "https://baike.baidu.com/item/";
 
 
 switch(Month)
@@ -18,8 +18,19 @@ switch(Month)
     case 1:
         switch(Day)
         {
+            case 7:
+                DateData+=`🎂 今天是<a href="${searchEngine}久石奏">久石奏</a>的生日`;
+                break;
             case 15:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/秋山澪">秋山澪</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}秋山澪">秋山澪</a>的生日`;
+                break;
+        }
+        break;
+    case 2:
+        switch(Day)
+        {
+            case 22:
+                DateData+=`🎂 今天是<a href="${searchEngine}平泽忧">平泽忧</a>的生日`;
                 break;
         }
         break;
@@ -27,7 +38,23 @@ switch(Month)
         switch(Day)
         {
             case 2:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/朝雾史织">朝雾史织</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}朝雾史织">朝雾史织</a>的生日`;
+                break;
+        }
+        break;
+    case 5:
+        switch(Day)
+        {
+            case 28:
+                DateData+=`🎂 今天是<a href="${searchEngine}泉此方">泉此方</a>的生日`;
+                break;
+        }
+        break;
+    case 6:
+        switch(Day)
+        {
+            case 3:
+                DateData+=`🎂 今天是<a href="${searchEngine}千石抚子">千石抚子</a>的生日`;
                 break;
         }
         break;
@@ -35,10 +62,10 @@ switch(Month)
         switch(Day)
         {
             case 2:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/琴吹紬">琴吹紬</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}琴吹紬">琴吹紬</a>的生日`;
                 break;
             case 7:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/樱庭葵">樱庭葵</a>的生日`;                
+                DateData+=`🎂 今天是<a href="${searchEngine}樱庭葵">樱庭葵</a>的生日`;                
                 document.documentElement.style.setProperty('--ThemeColor',"#8583CE");
                 break;
             case 18:
@@ -51,7 +78,8 @@ switch(Month)
         switch(Day)
         {
             case 21:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/田井中律">田井中律</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}田井中律">田井中律</a>的生日
+                🎂 今天是<a href="${searchEngine}黄前久美子">黄前久美子</a>的生日`;
                 break;
         }
         break;
@@ -59,16 +87,16 @@ switch(Month)
         switch(Day)
         {
             case 3:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/哆啦A梦七小子">哆啦七小子</a>共同的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}哆啦A梦七小子">哆啦七小子</a>共同的生日`;
                 break;
             case 18:
                 DateData+=`🎂 今天是站长生日`;
                 break;
             case 23:
-                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/藤子·F·不二雄">藤子·F·不二雄老师</a>一路走好`;
+                DateData+=`✿ <a href="${searchEngine}藤子·F·不二雄">藤子·F·不二雄老师</a>一路走好`;
                 break;
             case 29:
-                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/大山羡代">大山羡代老师</a>一路走好`;
+                DateData+=`✿ <a href="${searchEngine}大山羡代">大山羡代老师</a>一路走好`;
                 break;
         }
         break;
@@ -79,13 +107,13 @@ switch(Month)
                 DateData+=`🇨🇳国庆节快乐！！！`;
                 break;
             case 3:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/鹿目圆">鹿目圆</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}鹿目圆">鹿目圆</a>的生日`;
                 break;
             case 25:
-                DateData+=`🎂 今天是<a href="https://mzh.moegirl.org.cn/高良美幸">高良美幸</a>的生日`;
+                DateData+=`🎂 今天是<a href="${searchEngine}高良美幸">高良美幸</a>的生日`;
                 break;
             case 27:
-                DateData+=`✿ <a href="https://mzh.moegirl.org.cn/松来未祐">松来未祐老师</a>一路走好`;
+                DateData+=`✿ <a href="${searchEngine}松来未祐">松来未祐老师</a>一路走好`;
                 break;
         }
         break;
@@ -93,10 +121,10 @@ switch(Month)
         switch(Day)
         {
             case 11:
-                DateData+=`🎂 今天是<a href='https://mzh.moegirl.org.cn/中野梓'>中野梓</a>的生日`;
+                DateData+=`🎂 今天是<a href='${searchEngine}中野梓'>中野梓</a>的生日`;
                 break;
             case 27:
-                DateData+=`🎂 今天是<a href='https://mzh.moegirl.org.cn/平泽唯'>平泽唯</a>的生日`;
+                DateData+=`🎂 今天是<a href='${searchEngine}平泽唯'>平泽唯</a>的生日`;
                 break;
         }
         break;
@@ -104,7 +132,7 @@ switch(Month)
         switch(Day)
         {
             case 31:
-                DateData+=`🎂 今天是<a href='https://mzh.moegirl.org.cn/北白川玉子'>北白川玉子</a>的生日`;
+                DateData+=`🎂 今天是<a href='${searchEngine}北白川玉子'>北白川玉子</a>的生日`;
                 break;
         }
         break;
