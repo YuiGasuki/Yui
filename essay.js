@@ -210,10 +210,10 @@ function ClickComeBig(el){
     bodyAlretImg.lastElementChild.onload = () =>{
         let hododa;
         const NoOndblc = () =>{
-                if(measure<1){
-                bodyAlretImg.lastElementChild.style.width=`calc(100vh * ${measure})`;
+                if((window.innerHeight * measure)>window.innerWidth||measure>1){
+                bodyAlretImg.lastElementChild.style.width=`100vw`;
                 }else{
-                bodyAlretImg.lastElementChild.style.width="100vw";
+                bodyAlretImg.lastElementChild.style.width=`calc(100vh * ${measure})`;
                 }
                 bodyAlretImg.lastElementChild.style.marginLeft = "0px";
                 bodyAlretImg.lastElementChild.style.marginTop = "0px";
