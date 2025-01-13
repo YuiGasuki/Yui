@@ -52,7 +52,7 @@ const DarkMode = () =>{
             document.documentElement.style.setProperty('--nightbox', '0.5');   
             document.documentElement.style.setProperty('--nightTitleground', 'rgba(86,86,86,0.8)');  
             document.documentElement.style.setProperty('--nightfcolor', '#aaaaaa');
-            idDarkMode.style.setProperty('--leftData', '20px');
+            idDarkMode.style.setProperty('--leftData', '13px');
             document.documentElement.style.setProperty('--QuasiphysicalA', '#6f6f6f');
     document.documentElement.style.setProperty('--QuasiphysicalB', 'rgb(60,60,60)');
             idDarkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
@@ -178,10 +178,9 @@ fetch('1.json', {
 });
 
 
-idDarkMode.onclick = () =>{
+idDarkMode.parentNode.onclick = () =>{
     if(ifDarkMode){
-        idDarkMode.style.setProperty('--leftData', '-4px');
-        idDarkMode.style.setProperty('--divBackGround', '#aaaaaa');
+
         document.cookie="darkmode=false; max-age:2592000";
         DarkMode();
         channel.postMessage({
@@ -189,8 +188,7 @@ idDarkMode.onclick = () =>{
         })
         ifDarkMode = false;
     }else{
-        idDarkMode.style.setProperty('--leftData', '20px');
-        idDarkMode.style.setProperty('--divBackGround', getComputedStyle(document.documentElement).getPropertyValue('--ThemeColor'));
+        
         document.cookie="darkmode=true; max-age:2592000";
         DarkMode();
         channel.postMessage({
