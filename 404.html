@@ -4,76 +4,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>出错了-唯の小屋</title>
+<link href="Game.css" rel="stylesheet" type="text/css">
+<link href="all.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="icon.webp" type="image/x-icon">
-<style>
-:root {
-    --nightbox:0;
-    --nightColor:#aaaaaa;
-    font-family: serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
-    background:#eee;
-}
-body {    
-    
-    margin-top:-8px;
-}
-#nightbox {
-position:fixed;
-top:0px;
-left:0px;
-width:100vw;
-height:100vh;
-background:black;
-opacity:var(--nightbox);
-transition:opacity 1s;
-pointer-events: none;
-z-index: 999;
-}
-img {
-    width:260px;
-}
-h1 {
-    color:var(--nightColor);
-    font-size:1.2em;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-</style>
+<title>出错了-唯の小屋</title>
 </head>
 <body>
-<div style="display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
-    width:100vw;margin-left:-8px;">
-<img src="404.webp" alt="404 no found">
-<h1>无法找到该页面(ﾟ⊿ﾟ)ﾂ</h1>
+<div id="Game_box">
+<div id="Game_collide"></div>
+<img src="game_2.png" id="Game_character" />
+<div id="game_ground"></div>
+<p id="game_score_history">歴史最佳 
+-</p><p id="game_score">当前分数 -</p>
+<button id="Open_game">START</button>
+<h1 id="pointOut">无法找到该页面(ﾟ⊿ﾟ)ﾂ</h1>
 </div>
 <div id="nightbox"></div>
-<script>
-const DarkMode = () =>{
-    if(document.cookie){
-        let data = document.cookie.split(";")[0].split("=")[1];
-        if(data==="true"){
-            document.documentElement.style.setProperty('--nightbox', '0.5');  
-    document.documentElement.style.setProperty('--nightColor', '#eee'); 
-            document.documentElement.style.background = "#aaaaaa";
-            return
-        }
-    }
-    document.documentElement.style.setProperty('--nightbox', '0');
-    document.documentElement.style.setProperty('--nightColor', '#aaaaaa'); 
-    document.documentElement.style.background = "#eee";
-}
-
-DarkMode();
-const channel = new BroadcastChannel('Yui_night');
-channel.addEventListener('message', (e) => {
-DarkMode();
-})
-</script>
+<script src="Game.js"></script>
 </body>
 </html>

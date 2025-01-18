@@ -1,0 +1,155 @@
+@font-face {
+        font-family: 'PixelMplus';
+        src: url('/Yui/font/PixelMplus12-Regular.ttf');
+        }
+
+:root {
+--nightbox:0;
+    --nightColor:black;
+}
+#Game_box {
+width:300px;
+height:200px;
+margin-left:calc(50vw - 8px);
+margin-top:calc(50vh - 8px);
+margin-bottom:0px;
+background:none;
+overflow:hidden;
+transform:translate(-50%,-50%);
+}
+
+#Star_img {
+width:70px;
+display:none;
+}
+
+#Game_character {
+width:80px;
+position:absolute;
+left:20px;
+
+}
+#Game_collide {
+width:25px;
+height:45px;
+position:absolute;
+left:60px;
+top:67px
+}
+.CharacterJumpOpen {
+animation:CharacterJump 0.8s linear;
+}
+
+
+@keyframes CharacterJump {
+    0% {
+    margin-top:0px;
+    }
+    20% {
+    margin-top:-50px;
+    }
+    50% {
+    margin-top:-65px;
+    }
+    80% {
+    margin-top:-50px;
+    }
+    100% {
+    margin-top:0px;
+    }
+}
+
+
+.Game_obstacle1 {
+width:32px;
+position:absolute;
+top:73px;
+animation:ObstacleMove 3s linear 1;
+}
+
+@keyframes ObstacleMove {
+    from {
+        transform:translateX(100%);
+        margin-left:100%;
+    }
+    to {
+        transform:translateX(-100%);
+        margin-left:0px;
+    }
+}
+
+
+#game_ground {
+width:90%;
+height:1px;
+background:var(--nightColor);
+position:absolute;
+left:5%;
+top:127px;
+}
+body {    
+    
+    margin-top:-8px;
+}
+h1 {
+    font-size:1.2em;
+    font-family: serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+    position:absolute;
+left:5%;
+top:127px;
+color:var(--nightColor);
+}
+
+
+
+
+#game_score {
+    color:black;
+    font-family: 'PixelMplus';
+    position:absolute;
+    bottom:8px;
+    right:16px;
+    display:none;
+}
+#game_score_history {
+    color:black;
+    font-family: 'PixelMplus';
+    position:absolute;
+    bottom:8px;
+    left:16px;
+    display:none;
+}
+#Open_game {
+    position:absolute;
+    top:65px;
+    right:70px;
+    font-family: 'PixelMplus';
+    display:none;
+    border-style:none;
+    background:none;
+    font-size:20px;
+    
+background:linear-gradient(to right,green,green)no-repeat center bottom;
+background-size: 0% 2px;
+transition:background-size 0.5s;
+
+}
+#Open_game:hover {
+background-position: center bottom;
+background-size: 100% 1px;
+}
+
+
+
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
+z-index: 999;
+}
