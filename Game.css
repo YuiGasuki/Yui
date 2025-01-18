@@ -16,6 +16,7 @@ margin-bottom:0px;
 background:none;
 overflow:hidden;
 transform:translate(-50%,-50%);
+--difficulty:3s;
 }
 
 #Star_img {
@@ -61,10 +62,10 @@ animation:CharacterJump 0.8s linear;
 
 
 .Game_obstacle1 {
-width:32px;
+width:28px;
 position:absolute;
-top:73px;
-animation:ObstacleMove 3s linear 1;
+top:80px;
+animation:ObstacleMove var(--difficulty) linear 1;
 }
 
 @keyframes ObstacleMove {
