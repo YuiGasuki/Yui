@@ -142,7 +142,7 @@ if(!ifFirstOpen){
 return
 }
 
-let loadList =["game_3.gif","game_1.png","game_2.png"]
+let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png"]
 let i = 0;
 for(let list in loadList){
 let img = new Image();
