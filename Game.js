@@ -3,6 +3,8 @@ const GameCollide = document.getElementById("Game_collide");
 const GameBox = document.getElementById("Game_box");
 const gameScore = document.getElementById("game_score");
 const OpenGame = document.getElementById("Open_game");
+const GameBackgroundImg = document.getElementById("Game_background_img");
+const GameBackground = document.getElementById("Game_background");
 const gameScoreHistory = document.getElementById("game_score_history");
 let GameScore = 0;
 let GameCondition = false;//默认false
@@ -128,6 +130,8 @@ gameScoreHistory.innerText =`歴史最佳 ${localStorage.GameScore}`;
 
 OpenGame.onclick = () =>{
 OpenGame.style.display="none";
+GameCharacter.style.marginTop="0px";
+GameBackgroundImg.style.transform="translate(0%) Scale(1)";
 GameCharacter.src="game_3.gif";
 GameCondition = true;
 GameScore=0;
@@ -141,8 +145,10 @@ GameCharacter.onclick = () =>{
 if(!ifFirstOpen){
 return
 }
-
-let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png"]
+let ifGetLongTime = setTimeout(()=>{
+document.getElementById('first_box').style.opacity="1";
+},300)
+let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png","game_5.png"]
 let i = 0;
 for(let list in loadList){
 let img = new Image();
@@ -151,14 +157,18 @@ img.onload = () =>{
 i++
 if(i>=loadList.length){
 ifFirstOpen=false;
+clearTimeout(ifGetLongTime);
+document.getElementById('first_box').remove();
 gameScore.style.display="inline";
-GameBox.style.background="#93FF95";
-document.getElementById("game_ground").style.background="green";
+GameBox.style.background="#8FEFFF";
+GameBackground.style.opacity="1";
 document.getElementById("pointOut").remove();
-GameBox.style.boxShadow="inset -2px -2px 4px #aaaa,inset 2px 2px 4px #aaaa";
+GameBox.style.boxShadow="inset -1px 1px 5px 5px #aaaa";
 gameScoreHistory.style.display="inline";
+GameCharacter.style.marginTop="0px";
 GameCharacter.src="game_3.gif";
 GameCondition = true;
+characterJump();
 GameScore=0;
 gameScore.innerText = `当前分数 0`
 senseCollide();
@@ -218,7 +228,9 @@ clearTimeout(setGenerate)
 GameCharacter.className = "CharacterJumpPaused";
     GameCollide.className = "CharacterJumpPaused";
     GameCondition = false;
-    gameScore.innerText = `当前分数 ${GameScore}`
+    gameScore.innerText = `当前分数 ${GameScore}`;
+    GameBackgroundImg.style.transform="translate(12%,-30%) Scale(1.6)";
+    GameCharacter.style.marginTop="-21px";
     GameCharacter.src="game_2.png"
     OpenGame.style.display="inline";
 return
