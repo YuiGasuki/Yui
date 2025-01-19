@@ -79,6 +79,29 @@ animation:ObstacleMove var(--difficulty) linear 1;
     }
 }
 
+.Game_obstacle2 {
+width:28px;
+position:absolute;
+top:-60px;
+left:0px;
+display:block;
+animation:ObstacleMove2 var(--difficulty) linear 1;
+}
+
+
+
+@keyframes ObstacleMove2 {
+    from {
+        margin-left:100%;
+        margin-top:0px;
+    }
+    to {
+        margin-left:0px;
+        margin-top:127px;
+        transform:translate(-100%);
+    }
+}
+
 
 #game_ground {
 width:90%;

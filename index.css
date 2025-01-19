@@ -472,6 +472,8 @@ overflow-x:hidden;
     white-space:nowrap;
     margin-left:-172px;
     font-family:var(--fontSerif);
+        pointer-events:none;
+
 }
 #warn_box {
     background:var(--nightTitleground);
