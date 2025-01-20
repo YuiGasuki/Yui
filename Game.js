@@ -6,10 +6,10 @@ const OpenGame = document.getElementById("Open_game");
 const GameBackgroundImg = document.getElementById("Game_background_img");
 const GameBackground = document.getElementById("Game_background");
 const gameScoreHistory = document.getElementById("game_score_history");
+const audioT = document.getElementById("A2");
 let GameScore = 0;
 let GameCondition = false;//默认false
 let ifFirstOpen = true;
-
 
 window.onclick = () =>characterJump();
 window.onmousedown = () =>characterJump();
@@ -17,6 +17,7 @@ window.ontouchstart = () =>characterJump();
 
 function characterJump(){
 if(GameCondition){
+
     GameCharacter.className = "CharacterJumpOpen";
     GameCollide.className = "CharacterJumpOpen";
     GameCharacter.addEventListener("animationend", ()=>{
@@ -84,11 +85,15 @@ if((Character.left-Obstacle.right)>-2&&!el.ifGameScore&&GameCondition){
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
 el.ifGameScore = true;
-
+if(parseInt(GameScore/10)==GameScore/10){
+audioT.play();
+audioT.currentTime=0;
+gameScore.className = "IncreaseDifficulty";
+gameScore.addEventListener("animationend", ()=>{
+gameScore.className = "a";
+})
+}
 GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
-
-
-
 }
 })
 
@@ -105,7 +110,10 @@ if((Character.left-Obstacle.right)>-10&&!el.ifGameScore&&GameCondition){
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
 el.ifGameScore = true;
-
+if(parseInt(GameScore/10)==GameScore/10){
+audioT.play();
+audioT.currentTime=0;
+}
 GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
 
 
@@ -141,6 +149,7 @@ generate(1000);
 }
 
 
+
 GameCharacter.onclick = () =>{
 if(!ifFirstOpen){
 return
@@ -150,6 +159,7 @@ document.getElementById('first_box').style.opacity="1";
 },300)
 let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png","game_5.png"]
 let i = 0;
+console.log(audioT.duration)
 for(let list in loadList){
 let img = new Image();
 img.src = loadList[list];
@@ -235,3 +245,5 @@ GameCharacter.className = "CharacterJumpPaused";
     OpenGame.style.display="inline";
 return
 }
+
+

@@ -123,6 +123,29 @@ animation:ObstacleMove2 var(--difficulty) linear 1;
 }
 
 
+.IncreaseDifficulty {
+animation:IncreaseDifficulty 1s linear 1;
+}
+@keyframes IncreaseDifficulty {
+0% {
+color:black;
+}
+25% {
+color:white;
+}
+50% {
+color:black;
+}
+75% {
+color:white;
+}
+100% {
+color:black;
+}
+}
+
+
+
 #game_ground {
 width:100%;
 height:1px;
