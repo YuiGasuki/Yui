@@ -1,7 +1,7 @@
 const options = { 
  method: 'GET'
  };
-fetch(`https://api.github.com/repos/YuiandAzucat/Yui/issues/15/comments?time=${Date.now()}`,options).then(response => response.json()).then(data =>{ 
+fetch(`https://api.github.com/repos/Yuigasuki/Yui/issues/15/comments?time=${Date.now()}`,options).then(response => response.json()).then(data =>{ 
 document.getElementById('first_box').remove();
 document.body.style.overflow="auto";
 for(let i=data.length-1;i>=0;i=i-1){
