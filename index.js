@@ -178,7 +178,7 @@ fetch('1.json', {
 });
 
 
-idDarkMode.parentNode.onclick = () =>{
+idDarkMode.onclick = () =>{
     if(ifDarkMode){
 
         document.cookie="darkmode=false; max-age:2592000";
