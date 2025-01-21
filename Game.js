@@ -170,7 +170,7 @@ ifFirstOpen=false;
 clearTimeout(ifGetLongTime);
 document.getElementById('first_box').remove();
 gameScore.style.display="inline";
-GameBox.style.background="#8FEFFF";
+GameBox.style.background="linear-gradient(#3C90CE, white)";
 GameBackground.style.opacity="1";
 document.getElementById("pointOut").remove();
 GameBox.style.boxShadow="inset -1px 1px 5px 5px #aaaa";

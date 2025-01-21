@@ -32,12 +32,13 @@ opacity:0;
 }
 #Game_background_img {
 width:100%;
+opacity:0.8;
 transition:0.3s;
 }
 #Game_background div {
 width:100%;
 height:120px;
-background:#FFF15A;
+background:#FFD751;
 position:absolute;
 left:0px;
 top:127px;
@@ -188,7 +189,7 @@ color:var(--nightColor);
 }
 #Open_game {
     position:absolute;
-    top:65px;
+    top:55px;
     right:70px;
     font-family: 'PixelMplus';
     display:none;
