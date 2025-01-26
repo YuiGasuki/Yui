@@ -73,18 +73,18 @@ return
 }
 let Character = GameCollide.getBoundingClientRect();
 
-
-document.querySelectorAll('.Game_obstacle1').forEach(el => {
+if(document.querySelector('.Game_obstacle1')!=null){
+let el = document.querySelector('.Game_obstacle1');
 let Obstacle = el.getBoundingClientRect();
 if(Character.bottom-5>Obstacle.top){
 if(Obstacle.left-Character.right<-2&&(Character.left-Obstacle.right)<-2){
 GameEnd()
 }
 }
-if((Character.left-Obstacle.right)>-2&&!el.ifGameScore&&GameCondition){
+if((Character.left-Obstacle.right)>-2&&GameCondition){
+el.className= "Game_obstacle_no1"
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
-el.ifGameScore = true;
 if(parseInt(GameScore/10)==GameScore/10){
 audioT.play();
 audioT.currentTime=0;
@@ -95,21 +95,22 @@ gameScore.className = "a";
 }
 GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
 }
-})
+}
 
 
 
-document.querySelectorAll('.Game_obstacle2').forEach(el => {
+if(document.querySelector('.Game_obstacle2')!=null){
+let el = document.querySelector('.Game_obstacle2');
 let Obstacle = el.getBoundingClientRect();
 if(Character.top<Obstacle.bottom){
 if(Obstacle.left-Character.right<0&&(Character.left-Obstacle.right)<-10){
 GameEnd()
 }
 }
-if((Character.left-Obstacle.right)>-10&&!el.ifGameScore&&GameCondition){
+if((Character.left-Obstacle.right)>-10&&GameCondition){
+el.className = "Game_obstacle_no2";
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
-el.ifGameScore = true;
 if(parseInt(GameScore/10)==GameScore/10){
 audioT.play();
 audioT.currentTime=0;
@@ -119,9 +120,8 @@ GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
 
 
 }
-})
 
-
+}
 
 
 
@@ -228,10 +228,7 @@ if(GameScore>localStorage.GameScore||!localStorage.GameScore){
 gameScoreHistory.innerText =`歴史最佳 ${GameScore}`;
 localStorage.GameScore=GameScore;
 }
-document.querySelectorAll('.Game_obstacle1').forEach(el => {
-el.remove();
-})
-document.querySelectorAll('.Game_obstacle2').forEach(el => {
+document.querySelectorAll('.Game_obstacle1, .Game_obstacle2').forEach(el => {
 el.remove();
 })
 clearTimeout(setGenerate)

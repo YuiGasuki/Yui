@@ -88,6 +88,12 @@ position:absolute;
 top:80px;
 animation:ObstacleMove var(--difficulty) linear 1;
 }
+.Game_obstacle_no1 {
+width:28px;
+position:absolute;
+top:80px;
+animation:ObstacleMove var(--difficulty) linear 1;
+}
 
 @keyframes ObstacleMove {
     from {
@@ -101,6 +107,15 @@ animation:ObstacleMove var(--difficulty) linear 1;
 }
 
 .Game_obstacle2 {
+width:28px;
+position:absolute;
+top:-60px;
+left:0px;
+display:block;
+animation:ObstacleMove2 var(--difficulty) linear 1;
+}
+
+.Game_obstacle_no2 {
 width:28px;
 position:absolute;
 top:-60px;
