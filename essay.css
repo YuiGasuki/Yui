@@ -373,7 +373,41 @@ padding-left:16px;
 border-bottom-right-radius:8px;
 border-top-right-radius:8px;
 }
-#body .note {
+
+#body .hidden div {
+max-height:0px;
+overflow:hidden;
+transition:0.5s;
+margin:0px;
+padding:0px;
+}
+
+#body .hidden .hidDiv {
+border-left-style:solid;
+font-weight:bold;
+border-width:4px;
+margin:0px;
+margin-left:-4px;
+border-color:var(--ThemeColor);
+padding:4px;
+padding-left:8px;
+max-height:none;
+overflow:auto;
+transition:none;
+}
+#body .hidden .hidDiv button {
+border-style:none;
+background:none;
+float:right;
+margin:0px;
+margin-right:4px;
+padding:0px;
+font-size:1em;
+color:var(--ThemeColor);
+font-family:var(--fontSerif);
+}
+
+.note {
 color:var(--ThemeColor);
 font-size:0.7em;
 position:relative;
@@ -381,10 +415,10 @@ transform: translate(0%,-40%);
 display:inline-block;
 padding:0px;
 }
-#body .note:active {
+.note:active {
     background:#87ceebcc;
 }
-#body .note div {
+.note div {
 background:var(--nightNoback);
 border-radius:2px;
 box-shadow: 0px 2px 4px var(--nightfcolor);
@@ -435,6 +469,7 @@ font-size:0.8em;
 h2 {
     font-size:1.15em;
     margin:16px 0px;
+    padding:4px;
     padding-left:16px;
     position:relative;
     white-space:nowrap;

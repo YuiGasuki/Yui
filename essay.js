@@ -119,6 +119,35 @@ document.querySelectorAll('div.code').forEach(el => {
 });
 
 
+document.querySelectorAll('.hidden').forEach(el => {
+let hBody = el.innerHTML;
+let maxHeight = el.clientHeight;
+el.innerHTML = "";
+let div = document.createElement("div");
+let p = document.createElement("div");
+div.className = "hidDiv";
+div.innerHTML = el.getAttribute("data-title");
+p.innerHTML = hBody;
+let Button = document.createElement("button");
+Button.innerText = "展开";
+let iftrue = false;
+Button.onclick = () =>{
+if(iftrue){
+p.style.maxHeight = "0px";
+Button.innerText = "展开";
+iftrue=false;
+}else{
+p.style.maxHeight = `${maxHeight}px`;
+Button.innerText = "隐藏";
+iftrue=true
+}
+}
+div.appendChild(Button);
+el.appendChild(div);
+el.appendChild(p);
+});
+
+
 const H2List = document.querySelectorAll('h2');
 let outlineLi = "";
 for(let i=0;i<H2List.length;i++){

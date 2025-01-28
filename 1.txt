@@ -43,3 +43,11 @@
 <li>这是列表</li>
 <li>这是列表</li>
 </ul>
+
+<b><i>九</i>，隐藏内容</b>
+<div class="code" >&#60;div class="hidden" data-title="标题"&#62;
+内容
+&#60;/div&#62;
+</div>
+效果: 
+<div class="hidden" data-title="标题">内容</div>
