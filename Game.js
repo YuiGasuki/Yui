@@ -41,28 +41,40 @@ let Img = document.createElement("img");
 if((Math.floor(Math.random() * (5 - 2 + 1)) + 2)==4&&GameScore>=10){
 Img.src = "game_4.png";
 Img.className="Game_obstacle2";
-
-Img.addEventListener("animationend", ()=>{
-Img.remove();
-});
-GameBox.appendChild(Img);
-
 }else{
-
-
 Img.src = "game_1.png";
 Img.className="Game_obstacle1";
+}
+
+
+
+if(parseInt((GameScore+2)/10)==((GameScore+2)/10)){
 
 Img.addEventListener("animationend", ()=>{
 Img.remove();
-});
-GameBox.appendChild(Img);
 
-}
 
 let a =  (parseInt(GameScore/10)*100);
 if(a>500) a=500;
+GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
 generate((Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000 - a));
+
+});
+GameBox.appendChild(Img);
+
+
+}else{
+
+Img.addEventListener("animationend", ()=>{
+Img.remove();
+});
+GameBox.appendChild(Img);
+
+
+let a =  (parseInt(GameScore/10)*100);
+if(a>500) a=500;
+generate((Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000 - (a/2)));
+}
 },SpaceTime);
 }
 
@@ -93,7 +105,7 @@ gameScore.addEventListener("animationend", ()=>{
 gameScore.className = "a";
 })
 }
-GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
+
 }
 }
 
@@ -115,7 +127,7 @@ if(parseInt(GameScore/10)==GameScore/10){
 audioT.play();
 audioT.currentTime=0;
 }
-GameBox.style.setProperty('--difficulty', `${(3-parseInt(GameScore/10)*0.2)}s`);
+
 
 
 
