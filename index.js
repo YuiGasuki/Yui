@@ -115,7 +115,8 @@ fetch('1.json', {
     let i = 0;
     const setUpBook = () =>{
                 let textAgin = "";
-        for (let ic = (i*4); ic < ((i*4)+4)&&ic<data.length; ic++) {
+                let cacheNumber = 4;
+        for (let ic = (i*cacheNumber); ic < ((i*cacheNumber)+cacheNumber)&&ic<data.length; ic++) {
         let b = "";
         for(let ib = 0; ib < data[ic].label.length; ib++){
             b += `<span>` + data[ic].label[ib] + `</span>`;
@@ -130,12 +131,23 @@ fetch('1.json', {
         div.onclick = () =>{
         window.open(`essay.html?Yui=${data[ic].Yui}`);
         }
+        
+        div.querySelector(".titleimg").addEventListener('error', () =>{
+            div.querySelector(".titleimg").src = data[ic].title_url;
+            div.querySelector(".titleimg").addEventListener('error', () =>{
+                div.querySelector(".titleimg").src = "none.webp";
+            });
+        }, { once: true });
         bodyNtroduction.appendChild(div)
         }
         let div = document.createElement("div");
         div.id="getBook";
+        
+        
+        
         bodyNtroduction.appendChild(div)
         
+   
         i++;
     }  
     
