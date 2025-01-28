@@ -240,6 +240,7 @@ GameCharacter.className = "CharacterJumpPaused";
     GameCharacter.style.marginTop="-21px";
     GameCharacter.src="game_2.png"
     OpenGame.style.display="inline";
+    GameBox.style.setProperty('--difficulty', `3s`);
 return
 }
 
