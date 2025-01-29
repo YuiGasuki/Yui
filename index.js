@@ -1,5 +1,5 @@
 let pcpictureN = 23;
-let anpictureN = 28;
+let anpictureN = 30;
 let pcpicture  = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
 let ifFirstBox = true;
