@@ -127,7 +127,7 @@ position:absolute;
 }
 #outline_box {
     position:fixed;
-    bottom:calc(3 * var(--widthSize) + 24px);
+    bottom:calc(4 * var(--widthSize) + 32px);
     right:4px;
     margin:0px;
     width:var(--widthSize);
@@ -158,7 +158,7 @@ position:absolute;
     backdrop-filter:blur(10px);
     position:fixed;
     right:calc(var(--widthSize) + 8px);
-    bottom:calc(3 * var(--widthSize) + 24px);
+    bottom:calc(4 * var(--widthSize) + 32px);
     width:0px;
     max-height:0px;
     background:var(--nightbackground);
@@ -180,6 +180,28 @@ position:absolute;
 #outline_ul li:active {
     background:#87ceebcc;
 }
+
+
+#To_index {
+position:fixed;
+bottom:calc(3 * var(--widthSize) + 24px);
+right:4px;
+width:var(--widthSize);
+height:var(--widthSize);
+border-radius:4px;
+box-shadow: 0px 0px 4px var(--nightfcolor);
+background:var(--nightNoback);
+z-index: 10;
+opacity:0;
+display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+pointer-events:none;
+transition:opacity 0.3s;
+}
+
+
 #setup_box {
 position:fixed;
 bottom:calc(2 * var(--widthSize) + 16px);
