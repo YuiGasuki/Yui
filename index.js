@@ -6,13 +6,19 @@ let ifFirstBox = true;
 function KillFirstBox(){
     if(ifFirstBox){
     TouchsOpan();
-    document.getElementById('first_box').style.display="none";
+    if(document.getElementById('first_box')){
+    document.getElementById('first_box').remove();
+    }
     ifFirstBox = false;
     document.body.style.overflow="auto";
     }
 }
 function replacepicture() {
-    document.getElementById('first_box').style.display="flex";
+    if(!document.getElementById('first_box')){
+    let firstaBox = document.createElement("div");
+    firstaBox.id="first_box";
+    document.body.appendChild(firstaBox);
+    }
     ifFirstBox = true;
     if(window.innerHeight <= window.innerWidth){
         document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
