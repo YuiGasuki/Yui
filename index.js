@@ -3,6 +3,10 @@ let anpictureN = 30;
 let pcpicture  = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
 let ifFirstBox = true;
+
+const changePicture = document.getElementById('change_picture');
+
+
 function KillFirstBox(){
     if(ifFirstBox){
     TouchsOpan();
@@ -32,6 +36,13 @@ function replacepicture() {
     document.getElementById('background_img').onload = () => {
         KillFirstBox();
         document.getElementById('background_img').style.display="inline";
+        setTimeout(()=>{
+        changePicture.style.animationPlayState="paused";
+        document.getElementById('background_img').style.filter="blur(0px)";
+        setTimeout(()=>{
+            changePicture.style.pointerEvents="auto";
+        },800);
+        },800);
     }
    document.getElementById('background_img').onerror = () => {
         KillFirstBox();
@@ -365,7 +376,7 @@ if(new Date().getHours()>22||new Date().getHours()<4){
     bodyInformation.style.transform="rotateX(0deg)";
 }
 
-const changePicture = document.getElementById('change_picture');
+
 changePicture.onclick = () =>{
     changePicture.style.animationPlayState="running";
     changePicture.style.pointerEvents="none";
