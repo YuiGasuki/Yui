@@ -1,6 +1,6 @@
 @font-face {
         font-family: 'PixelMplus';
-        src: url('/Yui/font/PixelMplus12-Regular.ttf');
+        src: url('/Yui/font/BoutiqueBitmap.ttf');
         }
 
 :root {
@@ -139,6 +139,16 @@ animation:ObstacleMove2 var(--difficulty) linear 1;
 }
 
 
+
+.Game_obstacle3 {
+width:65px;
+display:block;
+position:absolute;
+top:44px;
+animation:ObstacleMove 3s linear 1;
+}
+
+
 .IncreaseDifficulty {
 animation:IncreaseDifficulty 1s linear 1;
 }
@@ -147,13 +157,13 @@ animation:IncreaseDifficulty 1s linear 1;
 color:black;
 }
 25% {
-color:white;
+color:#FFD751;
 }
 50% {
 color:black;
 }
 75% {
-color:white;
+color:#FFD751;
 }
 100% {
 color:black;

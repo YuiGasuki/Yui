@@ -38,6 +38,14 @@ return
 setGenerate = setTimeout(()=>{
 let Img = document.createElement("img");
 
+if(GameScore+1>=120){
+Img.src = "game_6.png";
+Img.className="Game_obstacle3";
+GameBox.appendChild(Img);
+return
+}
+
+
 if((Math.floor(Math.random() * (5 - 2 + 1)) + 2)==4&&GameScore>=10){
 Img.src = "game_4.png";
 Img.className="Game_obstacle2";
@@ -85,6 +93,21 @@ return
 }
 let Character = GameCollide.getBoundingClientRect();
 
+
+
+if(document.querySelector('.Game_obstacle3')!=null){
+    let el = document.querySelector('.Game_obstacle3');
+    let Obstacle = el.getBoundingClientRect();
+    if(Obstacle.left<87&&GameCondition){
+        GameWin(el);
+    }
+}
+
+
+
+
+
+
 if(document.querySelector('.Game_obstacle1')!=null){
 let el = document.querySelector('.Game_obstacle1');
 let Obstacle = el.getBoundingClientRect();
@@ -119,6 +142,7 @@ if(Obstacle.left-Character.right<0&&(Character.left-Obstacle.right)<-10){
 GameEnd()
 }
 }
+
 if((Character.left-Obstacle.right)>-10&&GameCondition){
 el.className = "Game_obstacle_no2";
 GameScore++
@@ -139,12 +163,15 @@ audioT.currentTime=0;
 
 
 
+
+
+
 window.requestAnimationFrame(()=>senseCollide())
 }
 
 
 if(localStorage.GameScore){
-gameScoreHistory.innerText =`歴史最佳 ${localStorage.GameScore}`;
+gameScoreHistory.innerText =`历史最佳 ${localStorage.GameScore}`;
 }
 
 
@@ -169,7 +196,7 @@ return
 let ifGetLongTime = setTimeout(()=>{
 document.getElementById('first_box').style.opacity="1";
 },300)
-let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png","game_5.png"]
+let loadList =["game_3.gif","game_1.png","game_2.png","game_4.png","game_5.png","game_6.png"]
 let i = 0;
 console.log(audioT.duration)
 for(let list in loadList){
@@ -237,7 +264,7 @@ DarkMode();
 
 function GameEnd(){
 if(GameScore>localStorage.GameScore||!localStorage.GameScore){
-gameScoreHistory.innerText =`歴史最佳 ${GameScore}`;
+gameScoreHistory.innerText =`历史最佳 ${GameScore}`;
 localStorage.GameScore=GameScore;
 }
 document.querySelectorAll('.Game_obstacle1, .Game_obstacle2').forEach(el => {
@@ -252,8 +279,28 @@ GameCharacter.className = "CharacterJumpPaused";
     GameCharacter.style.marginTop="-21px";
     GameCharacter.src="game_2.png"
     OpenGame.style.display="inline";
+    OpenGame.innerText="START";
     GameBox.style.setProperty('--difficulty', `3s`);
 return
 }
 
 
+function GameWin(ell){
+gameScoreHistory.innerText =`历史最佳 ${GameScore}`;
+ell.remove();
+document.querySelectorAll('.Game_obstacle1, .Game_obstacle2').forEach(el => {
+el.remove();
+})
+clearTimeout(setGenerate)
+GameCharacter.className = "CharacterJumpPaused";
+    GameCollide.className = "CharacterJumpPaused";
+    GameCondition = false;
+    gameScore.innerText = `当前分数 ${GameScore}`;
+    GameBackgroundImg.style.transform="translate(12%,-30%) Scale(1.6)";
+    GameCharacter.style.marginTop="-21px";
+    GameCharacter.src="game_2.png"
+    OpenGame.style.display="inline";
+    OpenGame.innerText="START-已通关";
+    GameBox.style.setProperty('--difficulty', `3s`);
+return
+}
