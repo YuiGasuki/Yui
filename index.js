@@ -2,22 +2,20 @@ let pcpictureN = 23;
 let anpictureN = 30;
 let pcpicture  = (Math.floor(Math.random() * (pcpictureN - 1 + 1)) + 1);
 let anpicture = (Math.floor(Math.random() * (anpictureN - 1 + 1)) + 1);
-let ifFirstBox = true;
 
 const changePicture = document.getElementById('change_picture');
 
-
+let loadAntiShake = null;
 function KillFirstBox(){
-    if(ifFirstBox){
-    TouchsOpan();
+    clearTimeout(loadAntiShake);    
     if(document.getElementById('first_box')){
+    TouchsOpan();
     document.getElementById('first_box').remove();
-    }
-    ifFirstBox = false;
     document.body.style.overflow="auto";
     }
 }
 function replacepicture() {
+    loadAntiShake =  setTimeout(()=>{
     if(!document.getElementById('first_box')){
     let firstaBox = document.createElement("div");
     firstaBox.id="first_box";
@@ -25,14 +23,14 @@ function replacepicture() {
     firstaBoxP.innerText = "少女祈祷中";
     firstaBox.appendChild(firstaBoxP);
     document.body.appendChild(firstaBox);
+    document.body.style.overflow="hidden";
     }
-    ifFirstBox = true;
+    },300);
     if(window.innerHeight <= window.innerWidth){
         document.getElementById('background_img').src = "p_" + pcpicture + ".webp";
     }else{
         document.getElementById('background_img').src = "b_" + anpicture + ".webp";
     }
-    document.body.style.overflow="hidden";
     document.getElementById('background_img').onload = () => {
         KillFirstBox();
         document.getElementById('background_img').style.display="inline";

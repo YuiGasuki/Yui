@@ -49,6 +49,7 @@ width:80px;
 position:absolute;
 left:27px;
 top:51px;
+z-index:1;
 margin-top:-21px;
 }
 #Game_collide {
@@ -86,12 +87,14 @@ animation:CharacterJump 0.8s linear;
 width:28px;
 position:absolute;
 top:80px;
+z-index:1;
 animation:ObstacleMove var(--difficulty) linear 1;
 }
 .Game_obstacle_no1 {
 width:28px;
 position:absolute;
 top:80px;
+z-index:1;
 animation:ObstacleMove var(--difficulty) linear 1;
 }
 
@@ -112,6 +115,7 @@ position:absolute;
 top:-60px;
 left:0px;
 display:block;
+z-index:1;
 animation:ObstacleMove2 var(--difficulty) linear 1;
 }
 
@@ -120,6 +124,7 @@ width:28px;
 position:absolute;
 top:-60px;
 left:0px;
+z-index:1;
 display:block;
 animation:ObstacleMove2 var(--difficulty) linear 1;
 }
@@ -144,10 +149,21 @@ animation:ObstacleMove2 var(--difficulty) linear 1;
 width:65px;
 display:block;
 position:absolute;
-top:44px;
-animation:ObstacleMove 3s linear 1;
+top:43px;
+
+animation:ObstacleMove3 3.5s ease-out 1;
 }
 
+@keyframes ObstacleMove3 {
+    from {
+        transform:translateX(100%);
+        margin-left:100%;
+    }
+    to {
+        transform:translateX(-100%);
+        margin-left:27px;
+    }
+}
 
 .IncreaseDifficulty {
 animation:IncreaseDifficulty 1s linear 1;

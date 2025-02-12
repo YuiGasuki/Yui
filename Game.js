@@ -38,10 +38,12 @@ return
 setGenerate = setTimeout(()=>{
 let Img = document.createElement("img");
 
-if(GameScore+1>=120){
+if(GameScore>=120){
+setGenerate = setTimeout(()=>{
 Img.src = "game_6.png";
 Img.className="Game_obstacle3";
 GameBox.appendChild(Img);
+},1500);
 return
 }
 
