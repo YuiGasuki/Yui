@@ -122,6 +122,8 @@ if((Character.left-Obstacle.right)>-2&&GameCondition){
 el.className= "Game_obstacle_no1"
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
+GameBackgroundImg.style.transition=`1.5s`;
+GameBackgroundImg.style.marginLeft=`${0-GameScore}px`;
 if(parseInt(GameScore/10)==GameScore/10){
 audioT.play();
 audioT.currentTime=0;
@@ -149,6 +151,8 @@ if((Character.left-Obstacle.right)>-10&&GameCondition){
 el.className = "Game_obstacle_no2";
 GameScore++
 gameScore.innerText = `当前分数 ${GameScore}`
+GameBackgroundImg.style.transition=`1.5s`;
+GameBackgroundImg.style.marginLeft=`${0-GameScore}px`;
 if(parseInt(GameScore/10)==GameScore/10){
 audioT.play();
 audioT.currentTime=0;
@@ -269,6 +273,8 @@ if(GameScore>localStorage.GameScore||!localStorage.GameScore){
 gameScoreHistory.innerText =`历史最佳 ${GameScore}`;
 localStorage.GameScore=GameScore;
 }
+GameBackgroundImg.style.transition=`0.3s`;
+GameBackgroundImg.style.marginLeft=`0px`;
 document.querySelectorAll('.Game_obstacle1, .Game_obstacle2').forEach(el => {
 el.remove();
 })
