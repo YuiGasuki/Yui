@@ -1,4 +1,5 @@
-Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网站添加个简单的播放器，但又不想自己写的的开发者。
+Azuplay是一款基于HTML5的音乐播放器，旨在给想要给自己的网站添加个简单的播放器的开发者。
+Azuplayer优点是简洁，快捷；缺点是功能少。
 
 开源地址
 <a href="https://github.com/YuiGasuki/Azuplayer">https://github.com/YuiGasuki/Azuplayer</a>
@@ -57,8 +58,7 @@ SuspendedBall:Boolean,
 SuspendedPosition:""
 </div>
 悬浮小播放器
-SuspendedBall默认为false，开启则设置true
-SuspendedPosition属性的必须的，格式为
+SuspendedBall默认为false，开启则设置true。若开启悬浮小播放器，则SuspendedPosition属性是必须的，格式为
 "方向:长度 方向:长度"
 例如:"bottom:20px left:8px"
 
