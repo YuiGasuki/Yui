@@ -260,27 +260,65 @@ function openfeel() {
  *返回顶部的动画
  *@author Yui_ <13413925094@139.com>
  */
+let goBackTotTopS = null;
+let PullDownS = null;
 const goBackTotTop = () =>{
+        goBackTotTopS =  setTimeout(()=>{
+        goBackTotTopB();
+        },100);
+}
+
+const goBackTotTopB = () =>{
+    clearTimeout(PullDownS);
     if(document.documentElement.scrollTop > 0){
             document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/6);  
             document.body.style.overflow="hidden";
-            window.requestAnimationFrame(goBackTotTop)
+            window.requestAnimationFrame(goBackTotTopB)
     }else{
         document.body.style.overflow="auto";
     }
-        
+}
+
+
+
+function PullDown() {
+   PullDownS =  setTimeout(()=>{
+        PullDownB()
+        },100);
+}
+
+function PullDownB() {
+clearTimeout(goBackTotTopS);
+if(document.documentElement.scrollTop < screen.height-50){
+if(this.Nun===0||!this.Nun){
+this.Nun=((screen.height-50)-document.documentElement.scrollTop)/10;
+}
+if(this.Nun<=0.5){
+document.documentElement.scrollTop= document.documentElement.scrollTop + this.Nun;
+}else{
+document.documentElement.scrollTop = document.documentElement.scrollTop + this.Nun;
+this.Nun = 0;
+}
+            document.body.style.overflow="hidden";
+            
+            window.requestAnimationFrame(PullDownB)
+    }else{
+        document.body.style.overflow="auto";
+        this.Nun = 0;
+    }
+    
 }
 
 window.onscroll = function() {
 
-if(document.documentElement.scrollTop > (screen.height / 2)){
+if(document.documentElement.scrollTop > (screen.height - 51)){
 backTop.style.transform = "translateY(0%)";
 headBox.style.transform = "translateY(0%)";
 headBox.style.opacity = "1";
 backTop.style.opacity = "1";
 backTop.style.pointerEvents = "auto";
 backTop.style.opacity = "1";
-}else if(document.documentElement.scrollTop <= (screen.height / 2)){
+}else if(document.documentElement.scrollTop <= (screen.height - 51)){
 backTop.style.transform = "translateY(50%)";
 headBox.style.transform = "translateY(-200%)";
 headBox.style.opacity = "0";
@@ -367,7 +405,7 @@ function PopUp(text){
 window.onload = () => {
 KillFirstBox();
 if(new Date().getHours()>22||new Date().getHours()<4){
-        PopUp("💤 夜深了，早点休息吧");
+        PopUp("💤 夜深了");
     }
     bodyInformation.style.pointerEvents = "auto";
     bodyInformation.style.opacity="1";
