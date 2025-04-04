@@ -258,7 +258,7 @@ function openfeel() {
 
 /**
  *返回顶部的动画
- *@author Yui_ <13413925094@139.com>
+ *@author Yui_ <2528197707@qq.com>
  */
 let goBackTotTopS = null;
 let PullDownS = null;
@@ -271,7 +271,7 @@ const goBackTotTop = () =>{
 const goBackTotTopB = () =>{
     clearTimeout(PullDownS);
     if(document.documentElement.scrollTop > 0){
-            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/6);  
+            document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/10);  
             document.body.style.overflow="hidden";
             window.requestAnimationFrame(goBackTotTopB)
     }else{
@@ -280,7 +280,10 @@ const goBackTotTopB = () =>{
 }
 
 
-
+/**
+ *下拉动画
+ *@author Yui_ <2528197707@qq.com>
+ */
 function PullDown() {
    PullDownS =  setTimeout(()=>{
         PullDownB()
