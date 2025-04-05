@@ -286,6 +286,10 @@ const goBackTotTopB = () =>{
  */
 function PullDown() {
    PullDownS =  setTimeout(()=>{
+        if(((screen.height-50)-document.documentElement.scrollTop)/10<=0.5){
+        document.documentElement.scrollTop=screen.height-50;
+        return
+        }
         PullDownB()
         },100);
 }
