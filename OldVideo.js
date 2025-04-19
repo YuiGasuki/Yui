@@ -12,7 +12,7 @@ fetch('video.json', {
     textp=1*textp;
     document.getElementById("pages_p").innerHTML = `第 <span>${textp}</span> 页`;
     let maxp = 8;//每页视频数
-    for (let i =  (maxp - 1) * (textp-1); i <= (maxp - 1) * textp; i++) {
+    for (let i =  maxp * (textp-1); i <= (maxp - 1) * textp; i++) {
         if(i<data.length){
         BodyBox.innerHTML += `
         <div class="video_box" onclick="JavaScript:window.location.href='videoPlay.html?vid=${data[i].vid}'">
