@@ -92,6 +92,13 @@ fetch('video.json', {
     }
     for (let i = 0; i < data.length; i++) {
     if(data[i].vid===textp){
+    if(data[i].warn){
+    let result = confirm("⚠️警告，本视频含有猎奇成分，您確定要观看吗？");
+if (!result) {
+window.location.href="OldVideo.html";
+return
+}
+    }
     videoTitle.innerHTML = data[i].title;
     videoInformation.innerHTML = data[i].information;
     let player = new Player({
