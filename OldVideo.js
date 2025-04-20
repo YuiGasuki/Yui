@@ -6,6 +6,7 @@ let textp=params.get('p');
 fetch('video.json', {
     method: 'GET'
 }).then(response => response.json()).then(data => {
+    data.reverse();
     if(textp===null||textp==="0"){
     textp=1;
     }
