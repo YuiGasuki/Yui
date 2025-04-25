@@ -102,17 +102,71 @@ return
     videoTitle.innerHTML = data[i].title;
     videoInformation.innerHTML = data[i].information;
     let player = new Player({
-  id: 'mse',
+  el:document.querySelector('#mse'),
   url: "video/"+data[i].vid+'.mp4',
   poster: "cover/"+data[i].vid+'.jpg',
   loop: true,
   fluid: true,
   download: true,
-  enableVideoDbltouch: true
-});
+  enableVideoDbltouch: true,
+  danmu:{
+  comments:[]
+  }
+  });
+    player.once('canplay',()=>{
+let xhr = new XMLHttpRequest();
+    let danmuComments = [];
+xhr.open("GET", "danmu/"+data[i].vid+".xml", true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+    
+    let xmlLength = xhr.responseXML.getElementsByTagName('d').length;
+    
+    let mode = ['scroll','scroll','scroll','bottom','top','scroll','scroll','scroll'];
+    for(let i=0;i<xmlLength;i++){
+    let b = xhr.responseXML.getElementsByTagName('d')[i].getAttribute('p').split(",");
+    danmuComments.push({
+    duration: 7500,
+    id: i,
+    start: b[0]*1000,
+    txt: xhr.responseXML.getElementsByTagName('d')[i].childNodes[0].nodeValue,
+    style: {  
+          color: TurnColor(b[3]),
+          fontSize: '16px',
+          textShadow:'0 0.5px black,0 -0.5px black,-0.5px 0.5px black,0.5px 0.5px black,-0.5px 0 black,0.5px 0 black'
+        },
+    mode:mode[b[1]-1]
+    })
+    
     }
+        
+
+player.danmu.updateComments(danmuComments)
+  danmuComments=null;
+  
+    }
+    
+      
+};
+xhr.send();
+})
+    
+
+    
+
+}
     }
 })
+
+function TurnColor(hex){
+var num = hex;
+var r = num >> 16;
+var g = (num & 0xff00) >> 8;
+var b = num & 0xff;
+var hex = '#' + ((1 << 24) + (r << 16)  + (g << 8) + b).toString(16).slice(1);
+return hex;
+}
+
 
 
 </script>
