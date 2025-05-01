@@ -314,6 +314,8 @@ text-decoration: none;
     aspect-ratio:3/2;
     object-fit:cover;
     width:100%;
+    opacity:0;
+    transition:1s;
 }
 .title {
     transform:translate(0%,-100%);

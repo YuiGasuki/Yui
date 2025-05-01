@@ -155,6 +155,13 @@ fetch('1.json', {
         div.onclick = () =>{
         window.open(`essay.html?Yui=${data[ic].Yui}`);
         }
+        if(div.querySelector(".titleimg").complete){
+        div.querySelector(".titleimg").style.opacity=1;
+        }else{
+        div.querySelector(".titleimg").onload = () =>{
+        div.querySelector(".titleimg").style.opacity=1;
+        }
+        };
         
         div.querySelector(".titleimg").addEventListener('error', () =>{
             div.querySelector(".titleimg").src = data[ic].title_url;
@@ -192,12 +199,20 @@ fetch('1.json', {
     io.observe(document.getElementById('getBook'));
 
     document.querySelectorAll(".titleimg").forEach(item => {
+        
         item.addEventListener('error', () =>{
             item.src = item.src;
             item.addEventListener('error', () =>{
                 item.src = "none.webp";
             });
         }, { once: true });
+        
+
+        
+        
+        
+        
+        
     });
 
 

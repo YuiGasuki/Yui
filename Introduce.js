@@ -57,7 +57,7 @@ let BodyText = [[`
             </ul>
 `,`<h2>个性</h2>
             <ul>
-            <li>座右铭: 静心，尽力，进步</li>
+            <li>座右铭: 走自己的路，让别人说去吧！</li>
             <li>喜爱的事物: 美好的东西</li>
             <li>性取向: 女</li>
             <li>个性签名: ( - ω - )</li>
@@ -78,7 +78,7 @@ let BodyText = [[`
             </ul>
 `,`<h2>個性</h2>
             <ul>
-            <li>座右銘: 靜心，盡力，進步</li>
+            <li>座右銘: 走自己的路，讓別人說去吧！</li>
             <li>喜愛的事物: 美好的東西</li>
             <li>性取向: 女</li>
             <li>個性簽名: ( - ω - )</li>
@@ -99,7 +99,7 @@ let BodyText = [[`
             </ul>
 `,`<h2>个性</h2>
             <ul>
-            <li>座右の銘: 心を静める、努力する、進歩する</li>
+            <li>座右の銘: お前の道を進め、人には勝手なことを言わせておけ。</li>
             <li>好きなもの: 美しいもの</li>
             <li>性的指向: 女</li>
             <li>個性的なサイン: ( - ω - )</li>
@@ -120,7 +120,7 @@ let BodyText = [[`
             </ul>
 `,`<h2>Personality</h2>
             <ul>
-            <li>Motto:Keep my cool,Do all I can,Make progress</li>
+            <li>Motto:Go your own way;let others talk!</li>
             <li>Favorite things: beautiful things</li>
             <li>Sexual orientation:  woman</li>
             <li>Personalized Signature: ( - ω - )</li>
