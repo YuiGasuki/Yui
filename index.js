@@ -118,7 +118,7 @@ if(localStorage.ThemeColor){
 
 
 
-const bodyNtroduction = document.getElementById('body_ntroduction'),sideOpen = document.getElementById('side_open'),backTop = document.getElementById('back_top'),sideBox = document.getElementById('side_box'),headBox = document.getElementById('head_box'),sideBack = document.getElementById('side_back'),bodyInformation = document.getElementById('body_information'),BackGround = document.getElementById('background'),SearchText = document.getElementById("searchText");
+const bodyNtroduction = document.getElementById('body_ntroduction'),sideOpen = document.getElementById('side_open'),backTop = document.getElementById('back_top'),sideBox = document.getElementById('side_box'),headBox = document.getElementById('head_box'),sideBack = document.getElementById('side_back'),bodyInformation = document.getElementById('body_information'),BackGround = document.getElementById('background'),SearchText = document.getElementById("searchText"),musicButton = document.getElementById("music_button");
 
 
 
@@ -237,20 +237,6 @@ idDarkMode.onclick = () =>{
 
 
 
-function ent(ev) {
-    ev = ev || window.event
-    if (ev.keyCode == "13") {
-        openfeel()
-    }
-}
-
-function openfeel() {    
-    if(SearchText.value.trim()===""){
-        return
-     }
-    window.open("search.html?q=" + SearchText.value);
-    
-}
 
 
 
@@ -443,3 +429,45 @@ changePicture.onclick = () =>{
         },800);
     }
 }
+
+
+
+function ent(ev) {
+    ev = ev || window.event
+    if (ev.keyCode == "13") {
+        openfeel()
+    }
+}
+
+function openfeel() {    
+    if(SearchText.value.trim()===""){
+    PopUp("⚠️ 输入不能为空");
+     }else{
+    window.open("search.html?q=" + SearchText.value);
+    }
+}
+
+(function (){
+let audio = new Audio("musicBlackboard.mp3");
+audio.loop = true;
+audio.onpause=()=>{
+musicButton.style.setProperty('--animationPlayState', `none`);
+}
+audio.onplay=()=>{
+musicButton.style.setProperty('--animationPlayState', `musicPlay 3s ease-in infinite`);
+}
+
+
+audio.oncanplay=()=>{
+musicButton.onclick = () =>{
+if(audio.paused){
+audio.play()
+}else{
+audio.pause();
+}
+}
+}
+
+}());
+
+

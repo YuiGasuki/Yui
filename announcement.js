@@ -45,6 +45,9 @@ switch(Month)
     case 5:
         switch(Day)
         {
+            case 1:
+                DateData+=`🎉 国际劳工节快乐！！！`;
+                break;
             case 28:
                 DateData+=`🎂 今天是<a href="${searchEngine}泉此方">泉此方</a>的生日`;
                 break;
