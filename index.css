@@ -53,7 +53,7 @@
 #side_open {
     position:absolute;
     top:9px;
-    left:4px;
+    left:12px;
     margin:0px;
     height:calc(1em + 8px);
     padding:8px;
@@ -98,8 +98,9 @@
     margin:0px;
     position:absolute;
     top:9px;
-    right:4px;
-    width:calc(1em + 24px);
+    right:12px;
+    width:calc(100vw - 55px);
+    max-width:250px;
     height:calc(1em + 24px);
     padding:auto;
     border-radius:10px;
@@ -109,7 +110,7 @@
     color:#aaaaaa;
     transition:width 0.4s;  
 }
-
+/*
 #search:hover {
     width:calc(100vw - 55px);
 }
@@ -117,10 +118,11 @@
     width:calc(100% - 42px);
     padding:4px 4px 4px 8px;
 }
+*/
 #search input {
-    width:0px;
+    width:calc(100% - 42px);
+    padding:4px 4px 4px 8px;
     font-size:0.9em;
-    padding:0px;
     background:none;
     border-style:none;
     color:#aaaaaa
@@ -524,7 +526,7 @@ overflow-x:hidden;
     transition:0.5s;
 }
 #dark_mode::before {
-    content:"夜间";
+    content:"夜晚";
     display:block;
     white-space:nowrap;
     margin-left:-172px;
@@ -567,7 +569,7 @@ overflow-x:hidden;
     bottom:0px;
     left:0px;
     padding:0px;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));    
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));    
 }
 #Pull_Down img {
     animation:pullDown 2s linear infinite;

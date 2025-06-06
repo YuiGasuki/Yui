@@ -118,7 +118,7 @@ if(localStorage.ThemeColor){
 
 
 
-const bodyNtroduction = document.getElementById('body_ntroduction'),sideOpen = document.getElementById('side_open'),backTop = document.getElementById('back_top'),sideBox = document.getElementById('side_box'),headBox = document.getElementById('head_box'),sideBack = document.getElementById('side_back'),bodyInformation = document.getElementById('body_information'),BackGround = document.getElementById('background'),SearchText = document.getElementById("searchText"),musicButton = document.getElementById("music_button");
+const bodyNtroduction = document.getElementById('body_ntroduction'),sideOpen = document.getElementById('side_open'),backTop = document.getElementById('back_top'),sideBox = document.getElementById('side_box'),headBox = document.getElementById('head_box'),sideBack = document.getElementById('side_back'),bodyInformation = document.getElementById('body_information'),BackGround = document.getElementById('background'),SearchText = document.getElementById("searchText"),musicButton = document.getElementById("music_button"),bodyPortrait = document.getElementById('body_portrait');
 
 
 
@@ -318,7 +318,6 @@ this.Nun = 0;
 }
 
 window.onscroll = function() {
-
 if(document.documentElement.scrollTop > (screen.height - 51)){
 backTop.style.transform = "translateY(0%)";
 headBox.style.transform = "translateY(0%)";
