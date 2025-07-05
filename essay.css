@@ -23,6 +23,7 @@ font-size:var(--fontSize);
 overflow:hidden;
 padding-bottom:32px;
 margin-bottom:0px;
+min-height:100vh;
 }
 #body_alret_img img {
 width:100vw;
@@ -114,8 +115,9 @@ position:absolute;
     bottom:calc(var(--widthSize) + 8px);
     right:4px;
     margin:0px;
-    width:var(--widthSize);
-    height:var(--widthSize);
+    width:calc(var(--widthSize) - 16px);
+    height:calc(var(--widthSize) - 16px);
+    padding:8px;
     box-shadow: 0px 0px 4px var(--nightfcolor);
     border-radius:4px;
     background:var(--nightNoback);

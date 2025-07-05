@@ -434,6 +434,7 @@ changePicture.onclick = () =>{
     }
     },800);
     document.getElementById('background_img').onload = () =>{   
+    
     setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
         document.getElementById('background_img').style.filter="blur(0px)";
