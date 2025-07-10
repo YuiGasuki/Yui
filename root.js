@@ -32,11 +32,13 @@ channel.addEventListener('message', (e) => {
 DarkMode();
 })
 
-let getListCacheText = ['','',''];
-let getListCache = [false,false,false];
+let getListCacheText = ['','','','<div>2018年9月15日，同人绘师よこやまなおき去世。在去世四年后的2022年9月16日，其生前的伙伴tohkag公开了他的一些曲目。他的音乐，在死后得以为人知道。<br>这个故事深深感动了我，于是我决定将音乐备份到仓库里，同时放在个人网站上供人们欣赏。<br>曲子下载源：<br>rain-blue.com/notes/grace/</div>'];
+let getListCache = [false,false,false,false];
+let getListCacheTitle = ['','','',''];
 function getList(el,title,nu){
     if(!getListCache[nu]){
-    if(getListCacheText[nu]===''){
+    getListCacheTitle[nu]=el.innerHTML;
+    if(getListCacheText[nu].search('<li>')===-1){  
     fetch(`https://api.github.com/repos/yuigasuki/Yui/contents/${title}`, {
     method: 'GET'
     }).then(response => response.json()).then(data => {
@@ -51,7 +53,7 @@ function getList(el,title,nu){
     }
     getListCache[nu]=true;
 }else{
-    el.parentElement.innerHTML = `<p onclick="getList(this,'${title}',${nu})">${title}</p>`;
+    el.parentElement.innerHTML = `<p onclick="getList(this,'${title}',${nu})">${getListCacheTitle[nu]}</p>`;
     getListCache[nu]=false;
 }
 }
