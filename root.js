@@ -33,7 +33,9 @@ DarkMode();
 })
 
 let getListCacheText = ['','',''];
+let getListCache = [false,false,false];
 function getList(el,title,nu){
+    if(!getListCache[nu]){
     if(getListCacheText[nu]===''){
     fetch(`https://api.github.com/repos/yuigasuki/Yui/contents/${title}`, {
     method: 'GET'
@@ -47,6 +49,11 @@ function getList(el,title,nu){
     }else{
     el.parentElement.innerHTML += `<ul>${getListCacheText[nu]}</ul>`;
     }
+    getListCache[nu]=true;
+}else{
+    el.parentElement.innerHTML = `<p onclick="getList(this,'${title}',${nu})">${title}</p>`;
+    getListCache[nu]=false;
+}
 }
 
 function sizeTurn(number){
