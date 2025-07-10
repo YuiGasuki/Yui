@@ -1,0 +1,113 @@
+:root {
+    --nightbox:0;
+    --nightbackground:#F1F1F1;
+    --nightfcolor:#606266;
+    --fontSerif:GenEiKoburiMin6, serif, Georgia ,"Palatino Linotype", "Book Antiqua","Times New Roman", Times;
+
+}
+@font-face {
+    font-family:GenEiKoburiMin6;
+    src:url("/Yui/font/GenEiKoburiMin6-R.ttf");
+}
+body {
+    margin:0px;
+}
+#background_img {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    border-style:none;
+    z-index: -2;
+}
+#nightbox {
+position:fixed;
+top:0px;
+left:0px;
+width:100vw;
+height:100vh;
+background:black;
+opacity:var(--nightbox);
+transition:opacity 1s;
+pointer-events: none;
+z-index: 999;
+}
+
+.body_box {
+    width:calc(100vw - 32px);
+    min-height:calc(100vh - 48px);
+    margin:16px;
+    background:var(--nightbackground);
+    border-radius:8px;
+    padding:8px 0px;
+    box-shadow: 0px 0px 8px black;
+    backdrop-filter:blur(15px)
+}
+.ul_root {
+    list-style-type:none;
+    list-style-position:inside;
+    width:calc(100% - 32px);
+    margin:16px;
+    padding:0px;
+    border-style:solid;
+    border-bottom-style:none;
+    border-width:1px;
+    border-style-color:var(--nightfcolor);
+    color:var(--nightfcolor);
+}
+.ul_root li {
+    width:calc(100% - 16px);
+    border-bottom-style:solid;
+    border-width:1px;
+    border-style-color:var(--nightfcolor);
+    padding:0px 8px;
+    margin:0px;
+    
+}
+.ul_root li p {
+display:flex;
+align-items:center;
+}
+.ul_root li p::before {
+    content:'';
+    background-image:url('FOLDER.svg');
+    background-size:contain;
+    width:1.2em;
+    height:1.2em;
+    margin-right:8px;
+    display:block;
+    filter:drop-shadow(0px 0px 1px var(--nightfcolor));
+}
+.ul_root li ul {
+    list-style-type:none;
+    list-style-position:inside;
+    width:calc(100% - 16px);
+    margin:16px;
+    padding:0px;
+    color:var(--nightfcolor);
+}
+.ul_root li li{
+    border-style:none;
+    border-left-style:solid;
+    border-width:1px;
+    border-style-color:var(--nightfcolor);
+    padding:16px 8px;
+    margin:0px;
+     font-family:var(--fontSerif);
+
+}
+.ul_root li li div{
+    font-size:0.8em;
+    color:var(--nightfcolor);
+    opacity:0.5;
+}
+.ul_root li li::before {
+    content:'';
+    display:none;
+}
+a {
+color:var(--nightfcolor);
+text-decoration: none; 
+}
