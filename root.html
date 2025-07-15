@@ -18,9 +18,57 @@
 <li><p onclick="getList(this,'font',1)">font</p></li>
 <li><p onclick="getList(this,'tool',2)">tool</p></li>
 <li><p onclick="getList(this,'Yokoyamanaoki',3)">よこやまなおきの音楽</p></li>
+<li><p onclick="getList(this,'Marxism',4)">马列毛著作</p></li>
 </ul>
 
 </div>
+
+
+<style>
+        body {
+            overflow:hidden;
+            }
+        #first_box {
+            position:fixed;
+            top:0px;
+            left:0px;
+            width:100vw;
+            height:100vh;
+            background:black;
+            color:white;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            z-index:99999
+        }
+        #first_box p {            
+            position:absolute;
+            font-size:1.2em;
+            display:flex;
+            line-height:1.2em;
+            }
+#first_box p:after {
+            content:"...";
+            position:absolute;
+            right:0px;
+            transform: translateX(100%);
+            animation:firstPAnime 1.5s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-in-out;
+            display:block;
+            }
+        @keyframes firstPAnime {
+            0% { content:"."; }
+            25% { content:".."; }
+            50% { content:"..."; }
+            75% { content:".."; }
+            100% { content:"."; }
+            }
+    </style>
+    <div id="first_box">
+        <p>少女祈祷中</p>
+    </div>
 <script src="root.js" ></script>
 </body>
 </html>
