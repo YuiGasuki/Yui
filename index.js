@@ -36,7 +36,7 @@ function replacepicture() {
         document.getElementById('background_img').style.display="inline";
         setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(0px)";
+        document.getElementById('background_img').style.filter="blur(8px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);
@@ -169,14 +169,14 @@ fetch('1.json', {
                 div.querySelector(".titleimg").src = "none.webp";
             });
         }, { once: true });
-        bodyNtroduction.appendChild(div)
+        document.getElementById('textBox').appendChild(div)
         }
         let div = document.createElement("div");
         div.id="getBook";
         
         
         
-        bodyNtroduction.appendChild(div)
+        document.getElementById('textBox').appendChild(div)
         
    
         i++;
@@ -337,7 +337,9 @@ backTop.style.pointerEvents = "none";
 sideOpen.onclick = () =>{       
     sideBox.style.setProperty('--thisLeft', `255px`);
     sideBack.style.display="inline";
+    if(window.innerWidth<800){
     document.body.style.overflow="hidden";
+    }
 }
 sideBack.onclick = () =>{
     sideBox.style.setProperty('--thisLeft', `0px`);
@@ -437,7 +439,7 @@ changePicture.onclick = () =>{
     
     setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(0px)";
+        document.getElementById('background_img').style.filter="blur(8px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);
