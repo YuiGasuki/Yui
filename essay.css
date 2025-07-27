@@ -137,7 +137,7 @@ position:absolute;
     border-radius:4px;
     box-shadow: 0px 0px 4px var(--nightfcolor);
     background:var(--nightNoback);
-    color:#aaaaaa
+    color:#aaaaaa;
     z-index:10;
     background-image:url('side.svg');
     background-size:calc(var(--widthSize) / 7 * 5);
@@ -377,6 +377,7 @@ margin-bottom:16px;
 margin-top:32px;
 font-family:"Courier New", Courier, monospace;
 font-size:0.9em;
+cursor: copy;
 }
 #body .warn {
 color:#950606;
@@ -431,27 +432,39 @@ color:var(--ThemeColor);
 font-family:var(--fontSerif);
 }
 
-.note {
+.note{
 color:var(--ThemeColor);
 font-size:0.7em;
-position:relative;
-transform: translate(0%,-40%);
 display:inline-block;
 padding:0px;
+margin: 0px;
+cursor: pointer;
+position: relative;
 }
 .note:active {
     background:#87ceebcc;
+}
+.note p {
+white-space:pre;
+display: inline-block;
+padding: 0px;
+margin: 0px;
+transform: translateY(-30%);
+pointer-events:none;
 }
 .note div {
 background:var(--nightNoback);
 border-radius:2px;
 box-shadow: 0px 2px 4px var(--nightfcolor);
-padding:3px;
+padding:5px;
+margin:0px;
 color:var(--nightfcolor);
 position:absolute;
-width:80px;
-font-size:15px; !important
-transform: translate(0%,-25%);
+top: 100%;
+max-width:var(--widthAll);
+display: inline-block;
+font-size:14px !important;
+white-space:pre;
 }
 #label {
 width:calc(100% - 8px);

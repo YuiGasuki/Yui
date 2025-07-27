@@ -183,16 +183,13 @@ i++;
 let data = el.innerHTML;
 el.dataset.text = data;
 el.dataset.i = i;
-el.innerHTML = `[${i}]`;
+el.innerHTML = `<p>[${i}]</p>`;
 el.id=`note${i}`;
 
 
 NoteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replace(/<br>/g,'')}</a>`;
 el.onclick = () => ShowNote(el);
-el.onmouseout = () =>{
-el.innerHTML = `[${el.dataset.i}]`;
-el.style.zIndex="1";
-}
+
 });
 document.getElementById('noteBox').innerHTML +=NoteBox;
 
@@ -219,12 +216,20 @@ function GoToNote(id){
 }
 
 function ShowNote(el){
-let a = el.clientWidth;
-el.innerHTML = `[${el.dataset.i}]<div>${el.dataset.text}</div>`;
-el.style.zIndex="10";
-if((el.childNodes[1].clientWidth+el.offsetLeft) > document.body.scrollWidth){
-el.childNodes[1].style.marginLeft= (0 - el.childNodes[1].clientWidth + a) + "px";
+const div = document.createElement("div");
+div.innerHTML = el.dataset.text;
+el.appendChild(div)
+let w = el.offsetWidth;
+if((div.offsetWidth+el.offsetLeft) > document.getElementById('body').offsetWidth){
+div.style.marginLeft= (0 - div.offsetWidth) + "px";
+}else{
+div.style.marginLeft= `${0 - w}px`;
 }
+window.onmousedown = () =>{
+div.remove()
+
+}
+
 }
 
 let bodyAlretImg = document.getElementById('body_alret_img');
@@ -259,7 +264,7 @@ function ClickComeBig(el){
         }
         window.addEventListener('resize', screenChangeDetection);
         this.ondblclick = () =>{
-            if(window.innerHeight <= window.innerWidth){
+            if(window.innerWidth>800){
             return
             }
             clearTimeout(bodyAlretImgSet);
