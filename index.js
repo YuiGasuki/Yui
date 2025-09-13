@@ -36,7 +36,7 @@ function replacepicture() {
         document.getElementById('background_img').style.display="inline";
         setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(8px)";
+        document.getElementById('background_img').style.filter="blur(0px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);
@@ -169,14 +169,14 @@ fetch('1.json', {
                 div.querySelector(".titleimg").src = "none.webp";
             });
         }, { once: true });
-        document.getElementById('textBox').appendChild(div)
+        bodyNtroduction.appendChild(div)
         }
         let div = document.createElement("div");
         div.id="getBook";
         
         
         
-        document.getElementById('textBox').appendChild(div)
+        bodyNtroduction.appendChild(div)
         
    
         i++;
@@ -287,8 +287,8 @@ const goBackTotTopB = () =>{
  */
 function PullDown() {
    PullDownS =  setTimeout(()=>{
-        if(((screen.height-50)-document.documentElement.scrollTop)/10<=0.5){
-        document.documentElement.scrollTop=screen.height-50;
+        if(((window.innerHeight-50)-document.documentElement.scrollTop)/10<=0.5){
+        document.documentElement.scrollTop=window.innerHeight-50;
         return
         }
         PullDownB()
@@ -297,9 +297,9 @@ function PullDown() {
 
 function PullDownB() {
 clearTimeout(goBackTotTopS);
-if(document.documentElement.scrollTop < screen.height-50){
+if(document.documentElement.scrollTop < window.innerHeight-50){
 if(this.Nun===0||!this.Nun){
-this.Nun=((screen.height-50)-document.documentElement.scrollTop)/10;
+this.Nun=((window.innerHeight-50)-document.documentElement.scrollTop)/10;
 }
 if(this.Nun<=0.5){
 document.documentElement.scrollTop= document.documentElement.scrollTop + this.Nun;
@@ -318,14 +318,14 @@ this.Nun = 0;
 }
 
 window.onscroll = function() {
-if(document.documentElement.scrollTop > (screen.height - 51)){
+if(document.documentElement.scrollTop > (window.innerHeight - 51)){
 backTop.style.transform = "translateY(0%)";
 headBox.style.transform = "translateY(0%)";
 headBox.style.opacity = "1";
 backTop.style.opacity = "1";
 backTop.style.pointerEvents = "auto";
 backTop.style.opacity = "1";
-}else if(document.documentElement.scrollTop <= (screen.height - 51)){
+}else if(document.documentElement.scrollTop <= (window.innerHeight - 51)){
 backTop.style.transform = "translateY(50%)";
 headBox.style.transform = "translateY(-200%)";
 headBox.style.opacity = "0";
@@ -337,9 +337,7 @@ backTop.style.pointerEvents = "none";
 sideOpen.onclick = () =>{       
     sideBox.style.setProperty('--thisLeft', `255px`);
     sideBack.style.display="inline";
-    if(window.innerWidth<800){
     document.body.style.overflow="hidden";
-    }
 }
 sideBack.onclick = () =>{
     sideBox.style.setProperty('--thisLeft', `0px`);
@@ -439,7 +437,7 @@ changePicture.onclick = () =>{
     
     setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(8px)";
+        document.getElementById('background_img').style.filter="blur(0px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);

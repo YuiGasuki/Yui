@@ -124,6 +124,7 @@ function goBackTotTop(numBer,h) {
             document.body.style.overflow="hidden";
             window.requestAnimationFrame(()=>goBackTotTop(numBer))
     }else{
+    document.documentElement.scrollTop=0
         document.body.style.overflow="auto";
         ifgoBackTot = false;
     }
