@@ -36,7 +36,7 @@ function replacepicture() {
         document.getElementById('background_img').style.display="inline";
         setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(0px)";
+        document.getElementById('background_img').style.filter="blur(10px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);
@@ -437,7 +437,7 @@ changePicture.onclick = () =>{
     
     setTimeout(()=>{
         changePicture.style.animationPlayState="paused";
-        document.getElementById('background_img').style.filter="blur(0px)";
+        document.getElementById('background_img').style.filter="blur(10px)";
         setTimeout(()=>{
             changePicture.style.pointerEvents="auto";
         },800);
