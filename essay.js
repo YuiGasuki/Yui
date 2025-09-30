@@ -25,7 +25,7 @@ return "啊，居然加载错误Σ(°Д°;"
 let datab;
 ifOnlad++;
 if(ifOnlad>=2){
-    delete ifOnlad;
+    ifOnlad = null;
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
 }
@@ -63,7 +63,7 @@ document.getElementById('label').innerHTML =TimeLabel;
 
 let timeData = datab.time.split(".");
 document.querySelector("time").innerHTML = `${timeData[0]}年${timeData[1]}月${timeData[2]}日`;
-delete timeData;
+timeData=undefined;
 
 
 }).catch(err =>{
@@ -106,7 +106,7 @@ return "啊，居然加载错误Σ(°Д°;"
 }).then(data =>{
 ifOnlad++;
 if(ifOnlad>=2){
-    delete ifOnlad;
+    ifOnlad=undefined;
     document.getElementById('first_box').remove();
     document.body.style.overflow="auto";
 }
@@ -183,12 +183,12 @@ i++;
 let data = el.innerHTML;
 el.dataset.text = data;
 el.dataset.i = i;
-el.innerHTML = `<p>[${i}]</p>`;
+el.innerText = `[${i}]`;
 el.id=`note${i}`;
 
 
 NoteBox +=`<br><a href="Javascript:GoToNote('note${i}')">[${i}]${data.replace(/<br>/g,'')}</a>`;
-el.onclick = () => ShowNote(el);
+el.onmouseover = () => ShowNote(el);
 
 });
 document.getElementById('noteBox').innerHTML +=NoteBox;
@@ -219,13 +219,12 @@ function ShowNote(el){
 const div = document.createElement("div");
 div.innerHTML = el.dataset.text;
 el.appendChild(div)
-let w = el.offsetWidth;
-if((div.offsetWidth+el.offsetLeft) > document.getElementById('body').offsetWidth){
-div.style.marginLeft= (0 - div.offsetWidth) + "px";
-}else{
-div.style.marginLeft= `${0 - w}px`;
+let a = el.clientWidth;
+console.log(div.clientWidth+el.offsetLeft + " "+document.getElementById('body').clientWidth)
+if((div.clientWidth+el.offsetLeft + 16) > document.getElementById('body').clientWidth){
+div.style.marginLeft= (0 - div.clientWidth) + "px";
 }
-window.onmousedown = () =>{
+el.onmouseout = () =>{
 div.remove()
 
 }
@@ -264,7 +263,7 @@ function ClickComeBig(el){
         }
         window.addEventListener('resize', screenChangeDetection);
         this.ondblclick = () =>{
-            if(window.innerWidth>800){
+            if(window.innerHeight <= window.innerWidth){
             return
             }
             clearTimeout(bodyAlretImgSet);

@@ -169,14 +169,14 @@ fetch('1.json', {
                 div.querySelector(".titleimg").src = "none.webp";
             });
         }, { once: true });
-        bodyNtroduction.appendChild(div)
+        document.getElementById('textBox').appendChild(div)
         }
         let div = document.createElement("div");
         div.id="getBook";
         
         
         
-        bodyNtroduction.appendChild(div)
+        document.getElementById('textBox').appendChild(div)
         
    
         i++;
@@ -271,7 +271,7 @@ const goBackTotTop = () =>{
 
 const goBackTotTopB = () =>{
     clearTimeout(PullDownS);
-    if(document.documentElement.scrollTop > 0){
+    if(document.documentElement.scrollTop/10 >= 0.34){
             document.documentElement.scrollTop = document.documentElement.scrollTop - (document.documentElement.scrollTop/10);  
             document.body.style.overflow="hidden";
             window.requestAnimationFrame(goBackTotTopB)

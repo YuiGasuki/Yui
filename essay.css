@@ -178,6 +178,7 @@ position:absolute;
     padding:4px 0px;
     white-space:nowrap;
     font-size:0.9em;
+    cursor: pointer;
 }
 #outline_ul li:active {
     background:#87ceebcc;
@@ -438,19 +439,9 @@ font-size:0.7em;
 display:inline-block;
 padding:0px;
 margin: 0px;
+transform: translate(0%,-40%);
 cursor: pointer;
 position: relative;
-}
-.note:active {
-    background:#87ceebcc;
-}
-.note p {
-white-space:pre;
-display: inline-block;
-padding: 0px;
-margin: 0px;
-transform: translateY(-30%);
-pointer-events:none;
 }
 .note div {
 background:var(--nightNoback);
@@ -461,10 +452,10 @@ margin:0px;
 color:var(--nightfcolor);
 position:absolute;
 top: 100%;
+width: 80px;
 max-width:var(--widthAll);
 display: inline-block;
 font-size:14px !important;
-white-space:pre;
 }
 #label {
 width:calc(100% - 8px);
@@ -481,6 +472,7 @@ padding:5px;
 margin-right:4px;
 margin-bottom:8px;
 line-height:1em;
+cursor: pointer;
 }
 
 
@@ -496,6 +488,7 @@ margin-left:-40px;
 margin:-8px 0px;
 display:flex;
 align-items:center;
+
 }
 #body small {
 color:var(--nightfcolor);
