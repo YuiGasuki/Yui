@@ -330,7 +330,7 @@ text-decoration: none;
 }
 .title {
     transform:translate(0%,0%);
-    width:calc(70% - 32px);
+    width:calc(70%);
     color:var(--nightfcolor);
     padding-top:16px;
     padding-bottom:16px;
@@ -343,7 +343,7 @@ text-decoration: none;
     margin-left: 30%;
 }
 .label {
-    width:calc(75% - 32px);
+    width:calc(75%);
     padding:14px 4px 8px 4px;
     margin: 0px;
     margin-left: 30%;
@@ -532,10 +532,9 @@ overflow-x:hidden;
     background:var(--divBackGround);
     border-radius:25px;
     border-style:none;
-    margin-left:calc(100% - 8px);
+    margin-left:calc(100% - 46px);
     margin-top:28px;
     margin-bottom:28px;
-    transform:translate(-100%,0%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -560,10 +559,15 @@ overflow-x:hidden;
     content:"夜晚";
     display:block;
     white-space:nowrap;
-    margin-left:-172px;
+    width: 0px;
+    padding: 0px;
+    margin-left:calc(0px - 170px);
     font-family:var(--fontSerif);
-        pointer-events:none;
+    ptointer-events:none;
 
+}
+#dark_mode:hover {
+    color:var(--ThemeColor);
 }
 #warn_box {
     background:var(--nightTitleground);
