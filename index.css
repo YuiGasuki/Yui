@@ -563,7 +563,7 @@ overflow-x:hidden;
     padding: 0px;
     margin-left:calc(0px - 170px);
     font-family:var(--fontSerif);
-    ptointer-events:none;
+    pointer-events:none;
 
 }
 #dark_mode:hover {
