@@ -1,5 +1,5 @@
 <h2>简介</h2>
-这是一款godot开发的JRPG
+这是一款一款godot开发的JRPG
 主角森抚子是宅学院的校长，她将和学院唯一的老师清水莉子一起解决学生的烦恼，开启一段美好的学院生活。
 <img class="img"  src="10_1.png" alt="图片"><img class="img"  src="10_2.png" alt="图片"><img class="img"  src="10_3.png" alt="图片">本游戏是我做的第一款游戏，属于练手用的。游戏时长大概30分钟，并且仅支持中文。
 
@@ -11,3 +11,11 @@
 <h2>下载</h2>
 Github: <a href="https://github.com/YuiGasuki/Taku-school">库地址</a>
 Itch: <a href="https://yuigasuki.itch.io/taku-school">游戏页面</a>
+直链: <a id="10_a_download">下载</a>
+<script>
+(function (){
+fetch('https://api.github.com/repos/yuigasuki/Taku-school/releases/latest', {method: 'GET'}).then(response => response.json()).then(data => {
+document.getElementById('10_a_download').href=data.assets[0].browser_download_url
+ })
+})()
+</script>

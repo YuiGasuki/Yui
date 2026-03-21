@@ -118,7 +118,9 @@ document.querySelectorAll('div.code').forEach(el => {
   hljs.highlightElement(el);
 });
 
-
+document.querySelectorAll('#body script').forEach(el => {
+new Function(el.text)()
+})
 document.querySelectorAll('.hidden').forEach(el => {
 let hBody = el.innerHTML;
 let maxHeight = el.clientHeight;

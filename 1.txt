@@ -42,7 +42,18 @@
 <ul>
 <li>这是列表</li>
 <li>这是列表</li>
-</ul>
+</ul><div class="hidden" data-title="列表样式">
+<ul><li><b>ul-n</b><ul class="ul-n"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-cjk</b><ul class="ul-cjk"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-h</b><ul class="ul-h"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-k</b><ul class="ul-k"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-h_i</b><ul class="ul-h_i"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-k_i</b><ul class="ul-k_i"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-n_z</b><ul class="ul-n_z"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-l_r</b><ul class="ul-l_r"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-u_r</b><ul class="ul-u_r"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-d</b><ul class="ul-d"><li>列表</li><li>列表</li></ul></li>
+<li><b>ul-c</b><ul class="ul-c"><li>列表</li><li>列表</li></ul></li></ul></div>
 
 <b><i>九</i>，隐藏内容</b>
 <div class="code" >&#60;div class="hidden" data-title="标题"&#62;
@@ -51,3 +62,10 @@
 </div>
 效果: 
 <div class="hidden" data-title="标题">内容</div>
+
+<b><i>十</i>，执行代码</b>
+<div class="code" >&#60;script&#62;
+代码
+&#60;/script&#62;
+</div>
+用于动态执行代码
