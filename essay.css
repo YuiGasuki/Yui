@@ -474,21 +474,51 @@ margin-bottom:8px;
 line-height:1em;
 cursor: pointer;
 }
-
-
-
 #body ul {
 list-style-type:none;
 list-style-position:inside;
 color:var(--nightfcolor);
 width:100%;
-margin-left:-40px;
+margin:0px;
+padding:0px;
+display:block;
 }
 #body li {
-margin:8px 0px;
-display:inline-block;
-align-items:center;
-
+margin:-8px 0px;
+padding:5px;
+}
+#body ul.ul-n {
+list-style-type:decimal;
+}
+#body ul.ul-cjk {
+list-style-type:cjk-ideographic;
+}
+#body ul.ul-h {
+list-style-type:hiragana;
+}
+#body ul.ul-k {
+list-style-type:katakana;
+}
+#body ul.ul-h_i {
+list-style-type:hiragana-iroha;
+}
+#body ul.ul-k_i {
+list-style-type:katakana-iroha;
+}
+#body ul.ul-n_z {
+list-style-type:decimal-leading-zero;
+}
+#body ul.ul-l_r {
+list-style-type:lower-roman;
+}
+#body ul.ul-u_r {
+list-style-type:upper-roman;
+}
+#body ul.ul-d {
+list-style-type:disc;
+}
+#body ul.ul-c {
+list-style-type:circle;
 }
 #body small {
 color:var(--nightfcolor);
