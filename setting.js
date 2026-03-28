@@ -71,14 +71,14 @@ SetupFamily.onclick = () => {
 darkMode.onclick = () => {
     if (ifdarkMode) {
         ifdarkModeFalse();
-        document.cookie = "darkmode=false; max-age:2592000";
+        document.cookie = "darkmode=false; max-age=2592000;path=/";
         DarkMode();
         channel.postMessage({
             Type: 0
         })
     } else {
         ifdarkModeTrue();
-        document.cookie = "darkmode=true; max-age:2592000";
+        document.cookie = "darkmode=true; max-age=2592000;path=/";
         DarkMode();
         channel.postMessage({
             Type: 1
