@@ -10,7 +10,7 @@ const audioT = document.getElementById("A2");
 let GameScore = 0;
 let GameCondition = false;//默认false
 let ifFirstOpen = true;
-
+let Url = "https://yuigasuki.github.io/Yui/";
 window.onclick = () =>characterJump();
 window.onmousedown = () =>characterJump();
 window.ontouchstart = () =>characterJump();
@@ -40,7 +40,7 @@ let Img = document.createElement("img");
 
 if(GameScore>=120){
 setGenerate = setTimeout(()=>{
-Img.src = "game_6.png";
+Img.src = Url+"game_6.png";
 Img.className="Game_obstacle3";
 GameBox.appendChild(Img);
 },1500);
@@ -49,10 +49,10 @@ return
 
 
 if((Math.floor(Math.random() * (5 - 2 + 1)) + 2)==4&&GameScore>=10){
-Img.src = "game_4.png";
+Img.src = Url+"game_4.png";
 Img.className="Game_obstacle2";
 }else{
-Img.src = "game_1.png";
+Img.src = Url+"game_1.png";
 Img.className="Game_obstacle1";
 }
 
@@ -185,7 +185,7 @@ OpenGame.onclick = () =>{
 OpenGame.style.display="none";
 GameCharacter.style.marginTop="0px";
 GameBackgroundImg.style.transform="translate(0%) Scale(1)";
-GameCharacter.src="game_3.gif";
+GameCharacter.src=Url+"game_3.gif";
 GameCondition = true;
 GameScore=0;
 gameScore.innerText = `当前分数 0`
@@ -207,7 +207,7 @@ let i = 0;
 console.log(audioT.duration)
 for(let list in loadList){
 let img = new Image();
-img.src = "https://yuigasuki.github.io/Yui/"+loadList[list];
+img.src = Url+loadList[list];
 img.onload = () =>{
 i++
 if(i>=loadList.length){
@@ -221,7 +221,7 @@ document.getElementById("pointOut").remove();
 GameBox.style.boxShadow="inset -1px 1px 5px 5px #aaaa";
 gameScoreHistory.style.display="inline";
 GameCharacter.style.marginTop="0px";
-GameCharacter.src="game_3.gif";
+GameCharacter.src=Url+"game_3.gif";
 GameCondition = true;
 characterJump();
 GameScore=0;
@@ -285,7 +285,7 @@ GameCharacter.className = "CharacterJumpPaused";
     gameScore.innerText = `当前分数 ${GameScore}`;
     GameBackgroundImg.style.transform="translate(12%,-30%) Scale(1.6)";
     GameCharacter.style.marginTop="-21px";
-    GameCharacter.src="game_2.png"
+    GameCharacter.src=Url+"game_2.png"
     OpenGame.style.display="inline";
     OpenGame.innerText="START";
     GameBox.style.setProperty('--difficulty', `3s`);
@@ -306,7 +306,7 @@ GameCharacter.className = "CharacterJumpPaused";
     gameScore.innerText = `当前分数 ${GameScore}`;
     GameBackgroundImg.style.transform="translate(12%,-30%) Scale(1.6)";
     GameCharacter.style.marginTop="-21px";
-    GameCharacter.src="game_2.png"
+    GameCharacter.src=Url+"game_2.png"
     OpenGame.style.display="inline";
     OpenGame.innerText="START-已通关";
     GameBox.style.setProperty('--difficulty', `3s`);
