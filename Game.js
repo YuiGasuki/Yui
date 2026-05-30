@@ -207,7 +207,7 @@ let i = 0;
 console.log(audioT.duration)
 for(let list in loadList){
 let img = new Image();
-img.src = loadList[list];
+img.src = "https://yuigasuki.github.io/Yui/"+loadList[list];
 img.onload = () =>{
 i++
 if(i>=loadList.length){
